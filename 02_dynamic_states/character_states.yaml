@@ -1,0 +1,9 @@
+# 各キャラの現在地、負傷状況、疲労度
+# 例:
+# characters:
+#   - id: char_01
+#     name: "主人公"
+#     location: "初期位置"
+#     status:
+#       injury: 0
+#       fatigue: 0

@@ -1,0 +1,9 @@
+# 起こる事実（Fact）と段落ごとの変数指定
+# scene_id: scene_01
+# facts:
+#   - fact_01: "TBD"
+# variables:
+#   - paragraph: 1
+#     load: 0.5
+#     sensation: 0.8
+#     empathy: 0.5

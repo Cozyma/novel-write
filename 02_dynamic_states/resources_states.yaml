@@ -1,0 +1,7 @@
+# 物理アイテムの現在位置、所有者（チェーホフの銃）
+# 例:
+# resources:
+#   - item_id: item_01
+#     name: "キーアイテム"
+#     owner_id: char_01
+#     location: "インベントリ"

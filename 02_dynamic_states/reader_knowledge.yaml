@@ -1,0 +1,7 @@
+# 読者および視点人物の情報開示・誤認ステータス
+# 例:
+# reader_knowledge:
+#   - info_id: info_01
+#     description: "事件の真犯人"
+#     is_revealed_to_reader: false
+#     revealed_to_characters: []
