@@ -7,11 +7,14 @@
 ```plaintext
 /novel_framework_repo
 ├── README.md                 # 本指示書（システムルール・運用フローの定義）
+├── AGENTS.md                 # 【AI規約】エージェントの振る舞い・運用ルール（AI必読）
 ├── _workspace/               # 【自由検討領域】人間とAIの壁打ち・メモ（AIは指示なしに読み込まない）
 │   ├── 01_macro_notes/       # 企画・キャラクター設計の検討ログ
 │   ├── 02_meso_notes/        # 話数ごとの展開や変数のピーク調整
 │   └── 03_micro_notes/       # シーン内の具体的な行動（Fact）の推敲
 ├── 00_system/                # 【システムルール】プロンプトと制約条件の定義
+│   ├── ARCHITECTURE.md       # 4階層アーキテクチャとAIの連鎖参照ルール
+│   ├── SELF_REVIEW.md        # AIの自己検証・メタチェック指針
 │   ├── variable_rules.md     # 7変数の定義、および【負荷】制限などの判定基準
 │   └── prompt_templates/     # 処理別（生成、推敲、状態抽出）のプロンプト
 ├── 01_static_database/       # 【不変データ】世界観・キャラクターの絶対的真実

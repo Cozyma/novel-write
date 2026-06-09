@@ -1,0 +1,42 @@
+scene_id: "YY"
+place_time: "TBD"
+pov_character: "TBD"
+
+# Pre-Hook検証用：以下が明確でないと生成プロンプトを発行しない
+scene_facts:
+  goal: "[目的：このシーンで勝ち取るもの/回避するもの]"
+  opponent: "[対決相手/障害]"
+  conflict: "[葛藤：二者択一/代償/矛盾]"
+  pinch: "[ピンチ：具体的な刻限/接近/露見]"
+
+# 段落ごとの指示（ミクロ3変数と描写Fact）
+generation_blocks:
+  - block: "1_契約"
+    micro_variables:
+      load: "40%"
+      sense: "High"
+      empathy: "Low"
+    fact: "[何が行われるか。視覚/行動で始める。勝敗条件の提示]"
+
+  - block: "2_誤闘と代償"
+    micro_variables:
+      load: "60%"
+      sense: "High"
+      empathy: "Mid"
+    fact: "[最短で勝とうとするが通らない。代償を払う]"
+
+  - block: "3_反転"
+    micro_variables:
+      load: "30%"
+      sense: "Low"
+      empathy: "High"
+    fact: "[新情報や自己暴露による不可逆な方針転換]"
+
+  - block: "4_新方針と進展"
+    micro_variables:
+      load: "70%"
+      sense: "Mid"
+      empathy: "High"
+    fact: "[古い自分では打てない手を打つ。条件の変化（次への因果）を残す]"
+
+causality_next: "[次シーンへの因果：誰が何をしに来るのか]"

@@ -1,0 +1,25 @@
+chapter_id: "CH_01"
+arc_linkage: "[どのアークのどのフェーズ（例：ミッドポイント周辺）に属しているか]"
+
+# 連載1話としての変数刺激構造
+chapter_stimulus:
+  peak_variable: "危機" # この1話の中で最も高めるマクロ変数
+
+# 連載1話としてのミニ三幕構造（読者のテンション操作）
+chapter_acts:
+  act1_intro:
+    hook: "[冒頭の掴み：前話の引きを受ける、あるいは新たな目的の提示]"
+  act2_conflict:
+    build_up: "[展開：障害との衝突。ここでpeak_variableを高めていく]"
+  act3_climax:
+    turn: "[結末：状況の反転や、目的の達成/失敗]"
+    cliffhanger: "[次話への引き：絶望的な【危機】で終わるか、小さな【報酬】で満足させる]"
+
+# この話を構成するシーン群（1〜3シーン程度を想定）
+scenes:
+  - scene_01: "[シーン概要]"
+  - scene_02: "[シーン概要]"
+
+validation_hook:
+  is_linked_to_arc: false # 上位アークの進行に寄与しているか
+  has_clear_stimulus: false # 1話としてのエンタメ性（フックと引き）があるか

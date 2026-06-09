@@ -1,0 +1,44 @@
+episode_id: "XX"
+title: "TBD"
+
+macro_linkage:
+  # 03_macro_concept で定義された全体設定に対する、このエピソードでの「部分的な割り当て（下位構造）」
+  sub_quest: "[このエピソードで追う部分的な謎（全体の【探求】へどう繋がるか）]"
+  sub_crisis: "[このエピソードでの敗北条件（全体の【危機】の予兆・一部としてのピンチ）]"
+  local_evil: "[全体悪の末端、あるいはこのエピソード特有の障害となる【悪】]"
+
+macro_peaks:
+  # この話数で最大化する変数を指定（探求/報酬/驚き/危機）
+  primary_variable: "危機"
+  secondary_variable: "探求"
+
+acts:
+  act1_setup:
+    hook: "[読者が掴まれる導入]"
+    incident: "[事件/依頼/召喚]"
+    show_evil:
+      fact: "[悪の支配を提示：具体的にどんな不条理・脅威が起きているか]"
+      drive_variable: "[探求/危機/驚きのいずれかから選択。例：謎の不気味さで攻めるなら探求]"
+  act2a_trouble:
+    wrong_actions:
+      - fact: "[誤った戦い方1]"
+        drive_variable: "[危機/驚きのいずれか。例：致命的なタイムリミットを招くなら危機]"
+    losses: ["[失敗/亀裂/信頼損]"]
+  midpoint:
+    revelation_or_break:
+      fact: "[反転：真相/決裂/自白]"
+      drive_variable: "[驚きを最大化し、不可逆な変化を起こす]"
+    new_intent: "[新しい意図]"
+  act2b_fightback:
+    try_with_cost: ["[新方針の試行1]"]
+    rising_cost: ["[代償/タイムリミット増（危機のピーク）]"]
+  act3_finale:
+    showdown: "[最終競技/選択]"
+    embodiment_of_will:
+      fact: "[行為で示す想い：古い自分では打てない手を打つ]"
+      drive_variable: "[報酬の最大化＋負荷の最小化：理屈を排除した行動描写のみでカタルシスを生む]"
+
+validation_hook:
+  is_linked_to_macro_concept: false # 全体の探求・危機・悪の「下位構造」になっているか
+  is_midpoint_irreversible: false
+  is_finale_embodiment: false
