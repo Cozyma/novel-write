@@ -1,0 +1,50 @@
+work_title: "TBD"
+logline: "TBD"
+
+
+
+# -----------------------------------------------------
+# 【1. Dramatic Skeleton（ハリウッド式・物語の推進力）】
+# -----------------------------------------------------
+front_story:
+  incident: "TBD"
+  stakes:
+    win: "TBD"
+    lose: "TBD"
+
+back_story:
+  secret_want: "TBD"
+  wrong_belief: "TBD"
+
+evils:
+  external: "メジャー神の加護を盾にする教条主義的なエリート層（権威主義で差別的だが、確かな武力・魔力を持つ社会の支配層）"
+  internal: "TBD"
+
+# -----------------------------------------------------
+# 【2. Catharsis Engine（ギャップ無双・快感の出力装置）】
+# -----------------------------------------------------
+core_misunderstanding:
+  truth: "かつて帝国で『不協和音』と呼ばれた最凶の戦略兵器（外部リソース消費による規格外の超火力を持つ）"
+  public_misconception: "前衛の後ろに隠れて地味な解析・妨害しかできない、神の加護も持たない底辺の手配屋（便利屋）"
+  
+catharsis_engine:
+  trigger: "権威主義のエリート達が『神の加護』を笠に着て理不尽な蹂躙を行おうとした時"
+  execution: "普段は解析と妨害でサポートに徹するが、いざという時は『外部リソースを消費した超火力』で敵の加護ごと一帯の常識を消し飛ばす"
+  reaction: "絶対の自信を持っていた加護や魔術が『理解不能な超火力』の前に完全に消滅したことへの圧倒的な恐怖と畏怖"
+
+tone_contrast:
+  protagonist_pov: "TBD"
+  others_pov: "TBD"
+
+# -----------------------------------------------------
+# 【3. Series Engine（連載牽引の構造）】
+# -----------------------------------------------------
+series_engine:
+  long_term_mystery: "TBD"
+  escalation_rule: "TBD"
+  reward_cycle: "エリートからの過小評価・圧力 → 危機的状況の発生 → 加護を前提とした常識の物理的解体（無双） → 敵の畏怖と周囲のさらなる勘違い"
+
+validation_hook:
+  is_dramatic_skeleton_defined: false
+  is_catharsis_engine_defined: false
+  is_series_engine_defined: false
