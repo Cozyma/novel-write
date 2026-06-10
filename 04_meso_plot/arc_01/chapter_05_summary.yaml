@@ -1,0 +1,21 @@
+﻿chapter_id: "CH_05"
+arc_linkage: "隨ｬ1繧｢繝ｼ繧ｯ / 螻暮幕・域価・・
+
+chapter_stimulus:
+  peak_variable: "蜊ｱ讖・ # 螳壼梛蟇ｾ蠢懊′騾壹§縺ｪ縺・ヴ繝ｳ繝・
+chapter_acts:
+  act1_intro:
+    hook: "阮ｬ迚ｩ蠑ｷ蛹悶＆繧後◆逡ｰ蟶ｸ縺ｪ鬲皮黄縺ｨ縺ｮ驕ｭ驕・・
+  act2_conflict:
+    build_up: "繝槭・繝ｬ繝ｳ縺後・繝九Η繧｢繝ｫ騾壹ｊ縺ｮ螳檎挑縺ｪ蟇ｾ蠢懊ｒ隕九○繧九′縲∝ｼｷ蛹悶＆繧後◆鬲皮黄縺ｫ縺ｯ閾ｴ蜻ｽ蛯ｷ縺ｨ縺ｪ繧峨↑縺・・
+  act3_climax:
+    turn: "繝槭・繝ｬ繝ｳ縺ｮ髦ｲ陦帷ｷ壹′遯∫ｴ縺輔ｌ縲∝ｽｼ螂ｳ閾ｪ霄ｫ縺ｮ螳牙・縺瑚у縺九＆繧後ｋ縲・
+    cliffhanger: "繝槭ル繝･繧｢繝ｫ縺碁夂畑縺励↑縺・ｵｶ菴鍋ｵｶ蜻ｽ縺ｮ蜊ｱ讖溘↓髯･繧九・
+
+scenes:
+  - scene_01: "逡ｰ蟶ｸ縺ｪ鬲皮黄縺ｨ縺ｮ驕ｭ驕・
+  - scene_02: "螳壼梛蟇ｾ蠢懊・蟠ｩ螢翫→髦ｲ陦帷ｪ∫ｴ"
+
+validation_hook:
+  is_linked_to_arc: true
+  has_clear_stimulus: true

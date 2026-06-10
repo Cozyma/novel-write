@@ -1,0 +1,22 @@
+﻿chapter_id: "CH_11"
+arc_linkage: "隨ｬ1繧｢繝ｼ繧ｯ / 霆｢・育ｪ∝・・・
+
+chapter_stimulus:
+  peak_variable: "鬩壹″" # 繝槭・繝ｬ繝ｳ縺ｮ豎ｺ諢上→蠑ｷ陦檎ｪ∫ｴ
+
+chapter_acts:
+  act1_intro:
+    hook: "謌ｦ蜉帛ｷｮ繧堤炊隗｣縺励▽縺､繧ゅ√・繝ｼ繝ｬ繝ｳ縺ｯ閾ｪ霄ｫ縺ｮ豁｣鄒ｩ繧定ｲｫ縺上◆繧∝ｯ・蟾･謌ｿ縺ｸ縺ｮ蠑ｷ隘ｲ繧呈ｱｺ陦後☆繧九・
+  act2_conflict:
+    build_up: "繝弱Ν繧ｯ縺ｮ繧ｵ繝昴・繝医ｒ蜿励￠縺､縺､縲・尅鬲壹ｒ逧・｢ｺ縺ｫ謗・ｨ弱＠縺ｦ豺ｱ驛ｨ縺ｸ縺ｨ騾ｲ繧縲・
+  act3_climax:
+    turn: "鬆・ｪｿ縺ｫ隕九∴縺滄ｲ謦・□縺後∵怙螂･縺ｮ謇峨ｒ髢九￠縺溽椪髢薙∫ｩｺ豌励′螟峨ｏ繧九・
+    cliffhanger: "豎夊・繧ｨ繝ｪ繝ｼ繝医・繝懊せ縺檎ｫ九■縺ｯ縺縺九ｊ縲∝悸蛟堤噪縺ｪ繝励Ξ繝・す繝｣繝ｼ繧呈叛縺､縲・
+
+scenes:
+  - scene_01: "繧｢繧ｸ繝育ｪ∝・縺ｨ髮鷹ｭ壽姶"
+  - scene_02: "譛螂･縺ｧ縺ｮ繝懊せ縺ｨ縺ｮ蟇ｾ蟲・
+
+validation_hook:
+  is_linked_to_arc: true
+  has_clear_stimulus: true

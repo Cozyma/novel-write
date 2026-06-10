@@ -1,0 +1,22 @@
+﻿chapter_id: "CH_08"
+arc_linkage: "隨ｬ1繧｢繝ｼ繧ｯ / 螻暮幕・域価・峨・蠎・
+
+chapter_stimulus:
+  peak_variable: "蜈ｱ諢・ # 繝槭・繝ｬ繝ｳ縺ｮ謖ｫ謚倥∈縺ｮ蜷梧ュ
+
+chapter_acts:
+  act1_intro:
+    hook: "縺昴ｌ縺ｧ繧よ蕗譚｡縺ｫ蠕薙＞縲∝ｭ､遶九＠縺ｪ縺後ｉ螂碑ｵｰ縺吶ｋ繝槭・繝ｬ繝ｳ縲・
+  act2_conflict:
+    build_up: "豁｣謾ｻ豕輔〒螢√ｒ遯∫ｴ縺励ｈ縺・→縺吶ｋ縺後√←縺薙↓陦後▲縺ｦ繧る摩蜑肴鴛縺・ｒ鬟溘ｉ縺・∝ｽｼ螂ｳ縺ｮ蠢・′鞫ｩ閠励＠縺ｦ縺・￥縲・
+  act3_climax:
+    turn: "霍ｯ蝨ｰ陬上〒蟠ｩ繧瑚誠縺｡縲∬・霄ｫ縺ｮ辟｡蜉帙＆縺ｨ繝槭ル繝･繧｢繝ｫ縺ｮ髯千阜縺ｫ逶ｴ髱｢縺吶ｋ縲・
+    cliffhanger: "縺昴・讓ｪ縺ｧ繝弱Ν繧ｯ縺後後§繧・≠陬上°繧芽｡後￥縺九阪→髱｢蛟偵￥縺輔◎縺・↓螳｣險縺吶ｋ縲・
+
+scenes:
+  - scene_01: "繝槭・繝ｬ繝ｳ縺ｮ蟄､迢ｬ縺ｪ螂碑ｵｰ"
+  - scene_02: "謖ｫ謚倥→繝弱Ν繧ｯ縺ｮ謠先｡・
+
+validation_hook:
+  is_linked_to_arc: true
+  has_clear_stimulus: true

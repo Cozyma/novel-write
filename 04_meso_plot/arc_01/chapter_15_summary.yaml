@@ -1,0 +1,22 @@
+﻿chapter_id: "CH_15"
+arc_linkage: "隨ｬ1繧｢繝ｼ繧ｯ / 邨撰ｼ医け繝ｩ繧､繝槭ャ繧ｯ繧ｹ縺ｮ蜈･繧雁哨・・
+
+chapter_stimulus:
+  peak_variable: "謗｢豎・ # 騾・ｻ｢縺ｮ莠亥・
+
+chapter_acts:
+  act1_intro:
+    hook: "繝懊せ縺ｮ繝医ラ繝｡縺ｮ荳謦・′繝槭・繝ｬ繝ｳ縺ｫ謖ｯ繧贋ｸ九ｍ縺輔ｌ繧九・
+  act2_conflict:
+    build_up: "豁ｻ繧定ｦ壽ぁ縺励◆繝槭・繝ｬ繝ｳ縺ｮ蜑阪↓縲∝ｽｱ縺悟牡繧願ｾｼ繧縲ゅヮ繝ｫ繧ｯ縺後後％縺薙〒豁ｻ縺ｪ繧後ｋ縺ｨ繧ｮ繝ｫ繝芽ｩ穂ｾ｡縺御ｸ九′繧九阪→髱｢蛟偵￥縺輔◎縺・↓遶九■蝪槭′繧九・
+  act3_climax:
+    turn: "讌ｵ繧√※菴弱＞繝・Φ繧ｷ繝ｧ繝ｳ縺ｧ縺ｮ莉句・縲・
+    cliffhanger: "辟｡謨ｵ縺ｮ繝懊せ縺ｫ蟇ｾ縺励∵焔縺ｶ繧峨・繝弱Ν繧ｯ縺後←縺・ｫ九■蜷代°縺・・縺九→縺・≧譛溷ｾ・〒蠑輔￥縲・
+
+scenes:
+  - scene_01: "霑ｫ繧区ｭｻ縺ｨ繝弱Ν繧ｯ縺ｮ莉句・"
+  - scene_02: "繝懊せ縺ｨ繝弱Ν繧ｯ縺ｮ蟇ｾ蟲・
+
+validation_hook:
+  is_linked_to_arc: true
+  has_clear_stimulus: true

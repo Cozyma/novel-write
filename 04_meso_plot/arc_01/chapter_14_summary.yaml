@@ -1,0 +1,22 @@
+﻿chapter_id: "CH_14"
+arc_linkage: "隨ｬ1繧｢繝ｼ繧ｯ / 霆｢・育悄縺ｮ邨ｶ譛幢ｼ・
+
+chapter_stimulus:
+  peak_variable: "蜊ｱ讖・ # 蠢・・螳悟・縺ｪ謚倥ｌ
+
+chapter_acts:
+  act1_intro:
+    hook: "繝槭・繝ｬ繝ｳ縺ｮ譛蠑ｷ縺ｮ荳謦・′繝懊せ縺ｫ逶ｴ謦・☆繧九・
+  act2_conflict:
+    build_up: "縺励°縺励√・繧ｹ縺ｮ縲檎炊荳榊ｰｽ縺ｪ辟｡謨ｵ繝舌ヵ縲阪′逋ｺ蜍輔＠縲∝・驥上・繧ｨ繝ｬ繝｡繝ｳ繝医′螳悟・縺ｫ蠑ｾ縺崎ｿ斐＆繧後ｋ縲・
+  act3_climax:
+    turn: "蛟倶ｺｺ縺ｮ縺ｩ繧後⊇縺ｩ縺ｮ雜ｳ謗ｻ縺阪ｂ繧ｷ繧ｹ繝・Β縺ｮ逅・ｸ榊ｰｽ縺ｫ縺ｯ蜍昴※縺ｪ縺・→縺・≧邨ｶ蟇ｾ逧・樟螳溘・
+    cliffhanger: "豁ｦ蝎ｨ縺檎輔￠縲√・繝ｼ繝ｬ繝ｳ縺ｮ蠢・′螳悟・縺ｫ謚倥ｌ縲∵ｭｻ繧貞ｾ・▽縺縺代・迥ｶ諷九↓縺ｪ繧九・
+
+scenes:
+  - scene_01: "辟｡謨ｵ繝舌ヵ縺ｫ繧医ｋ謾ｻ謦・・辟｡蜉ｹ蛹・
+  - scene_02: "繝槭・繝ｬ繝ｳ縺ｮ螳悟・縺ｪ繧区風蛹励→邨ｶ譛・
+
+validation_hook:
+  is_linked_to_arc: true
+  has_clear_stimulus: true

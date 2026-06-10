@@ -18,7 +18,7 @@
 ## Phase 3: L3 Micro Chapter（連載単位の設計）
 - [x] 第1アークを連載話数（Chapter）に分割し、各話の引き（フック・クリフハンガー）を設定
 - [x] `04_meso_plot/arc_01/chapter_sequence.csv` の完成
-- [ ] 各話数のミニ三幕構造（`chapter_summary.yaml`）の完成
+- [x] 各話数のミニ三幕構造（`chapter_summary.yaml`）の完成
 
 ## Phase 4: L4 Nano Scene（執筆とシステム連動）
 - [ ] 連載第1話の具体的なシーン指示（`05_micro_scene/scene_YY_input.yaml`）の作成
