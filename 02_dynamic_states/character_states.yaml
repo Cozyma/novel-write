@@ -7,3 +7,15 @@
 #     status:
 #       injury: 0
 #       fatigue: 0
+
+characters:
+  - id: nork
+    name_ja: "ノルク・ヴァルグ"
+    location: "TBD（連載第1話のシーン設計時に確定）"
+    status:
+      injury: 0
+      fatigue: 0
+    # 不協和音の痕跡蓄積（隠匿制約）。セリファ同期の行使・目撃ごとに加算する。
+    # 閾値による追跡イベントの自動発火は行わず、投入タイミングはストーリー優先で人間が判断する（2026-06-10合意）。
+    # 定義は 01_static_database/world/setting_magic.yaml / dissonance_trace を参照。
+    exposure_level: 0
