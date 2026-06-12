@@ -44,8 +44,19 @@ series_engine:
   escalation_rule: "[エスカレーション法則：章ごとに敵や舞台のスケールがどう拡大するか]"
   reward_cycle: "[報酬のループ構造：「過小評価（底辺手配屋）→危機→無双（元最凶兵器）→畏怖」の定番展開パターン]"
 
+# -----------------------------------------------------
+# 【4. Priority Variables（マクロ4変数の抽象集約）】
+# -----------------------------------------------------
+# コンセプト＝マクロ駆動系4変数（探求/報酬/驚き/危機）の抽象レベルでの集約。
+# 本作の面白さを変数の式として宣言する（下位レイヤー〔キャラ・アーク・章〕の核はすべてこの式のインスタンスになる）。
+priority_variables:
+  primary:
+    - variable: "[最優先の変数（例：【報酬】（カタルシス））]"
+      description: "[この変数を何で駆動するかの具体形]"
+
 validation_hook:
-  # 以下がすべてYES（true）であること
+  # 「記入されているか（ハコの存在）」ではなく「具体的に言えるか」を検査する。抽象語・約束手形は不可。
   is_dramatic_skeleton_defined: false
-  is_catharsis_engine_defined: false
+  is_catharsis_engine_defined: false # 蹂躙のプロセスが具体的な手順として書けているか
   is_series_engine_defined: false
+  is_variable_aggregation_stated: false # 本作の面白さがマクロ4変数の式として一文で言えるか
