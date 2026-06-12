@@ -2,10 +2,17 @@
 # 正本は本文。更新は章完成・人間判定通過後（README §3 / ARCHITECTURE.md 2.1「本文と動的状態」参照）。
 # 短距離のアイテム移動・所持品はここで管理しない（本文が正本）。
 # 執筆開始時に、確定済みプロットから既知の長距離伏線を初期投入すること（TODO.md参照）。
+# status: planned（プロット上の予定）/ planted（本文で仕込み済み）/ partially_fired / fired
 # 例:
-# long_range_facts:
 #   - fact_id: fact_01
 #     description: "密造薬物の精製工程に旧魔導院の廃棄技術と類似する痕跡（第零機関への接続）"
 #     planted_at: "arc_01/CH09"
 #     payoff_due: "第零機関関連アーク（未定）"
-#     status: "planned"  # planned（プロット上の予定）/ planted（本文で仕込み済み）/ partially_fired / fired
+#     status: "planned"
+
+long_range_facts:
+  - fact_id: "muddy_blood_paradox"
+    description: "濁り血の逆説——教条上は加護阻害の根拠が無い（公式教典に存在しない民間信仰）にもかかわらず、マーレンには実際に加護が発動しない。設定の不整合を修正せず謎として公式化したもの（2026-06-12）。真の理由は未設定のまま保留し、律神システムの正体・第零機関の謎（究極の探求）へ接続する。"
+    planted_at: "未仕込み（仕込み章は壁打ちで決定。TODO A-5②参照）"
+    payoff_due: "究極の探求の本筋（律神システムの真実）"
+    status: "planned"
