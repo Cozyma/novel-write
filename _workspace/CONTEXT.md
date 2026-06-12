@@ -261,6 +261,13 @@
     - prompt_templates/scene_generation_prompt.md に【生成の開始条件】【判断の可視化】を追加（旧「直感や独自の解釈を排除」文言を撤廃）
     - **命名規約確定**: `05_micro_scene/` `06_draft_output/` 以下は章単位（`chapter_XX/scene_YY`）で切る。L3が章単位のためシーンの親は常に章
     - 旧構造の残骸を削除: 04_meso_plot/episode_01、05_micro_scene/episode_01、06_draft_output/episode_01（いずれも旧スキーマのTBDスケルトン）、01_static_database/characters/（空ディレクトリ）
+  - **決定事項（ハリウッド式メソッドの再取り込み・適用層の確定）**: 2026-06-09の失敗（L1固定項目として置いた→排除しすぎ→ハイブリッド再設計）の原因を「メソッドでなく適用層の誤り」と再診断。
+    - 適用層をARCHITECTURE 2.3に明文化: L2アーク層が主戦場（アーク≒映画1本のスケール。4幕・midpoint不可逆・embodiment）、キャラ層（roadmap5段＝キャラクターアーク移植済み）、L1は語彙マッピング＋stakesのみ、setup/payoff規律は長距離台帳で運用
+    - 禁止も明文化: L1への一回性三幕の固定、L3章へのビート表強制
+    - 語彙マッピング確定: wrong_belief＝internal_flaw【誤闘】、evils.external＝core_conflict【究極の危機】、secret_want＝ultimate_goal（template_conceptに注記）
+    - concept.yamlに `stakes`（win: 開業資金・正規身分・セリファ復旧への接近／lose: 露見→再抹消の対象・復旧の道も断たれる）を追記
+    - template_arc_summaryに `roadmap_step`（1アーク1段検査）と validation `is_roadmap_within_one_step` を追加
+    - 本丸（arc_01を4幕テンプレートへ当てはめて検証）はTODO A-3に内包（midpoint不可逆＝CH10強行突入決定、embodiment＝CH15足が止まる〜CH17蹂躙、roadmap_step=step1が候補）
   - **保留（次セッション）**:
     - CH01の面白さの核の再設計。【未合意・候補案あり】AI提案：「腕で負けて頭で勝つ」——暗殺者の『人目を嫌う稼業』を逆手に取り、位置取りで目立つ方向（衛兵の巡回路等）へ押し続けて職業判断としての撤退に追い込む案。採否・別案の壁打ちは次セッションで。
     - 既存19章サマリーの新スキーマ移行（catharsis_core記入＋タグのdesign_notes分離）。catharsis_coreが書けない章は面白さ未設計のシグナルとして洗い出す。

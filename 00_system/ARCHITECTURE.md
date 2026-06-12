@@ -30,6 +30,18 @@
   - **L2アーク**: `macro_linkage.sub_catharsis`（このアークの最大カタルシスの具体形）── 検査：catharsis_engineのインスタンスになっているか
   - **L3章**: `catharsis_core`（章の具体的な手）── 検査：アークの sub_catharsis へ寄与しているか
 
+### 2.3 ハリウッド式メソッドの適用層（過剰適用の再発防止）
+ハリウッド式脚本メソッドは「一回完結・映画1本」のスケールで設計された方法論であり、**適用する層を誤ると連載形式と衝突する**（2026-06-09にL1固定項目として置いて失敗→排除しすぎ→ハイブリッド型で再設計、という経緯がある）。
+
+- **適用する層**:
+  - **L2アーク層（主戦場）**: アーク（約19章）＝映画1本のスケール。4幕構造・midpoint不可逆・wrong_actions（誤闘）・embodiment_of_will（想いの身体化）は `template_arc_summary.yaml` で運用する。
+  - **キャラ層**: キャラクターアークは `concept.yaml` の `protagonist_growth_roadmap`（誤闘の解凍5段）として移植済み。各アークの `roadmap_step` で1アーク1段の検査を行う。
+  - **L1（語彙と賭け金のみ）**: wrong_belief＝`internal_flaw`【誤闘】、evils.external＝`core_conflict`【究極の危機】のマッピングで取り込み済み。`stakes`（win/lose）は固定項目として有効。
+  - **長距離台帳**: setup/payoff規律は `02_dynamic_states/resources_states.yaml`（planted/fired管理）で運用。
+- **適用しない層（禁止）**:
+  - **L1への一回性三幕の固定**: 連載は終わりが未定のため、作品全体に一回完結の三幕構造を張らない。Quest/Crisis等の展開項目はL1の固定項目にしない（章・アークから動的に生成される結果）。
+  - **L3章へのビート表の強制**: 章はミニ三幕＋catharsis_coreで完結しており、save-the-cat型のビート表を章単位に重ねない。
+
 ## 3. イベント・運用フック（タイミング別ルール）
 特定のタスクタイミング（イベント）が発生した際、AIエージェントは以下のフック処理を自律的に実行すること。
 

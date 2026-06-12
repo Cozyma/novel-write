@@ -9,6 +9,9 @@ macro_linkage:
   # 【必須】このアークの最大カタルシス（全体の【報酬】＝catharsis_engineのインスタンス）。
   # 探求・危機・悪と同様に「面白さ」も継承フィールドとして強制する。一文で言えなければアーク未設計。
   sub_catharsis: "[このアークの最大カタルシスの具体形（例：加護の消失要件をボス自身に踏み抜かせて自壊させた上での超火力蹂躙）。catharsis_engineのどの部分をどう実体化するか]"
+  # 【必須】キャラクターアーク連動：このアークのembodiment_of_willが、concept.yamlのprotagonist_growth_roadmapのどの段に対応するか。
+  # 1アークで進めてよいのは1段まで（ロードマップのtheme記載ルールの検査化）。
+  roadmap_step: "[例：step 1『知られる』——マーレンが力の危うさを知る]"
 
 macro_peaks:
   # この話数で最大化する変数を指定（探求/報酬/驚き/危機）
@@ -46,3 +49,4 @@ validation_hook:
   is_midpoint_irreversible: false
   is_finale_embodiment: false
   has_catharsis_core: false # sub_catharsisがcatharsis_engineの具体的なインスタンスとして一文で成立しているか（抽象語・約束手形は不可）
+  is_roadmap_within_one_step: false # roadmap_stepが1段のみであり、embodiment_of_willがその段の進展として機能しているか

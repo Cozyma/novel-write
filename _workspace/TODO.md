@@ -7,7 +7,7 @@
 
 - [ ] 1.【プロット再設計】CH01の面白さの核の具体化（**未合意**。AI候補案＝「腕で負けて頭で勝つ」位置取りトリックあり、壁打ちから。詳細はCONTEXT.md）
 - [ ] 2.【スキーマ移行】既存19章サマリーへ新スキーマ適用（catharsis_core記入＋actsからdesign_notesへのタグ分離）。核が書けない章＝面白さ未設計の洗い出しを兼ねる
-- [ ] 3.【スキーマドリフト解消】arc_01/arc_summary.yaml（エピソード一覧形式）とtemplate_arc_summary.yaml（エピソード単位4幕構造）の不一致を整理。arc_01のsub_catharsis記入もこのタイミングで（2.と同時推奨）
+- [ ] 3.【スキーマドリフト解消】arc_01/arc_summary.yaml（エピソード一覧形式）とtemplate_arc_summary.yaml（エピソード単位4幕構造）の不一致を整理。arc_01のsub_catharsis・roadmap_step記入もこのタイミングで（2.と同時推奨）。ハリウッド式4幕の実地検証を兼ねる（midpoint不可逆＝CH10強行突入決定、embodiment＝CH15〜17が候補。ARCHITECTURE 2.3参照）
 - [ ] 4.【検査実行】既存キャラ全員のconcept_relationが「どの変数をどの段でどう駆動するか」の一文として成立しているかの棚卸し
 
 ## B. 執筆準備（Aの完了後・第1話着手まで）
@@ -63,3 +63,4 @@ L4ワークフロー（ARCHITECTURE.md [Hook: L4執筆時]）に従う。
 - [x] 【L4ワークフロー】未決列挙→対話解決→初版自動生成＋判断ログ→自動バリデーション→人間判定→還流のフック化。scene_inputにopen_questions/decision_log新設
 - [x] 【dynamic_states再設計】毎シーン全状態更新を廃止し「長距離・累積・認識」の3カテゴリ派生台帳＋章完成時更新へ縮小・転用
 - [x] 【README整合】ツリー実構造同期・7変数定義ポインタ化・Prompt Grounding更新・episode_XX残骸削除・章単位格納規約（chapter_XX/scene_YY）確定
+- [x] 【ハリウッド式再取り込み】適用層の確定（L2アーク主戦場・キャラroadmap・L1は語彙＋stakesのみ／L1一回性三幕とL3ビート表は禁止）をARCHITECTURE 2.3に明文化。語彙マッピング・concept.yamlへのstakes追記・roadmap_step検査追加

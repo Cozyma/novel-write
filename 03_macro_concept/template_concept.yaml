@@ -6,6 +6,11 @@ logline: "[物語の一言要約]"
 # -----------------------------------------------------
 # 【1. Dramatic Skeleton（ハリウッド式・物語の推進力）】
 # -----------------------------------------------------
+# 語彙マッピング（実データ concept.yaml との対応。語彙の単一出典は実データ側の用語）:
+#   wrong_belief（間違った縛り）⇔ core_concept.internal_flaw【誤闘】
+#   evils.external ⇔ core_concept.core_conflict【究極の危機】
+#   secret_want ⇔ core_concept.ultimate_goal
+# ハリウッド式の適用範囲は 00_system/ARCHITECTURE.md 2.3 を参照（L1への一回性三幕の固定は禁止）。
 front_story:
   incident: "[事件のきっかけ：主人公が巻き込まれる非日常]"
   stakes:
@@ -14,10 +19,10 @@ front_story:
 
 back_story:
   secret_want: "[主人公の秘めたる願い：真の目的・共感の源泉]"
-  wrong_belief: "[間違った縛り：主人公が自ら課している制約や思い込み]"
+  wrong_belief: "[間違った縛り：主人公が自ら課している制約や思い込み（＝実データの internal_flaw【誤闘】）]"
 
 evils:
-  external: "[外的な敵：権力、制度、強大な敵対者]"
+  external: "[外的な敵：権力、制度、強大な敵対者（＝実データの core_conflict【究極の危機】）]"
   internal: "[内的な敵：諦め、恐怖、自己防衛など]"
 
 # -----------------------------------------------------
