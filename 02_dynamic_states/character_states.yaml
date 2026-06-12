@@ -1,20 +1,10 @@
-# 各キャラの現在地、負傷状況、疲労度
-# 例:
-# characters:
-#   - id: char_01
-#     name: "主人公"
-#     location: "初期位置"
-#     status:
-#       injury: 0
-#       fatigue: 0
+# 累積カウンタ台帳——本文から再構成困難な「全話横断の合計値」のみを置く。
+# 正本は本文。更新は章完成・人間判定通過後（README §3 / ARCHITECTURE.md 2.1「本文と動的状態」参照）。
+# 現在地・負傷・疲労などの短距離状態はここで管理しない（直近の本文・章サマリーから再構成する）。
 
 characters:
   - id: nork
     name_ja: "ノルク・ヴァルグ"
-    location: "TBD（連載第1話のシーン設計時に確定）"
-    status:
-      injury: 0
-      fatigue: 0
     # 不協和音の痕跡蓄積（隠匿制約）。セリファ同期の行使・目撃ごとに加算する。
     # 閾値による追跡イベントの自動発火は行わず、投入タイミングはストーリー優先で人間が判断する（2026-06-10合意）。
     # 定義は 01_static_database/world/setting_magic.yaml / dissonance_trace を参照。

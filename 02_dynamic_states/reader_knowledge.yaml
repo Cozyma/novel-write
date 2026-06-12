@@ -1,7 +1,22 @@
-# 読者および視点人物の情報開示・誤認ステータス
+# 認識・誤読台帳——本作の核（勘違い構造）の一元管理。
+# 「誰がノルクの何を知り、どう誤読しているか」と「読者への開示状況」を管理する。
+# 本文から再構成が最も困難で、矛盾時の被害が最も大きい状態のため台帳管理する。
+# 正本は本文。更新は章完成・人間判定通過後（README §3 / ARCHITECTURE.md 2.1「本文と動的状態」参照）。
+# 執筆開始時に、確定済みプロットから各キャラの誤読モデル初期状態を投入すること（TODO.md参照）。
+
+# キャラ別の対ノルク認識（誤読モデル）
 # 例:
-# reader_knowledge:
-#   - info_id: info_01
-#     description: "事件の真犯人"
-#     is_revealed_to_reader: false
-#     revealed_to_characters: []
+# perception_models:
+#   - observer: marlen
+#     model: "冷血漢誤読（計算ずくの非情な達人）→ 危うさを知る理解者へ転化"
+#     phase: "CH06初形成 → CH12-14頂点 → CH17亀裂（計算ではなかったと確信）→ CH18信頼へ転化"
+#     knows: ["打算ラッピングの空振り（CH17事後物証）", "代償の頭痛（危うさ）"]
+#     does_not_know: ["セリファの存在", "ヴェルミ・抹消された経歴", "遺技ロードの仕組み"]
+
+# 読者への開示状況（誤認設計・優越感の管理）
+# 例:
+# reader_disclosure:
+#   - info_id: "nork_true_motive"
+#     description: "介入の真の動機が義理であること（打算ラッピングの中身）"
+#     revealed_to_reader: true    # 読者は知っている
+#     revealed_to_characters: []  # 作中では誰も知らない（読者の優越感の源泉）

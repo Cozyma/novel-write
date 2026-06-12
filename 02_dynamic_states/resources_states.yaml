@@ -1,7 +1,11 @@
-# 物理アイテムの現在位置、所有者（チェーホフの銃）
+# 長距離の事実・チェーホフの銃台帳——「仕込み」と「回収」が隣接コンテキスト（直近1〜2章）の外にまたがるものだけを登録する。
+# 正本は本文。更新は章完成・人間判定通過後（README §3 / ARCHITECTURE.md 2.1「本文と動的状態」参照）。
+# 短距離のアイテム移動・所持品はここで管理しない（本文が正本）。
+# 執筆開始時に、確定済みプロットから既知の長距離伏線を初期投入すること（TODO.md参照）。
 # 例:
-# resources:
-#   - item_id: item_01
-#     name: "キーアイテム"
-#     owner_id: char_01
-#     location: "インベントリ"
+# long_range_facts:
+#   - fact_id: fact_01
+#     description: "密造薬物の精製工程に旧魔導院の廃棄技術と類似する痕跡（第零機関への接続）"
+#     planted_at: "arc_01/CH09"
+#     payoff_due: "第零機関関連アーク（未定）"
+#     status: "planned"  # planned（プロット上の予定）/ planted（本文で仕込み済み）/ partially_fired / fired
