@@ -254,6 +254,13 @@
     - 短距離の物理状態（現在地・負傷・疲労・所持品）は台帳廃止——L4が読む直近コンテキスト（前シーン本文・章サマリー）から再構成
     - 更新トリガー: 毎シーン→章完成・人間判定通過後。decision_logの状態関連イベントから反映（還流と同じ動線）
     - 反映先: ARCHITECTURE.md 2.1「本文と動的状態」新設＋L4フックに章完成時台帳反映を追加、README §3を新フロー（差分定義）へ書き換え、台帳3ファイルを新スコープで書き換え
+  - **決定事項（READMEの全面整合・残骸掃除）**:
+    - README §1ツリーを実構造へ同期（arc/chapter体系、characters.yaml、trait_patterns.yaml、CLAUDE.md、_workspace実構成）
+    - README §2の7変数定義の複製を削除しvariable_rules.md（正本）へのポインタ化
+    - README §4 Prompt Groundingを新L4ワークフローへ更新（「直感を一切排除」→「判断はdecision_logで可視化」、開始条件＝catharsis_core成立＋open_questions全解決）
+    - prompt_templates/scene_generation_prompt.md に【生成の開始条件】【判断の可視化】を追加（旧「直感や独自の解釈を排除」文言を撤廃）
+    - **命名規約確定**: `05_micro_scene/` `06_draft_output/` 以下は章単位（`chapter_XX/scene_YY`）で切る。L3が章単位のためシーンの親は常に章
+    - 旧構造の残骸を削除: 04_meso_plot/episode_01、05_micro_scene/episode_01、06_draft_output/episode_01（いずれも旧スキーマのTBDスケルトン）、01_static_database/characters/（空ディレクトリ）
   - **保留（次セッション）**:
     - CH01の面白さの核の再設計。【未合意・候補案あり】AI提案：「腕で負けて頭で勝つ」——暗殺者の『人目を嫌う稼業』を逆手に取り、位置取りで目立つ方向（衛兵の巡回路等）へ押し続けて職業判断としての撤退に追い込む案。採否・別案の壁打ちは次セッションで。
     - 既存19章サマリーの新スキーマ移行（catharsis_core記入＋タグのdesign_notes分離）。catharsis_coreが書けない章は面白さ未設計のシグナルとして洗い出す。
