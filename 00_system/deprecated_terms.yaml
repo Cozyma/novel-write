@@ -1,0 +1,41 @@
+# deprecated_terms.yaml — 廃止語彙・死語台帳
+# 設計決定によって「使ってはいけなくなった」語・言い回しのパターン台帳。
+#
+# 用途: コミット前フック（ARCHITECTURE.md 3章）で実データ領域
+#       （01_static_database / 02_dynamic_states / 03_macro_concept / 04_meso_plot / 05_micro_scene / 06_draft_output / 07_final_text）
+#       へ全パターンを機械grepし、旧稿残骸を検出する。
+# 運用: 決定事項フックで語彙・概念を廃止・置換した際、grep全列挙とセットで必ずここへ登録する。
+# 判定: ヒット＝即違反ではなく「文脈確認の対象」（一般語として正当な用例がありうる。noteの除外条件を参照）。
+# 対象外: _workspace（旧ドラフトの意図的保管領域。執筆時に参照しないこと自体は TODO.md E項で管理）と 00_system（本台帳・事例引用が自己ヒットするため）。
+
+deprecated_terms:
+  - pattern: "魔力"
+    reason: "魔力概念の廃止——力の三本柱（加護・生体性能・人工精霊同期）への統合（2026-06-12）"
+    replacement: "ノルクのコスト→神経接続・生体負荷／キャラの身体性能→種族由来の身体性能"
+    note: "『魔導院』『魔導具』『魔獣』は固有名詞・一般名詞として存続可（このパターンにはヒットしない）。既知の正当ヒット: setting_magic.yaml / artificial_spirit の『魔力という媒介概念は存在しない』（廃止を定義する側の文）"
+  - pattern: "封魔具"
+    reason: "三本柱体系への語彙再定義（2026-06-12）"
+    replacement: "破礼具（setting_magic.yaml / harei_tools）"
+    note: "既知の正当ヒット: setting_magic.yaml / harei_tools の『旧称「封魔具」を再定義』（再定義を記録する側の文）"
+  - pattern: "術式阻害"
+    reason: "三本柱体系への語彙再定義（2026-06-12）"
+    replacement: "条項告発（setting_magic.yaml / anti_mage）"
+  - pattern: "警備隊"
+    reason: "組織の引き算で削除——ギルド吸収の歴史的経緯へ統合（2026-06-10）"
+    replacement: "冒険者ギルド／灰の斡旋所の組織構造（setting_worldview.yaml / organizations）"
+  - pattern: "律神の罰則"
+    reason: "罰則概念を神の履歴方式（神が記録し、参照の加護持ちが裁く）へ置換（2026-06-12）"
+    replacement: "神の履歴（setting_worldview.yaml / divine_ledger）"
+  - pattern: "弱みを握|強制登録"
+    reason: "CH01旧稿の構図（脅迫による裏社会登録）を『命の借りは仕事で返す』招きへ書き換え（2026-06-12）"
+    replacement: "命の借りを口実にした斡旋所への招き（chapter_01_summary.yaml）"
+  - pattern: "傷をつけられない|傷つけられない"
+    reason: "『加護持ちには一律攻撃が通らない』前提の不採用（2026-06-12）"
+    replacement: "加護は正面の打ち合いでは格上を作るが、位置取り・退路・社会的損得までは守らない"
+    note: "対加護文脈のみ問題。人間ドラマの一般表現としての用例は正当（要文脈確認）"
+  - pattern: "現場査定官|査定官マーレン"
+    reason: "マーレンの再定義——査定官（内勤職）ではなく冷遇の正規冒険者（2026-06-12）"
+    replacement: "正規冒険者マーレン。『査定官』という語自体はギルド内勤職として有効"
+  - pattern: "魔術そのものは使えない"
+    reason: "三本柱体系での主人公定義の語彙変更（2026-06-12）"
+    replacement: "加護を持たない（無加護。setting_worldview.yaml / vocabulary.unblessed）"
