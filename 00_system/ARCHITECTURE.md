@@ -4,7 +4,7 @@
 当プロジェクトは、エンタメ性と一貫性を担保するため以下の4階層で構成される。
 
 - **L1: Macro Concept** → `03_macro_concept/` (作品全体の究極目標・危機)
-- **L2: Meso Arc** → `04_meso_plot/arc_XX/` (4幕構造を持つ中長期シナリオ・章)
+- **L2: Meso Arc** → `04_meso_plot/arc_XX/` (カタルシス曲線を持つ中長期シナリオ・章)
 - **L3: Micro Chapter** → `04_meso_plot/arc_XX/` 内の `chapter_summary.yaml` (連載1話分の変数刺激管理とミニ三幕)
 - **L4: Nano Scene** → `05_micro_scene/` (AI執筆用のパラメーター指示)
 
@@ -30,17 +30,18 @@
   - **L2アーク**: `macro_linkage.sub_catharsis`（このアークの最大カタルシスの具体形）── 検査：catharsis_engineのインスタンスになっているか
   - **L3章**: `catharsis_core`（章の具体的な手）── 検査：アークの sub_catharsis へ寄与しているか
 
-### 2.3 ハリウッド式メソッドの適用層（過剰適用の再発防止）
-ハリウッド式脚本メソッドは「一回完結・映画1本」のスケールで設計された方法論であり、**適用する層を誤ると連載形式と衝突する**（2026-06-09にL1固定項目として置いて失敗→排除しすぎ→ハイブリッド型で再設計、という経緯がある）。
+### 2.3 アーク構造のメソッド（カタルシス曲線＋最小借用）
+アーク（約19章＝映画1本のスケール）の物語曲線は、**本作自身のカタルシス曲線（積み上げ→絶望→蹂躙＝setup→buildup→despair→catharsis、読みレンズは起承転結）**を背骨とする。ハリウッド式脚本メソッドは「一回完結・映画1本」用に設計され連載と衝突しやすく（2026-06-09にL1固定で失敗→排除しすぎ→ハイブリッド、さらに2026-06-16にアークの4幕レンズ自体が注釈で打ち消される負債——midpoint=twist要件が危機ドリブンの本作で常に弱い——と判明し撤去、という経緯がある）、**規範ビート表としては持ち込まない**。借用するのは推進力を担保する2チェックのみ。
 
 - **適用する層**:
-  - **L2アーク層（主戦場）**: アーク（約19章）＝映画1本のスケール。4幕構造・midpoint不可逆・wrong_actions（誤闘）・embodiment_of_will（想いの身体化）は `template_arc_summary.yaml` で運用する。
+  - **L2アーク層（主戦場）**: カタルシス曲線（4段）＋ drive_variable を `template_arc_summary.yaml` の `acts` で運用。ハリウッド式からの借用は2チェックのみ——**不可逆点**（buildup に後戻り不可の決定/事象。`has_irreversible_point`）と**能動的選択の着地**（catharsis の `embodiment_of_will`＝古い自分では打てない手。`has_embodiment_landing`）。midpoint=twist や all is lost 等の規範ビートは要件化せず、曲線の性格（危機/驚きドリブン）は drive_variable と design_notes で記述する。
   - **キャラ層（バディ二人制）**: キャラクターアークは2本柱で運用する——ノルク＝`concept.yaml` の `protagonist_growth_roadmap`、マーレン＝`characters.yaml` の `marlen.growth_roadmap`（ノルクと鏡映：打算の仮面／教条の鎧）。各アークの `roadmap_step` で**二人制検査**を行う：①各キャラ1アーク1段以内（早回し防止）②アークごとに主役サイドの誰か1人以上が前進（前進担保）③ノルクが2アーク連続で据え置きにならない（主人公の長期停滞検出）。**この成長設計は本作の最重要箇所のため両ロードマップを `status: provisional` とし、各アーク設計の着手時に「現在の段の確認」だけでなく「段定義そのものの妥当性」も必ず見直す（固定しない）。**
   - **L1（語彙と賭け金のみ）**: wrong_belief＝`internal_flaw`【誤闘】、evils.external＝`core_conflict`【究極の危機】のマッピングで取り込み済み。`stakes`（win/lose）は固定項目として有効。
   - **長距離台帳**: setup/payoff規律は `02_dynamic_states/resources_states.yaml`（planted/fired管理）で運用。
 - **適用しない層（禁止）**:
   - **L1への一回性三幕の固定**: 連載は終わりが未定のため、作品全体に一回完結の三幕構造を張らない。Quest/Crisis等の展開項目はL1の固定項目にしない（章・アークから動的に生成される結果）。
   - **L3章へのビート表の強制**: 章はミニ三幕＋catharsis_coreで完結しており、save-the-cat型のビート表を章単位に重ねない。
+  - **アークへのハリウッド式規範ビート表**: midpoint=驚きの最大化/twist・all is lost 等の一回完結曲線のビートをアークに強制しない。借用は不可逆点と能動的選択の着地の2チェックに限る（2026-06-16にレンズごと撤去した経緯。`arc_summary.yaml` / design_notes.curve_framing）。
 
 ## 3. イベント・運用フック（タイミング別ルール）
 特定のタスクタイミング（イベント）が発生した際、AIエージェントは以下のフック処理を自律的に実行すること。

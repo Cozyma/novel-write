@@ -1,5 +1,5 @@
 chapter_id: "CH_01"
-arc_linkage: "[どのアークのどのフェーズ（例：ミッドポイント周辺）に属しているか]"
+arc_linkage: "[どのアークのどの段（起承転結／setup・buildup・despair・catharsis）に属しているか]"
 
 # 連載1話としての変数刺激構造
 chapter_stimulus:

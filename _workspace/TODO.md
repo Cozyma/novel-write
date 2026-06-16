@@ -39,6 +39,17 @@ L4ワークフロー（ARCHITECTURE.md [Hook: L4執筆時]）に従う。
 
 ## アーカイブ（完了済み・経緯）
 
+### ハリウッド式4幕レンズの撤去＝カタルシス曲線へ移行（2026-06-16完了）
+- [x] 再評価：design_notes 3/4本が4幕の不適合弁明＝レンズが素材と戦っている（midpoint=twistが危機ドリブンの本作で常に弱い）と判断。全撤去はせず推進力チェックは温存（2026-06-09の排除しすぎを回避）
+- [x] acts を4幕（act1_setup…）→カタルシス曲線4段（setup/buildup/despair/catharsis＝起承転結）へ。借用は2チェックのみ（has_irreversible_point／has_embodiment_landing）。読みレンズは起承転結に一本化（act_mapping二重写し債を解消）
+- [x] 反映：arc_summary.yaml・template_arc_summary.yaml・ARCHITECTURE.md 2.3全面改稿・REFERENCE_MAP.md・template_chapter_summary.yaml・chapter_10_summary.yaml・deprecated_terms.yaml（旧4幕バケツ名を死語登録）。L1 stakes借用はスコープ外で温存
+
+### arc_summary の派生散文を廃止＝acts骨格化＋episode_index完全削除（2026-06-16完了）
+- [x] 章正本 vs arc_summary 全章突き合わせで派生散文の事実取り違え5件を検出・①②④⑤修正（③はCH09反転を act2a role に構造吸収）
+- [x] 根因＝「章の出来事を言い換えた派生散文は構造的に必ずドリフト」（同日A-4で新設→数時間で破綻の実地証拠）。価値=arc固有原本／負債=章再話 に二層切り分け
+- [x] A-4の部分巻き戻し：acts骨格化（role＋drive_variable、midpoint/finaleは検証アンカーをterse保持）、episode_index完全削除（タイトル・起承転結ラベルも破棄）、章束ねはCSV episode_id列へ一本化
+- [x] 反映：arc_01/arc_summary.yaml・template_arc_summary.yaml（派生散文禁止を明記）・REFERENCE_MAP.md・deprecated_terms.yaml（episode_index死語登録）
+
 ### 代償の階層化＋感情ノイズの主軸吸収（2026-06-16完了）
 - [x] 4軸を3層へ：主軸＝生体負荷／真の代償＝セリファ摩耗（伏せる）／状況変数＝隠匿。biological_costに hierarchy 新設で「一言なら神経を灼く生体負荷」と即答形を確定
 - [x] 感情ノイズは生体負荷の『抑え込み』と機能重複が複雑さの正体→第4軸から外し suppression_break（トラウマで抑え込みが破れる）へ格下げ。弱点フック温存

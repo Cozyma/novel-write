@@ -1,5 +1,5 @@
 chapter_id: "CH_10"
-arc_linkage: "第1アーク / 転（ミッドポイント直前）"
+arc_linkage: "第1アーク / 承の末尾（不可逆点：強行突入の決定）"
 
 chapter_stimulus:
   peak_variable: "危機" # ボスの正体の判明
@@ -19,7 +19,7 @@ design_notes:
   - "加護戦闘の文法の正式開示：CH01の体験的理解（正面では勝てない・位置取りと損得を攻める）に言語的説明が加わり、CH12以降のマーレン苦闘の前提が整う。説明の語彙は『固有加護は正面の打ち合いでは武器の格を問わず上回る』に限定し、『加護持ちには攻撃が通らない』という一律表現は使わないこと（characters.yaml / nork combat_style 手札④の前提と矛盾するため。setting_worldview.yaml / blessing_types 参照）。"
   - "CH16の条項告発の伏線：ボスの誓約（秩序維持）と行動（密造網運営）の矛盾がここで示される。"
   - "神話化エンジンの可視化：CH01の撤退劇とCH06の生存者の証言が、誇張されながらボスの耳まで届いている（concept.yaml / misunderstanding_escalation『敗者の証言が神話化する』の実演）。"
-  - "midpoint不可逆の候補：強行突入の決定（アーク4幕構造への当てはめ検証で確定する。00_system/ARCHITECTURE.md 2.3参照）。"
+  - "不可逆点：強行突入の決定（カタルシス曲線 buildup 末の後戻り不可点。00_system/ARCHITECTURE.md 2.3・arc_summary.yaml has_irreversible_point 参照）。"
   - "リスク管理 vs 教条の緊急性という対立軸の起点——CH14でノルクが『撤退推奨を無視して残る』選択との対照を形成する。"
 
 scenes:

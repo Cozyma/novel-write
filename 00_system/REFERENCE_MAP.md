@@ -10,7 +10,7 @@
 |---|---|
 | 7変数の定義・スコープ | `00_system/variable_rules.md` |
 | 面白さの核の階層検査（catharsis_engine→sub_catharsis→catharsis_core） | `00_system/ARCHITECTURE.md` 2.2 |
-| ハリウッド式の適用層（4幕・midpoint・embodiment・roadmap） | `00_system/ARCHITECTURE.md` 2.3 |
+| アーク構造のメソッド（カタルシス曲線・不可逆点・embodiment・roadmap・ハリウッド式の最小借用） | `00_system/ARCHITECTURE.md` 2.3 |
 | 死語・廃止語彙（残骸の機械検査） | `00_system/deprecated_terms.yaml` |
 | 加護の二類型（普遍/固有）・神の履歴・対抗文化・真信者・分配則 | `01_static_database/world/setting_worldview.yaml`（dogmatism配下） |
 | 組織（ギルド/斡旋所/第零機関/ヴェルミ）・社会語彙（査定官/無加護/濁り血/清血） | `setting_worldview.yaml`（organizations / vocabulary） |
@@ -19,7 +19,7 @@
 | 切り札の制約詳細（生体負荷・感情ノイズ・隠匿・遮断）・条項告発・遺技ロード・破礼具 | `01_static_database/world/setting_magic.yaml` |
 | バディ対比（二種類の自前） | `setting_magic.yaml` / combat_contrast.buddy_contrast |
 | 報酬番号の台帳（有形1〜5・無形1〜4） | `04_meso_plot/arc_01/arc_summary.yaml` / reward_chain |
-| アークの4幕構造・sub_catharsis・roadmap_step・章割当 | `04_meso_plot/arc_01/arc_summary.yaml` / acts・macro_linkage（episode_indexは派生地図） |
+| アークのカタルシス曲線・sub_catharsis・roadmap_step・章割当 | `04_meso_plot/arc_01/arc_summary.yaml` / acts（setup→buildup→despair→catharsis。role＝構造役割のみ）・macro_linkage。章→段の束ねは `chapter_sequence.csv` の episode_id 列 |
 | 成長ロードマップ（バディ二人制・最重要・暫定） | ノルク=`concept.yaml`/protagonist_growth_roadmap、マーレン=`characters.yaml`/marlen.growth_roadmap、二人制検査=`ARCHITECTURE.md` 2.3 |
 | 章の核・ビート（正本。CSV・arc_summaryは派生） | `04_meso_plot/arc_01/chapter_XX_summary.yaml` |
 | 長距離伏線（muddy_blood_paradox・第零機関の種） | `02_dynamic_states/resources_states.yaml` |
@@ -38,7 +38,7 @@
 
 ### ケースB: 章の核・プロットの壁打ち（対象1〜2章）
 - **必読**: `template_chapter_summary.yaml` / 対象章＋前後章のsummary / `SELF_REVIEW.md`【面白さの核の実在検証】
-- **必要時**: `characters.yaml`（登場キャラのみ）/ `concept.yaml`（catharsis_engine・misunderstanding_escalation）/ `arc_summary.yaml`該当ep / CSV該当行
+- **必要時**: `characters.yaml`（登場キャラのみ）/ `concept.yaml`（catharsis_engine・misunderstanding_escalation）/ `arc_summary.yaml` 該当幕(acts) / CSV該当行
 - **読まない**: 関係しない章。worldview・magicは該当項目のみ（全文不要）
 
 ### ケースC: スキーマ移行・全章一括の整合作業
