@@ -9,10 +9,10 @@
 # 対象外: _workspace（旧ドラフトの意図的保管領域。執筆時に参照しないこと自体は TODO.md E項で管理）と 00_system（本台帳・事例引用が自己ヒットするため）。
 
 deprecated_terms:
-  - pattern: "魔力"
-    reason: "魔力概念の廃止——力の三本柱（加護・生体性能・人工精霊同期）への統合（2026-06-12）"
-    replacement: "ノルクのコスト→神経接続・生体負荷／キャラの身体性能→種族由来の身体性能"
-    note: "『魔導院』『魔導具』『魔獣』は固有名詞・一般名詞として存続可（このパターンにはヒットしない）。既知の正当ヒット: setting_magic.yaml / artificial_spirit の『魔力という媒介概念は存在しない』（廃止を定義する側の文）"
+  - pattern: "魔力切れ|魔力量|魔力残量|魔力を消費|魔力ゲージ|MP"
+    reason: "魔力は基層（substrate）として復活（2026-06-16・基層モデル）。ただしキャラの資源ゲージ化は引き続き禁止——RPG的マナ管理の排除という当初意図（2026-06-12）は維持する。"
+    replacement: "魔力は『力の出所』を説明する世界の物理であって管理値ではない（setting_worldview.yaml / mana_substrate.design_rule）。ノルクのコストは生体負荷として描く（setting_magic.yaml / biological_cost）。"
+    note: "名詞としての『魔力』『魔導院』『魔導具』『魔物』は基層モデルで正当（referent: setting_worldview.yaml / mana_substrate）。死語は『魔力をゲージ管理する用法』のみ。既知の正当ヒット: setting_worldview.yaml / mana_substrate.design_rule の『魔力切れ』『魔力量』（禁止を定義する側の文）。"
   - pattern: "封魔具"
     reason: "三本柱体系への語彙再定義（2026-06-12）"
     replacement: "破礼具（setting_magic.yaml / harei_tools）"

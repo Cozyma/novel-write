@@ -39,6 +39,17 @@ L4ワークフロー（ARCHITECTURE.md [Hook: L4執筆時]）に従う。
 
 ## アーカイブ（完了済み・経緯）
 
+### 代償の階層化＋感情ノイズの主軸吸収（2026-06-16完了）
+- [x] 4軸を3層へ：主軸＝生体負荷／真の代償＝セリファ摩耗（伏せる）／状況変数＝隠匿。biological_costに hierarchy 新設で「一言なら神経を灼く生体負荷」と即答形を確定
+- [x] 感情ノイズは生体負荷の『抑え込み』と機能重複が複雑さの正体→第4軸から外し suppression_break（トラウマで抑え込みが破れる）へ格下げ。弱点フック温存
+- [x] 同僚の人格にじみを器の二分でセリファ一本化（ノルク＝技の器／セリファ＝人格の器）。窓口3つ（emotional_leak/nork quirk/legacy_load）の過多を解消し second_cost と同じ器に統合＝【共感】供給の窓口
+- [x] 派生同期：characters.yaml の nork（misunderstanding_gap/speech_rule/layer_rule/quirks）・serifa（internal_flawポインタ・background＝人格の器）／setting_magic.yaml（emotional_leak削除・legacy_load）
+
+### 加護と魔法のブレ解消＝魔力の基層化（2026-06-16完了）
+- [x] 超火力の根本問題を特定：コスト（神経を灼く）は定義済みなのにエネルギーの源が空白だった
+- [x] 基層モデル採用：魔力をsubstrateとして復活（神も人も使う側）。加護＝神が魔力を肩代わり行使／術式系＝神を介さず直行行使しコストを神経が払う。「汎用魔法使い」は作らない（ノルクの唯一性・禁忌性を死守）
+- [x] 反映：setting_worldview.yaml（mana_substrate新設）／setting_magic.yaml（sync_mechanics・biological_cost.system）／deprecated_terms.yaml（魔力の死語解除→ゲージ用法のみ禁止）。魔系語彙にreferent付与でブレ消滅
+
 ### 成長ロードマップのバディ二人制化＋CH17代償の質量強化＋代償体系の設定化（2026-06-16完了）
 - [x] マーレンに growth_roadmap 新設（教条依存の解凍5段・ノルクと鏡映）。成長検査を二人制へ（各1段以内／1人以上前進／ノルク2アーク連続据え置き禁止）。両ロードマップ status: provisional＋アーク設計時に段定義を見直すフックを ARCHITECTURE 2.3 へ
 - [x] CH17の代償描写を『隠匿の破れ』へ質量強化（余裕の隠者の仮面が崩れる落差＋三層物証）。catharsis_core還流＋派生同期
