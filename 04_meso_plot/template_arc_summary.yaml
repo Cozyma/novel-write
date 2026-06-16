@@ -1,52 +1,92 @@
-episode_id: "XX"
+arc_id: "arc_XX"
 title: "TBD"
 
+# 【スキーマ方針】アーク全体を1本の映画スケールとみなし、ハリウッド式4幕構造を持たせる（ARCHITECTURE 2.3）。
+#  - acts          ＝アークの物語曲線の正本（4幕：setup→trouble→midpoint→fightback→finale）
+#  - episode_index ＝章を束ねた起承転結の読み下し地図（派生。正本は acts と各 chapter_XX_summary.yaml）
+#  - reward_chain  ＝多段報酬連鎖の番号台帳（語彙の単一出典。章サマリー・CSVの【報酬N】はここを参照）
+#  - design_notes  ＝検証所見・ループ修正の追記先（chapter_summaryのdesign_notesと対称）
+
 macro_linkage:
-  # 03_macro_concept で定義された全体設定に対する、このエピソードでの「部分的な割り当て（下位構造）」
-  sub_quest: "[このエピソードで追う部分的な謎（全体の【探求】へどう繋がるか）]"
-  sub_crisis: "[このエピソードでの敗北条件（全体の【危機】の予兆・一部としてのピンチ）]"
-  local_evil: "[全体悪の末端、あるいはこのエピソード特有の障害となる【悪】]"
+  # 03_macro_concept で定義された全体設定に対する、このアークでの「部分的な割り当て（下位構造）」
+  sub_quest: "[このアークで追う部分的な謎（全体の【探求】へどう繋がるか）]"
+  sub_crisis: "[このアークでの敗北条件（全体の【危機】の予兆・一部としてのピンチ）]"
+  local_evil: "[全体悪の末端、あるいはこのアーク特有の障害となる【悪】]"
   # 【必須】このアークの最大カタルシス（全体の【報酬】＝catharsis_engineのインスタンス）。
   # 探求・危機・悪と同様に「面白さ」も継承フィールドとして強制する。一文で言えなければアーク未設計。
   sub_catharsis: "[このアークの最大カタルシスの具体形（例：加護の消失要件をボス自身に踏み抜かせて自壊させた上での超火力蹂躙）。catharsis_engineのどの部分をどう実体化するか]"
-  # 【必須】キャラクターアーク連動：このアークのembodiment_of_willが、concept.yamlのprotagonist_growth_roadmapのどの段に対応するか。
-  # 1アークで進めてよいのは1段まで（ロードマップのtheme記載ルールの検査化）。
-  roadmap_step: "[例：step 1『知られる』——マーレンが力の危うさを知る]"
+  # 【必須・二人制】バディ二人のロードマップについて、このアークで進む段を記入（ARCHITECTURE 2.3）。
+  # 各キャラ1アーク1段以内／アークごとに1人以上前進／ノルクが2アーク連続据え置きにならないこと。進まない側は「据え置き＋理由」を書く。
+  roadmap_step:
+    nork: "[例：step 1『知られる』——マーレンが力の危うさを知る]"
+    marlen: "[例：step 1『揺らぐ』——絶対視した教条が崩れる]"
 
 macro_peaks:
-  # この話数で最大化する変数を指定（探求/報酬/驚き/危機）
+  # アーク全体で最大化する変数を指定（探求/報酬/驚き/危機）
   primary_variable: "危機"
   secondary_variable: "探求"
 
 acts:
+  # 各幕に chapters（章範囲）を明記し、どの章がどの幕に属すかを可視化する。
   act1_setup:
+    chapters: "[例：CH01-04]"
     hook: "[読者が掴まれる導入]"
     incident: "[事件/依頼/召喚]"
     show_evil:
       fact: "[悪の支配を提示：具体的にどんな不条理・脅威が起きているか]"
       drive_variable: "[探求/危機/驚きのいずれかから選択。例：謎の不気味さで攻めるなら探求]"
   act2a_trouble:
+    chapters: "[例：CH05-09]"
     wrong_actions:
       - fact: "[誤った戦い方1]"
         drive_variable: "[危機/驚きのいずれか。例：致命的なタイムリミットを招くなら危機]"
     losses: ["[失敗/亀裂/信頼損]"]
   midpoint:
+    chapters: "[例：CH10]"
     revelation_or_break:
       fact: "[反転：真相/決裂/自白]"
-      drive_variable: "[驚きを最大化し、不可逆な変化を起こす]"
+      drive_variable: "[驚きを最大化し、不可逆な変化を起こす。弱い場合は design_notes に所見を残す]"
     new_intent: "[新しい意図]"
   act2b_fightback:
+    chapters: "[例：CH11-14]"
     try_with_cost: ["[新方針の試行1]"]
-    rising_cost: ["[代償/タイムリミット増（危機のピーク）]"]
+    rising_cost: ["[代償/タイムリミット増（危機のピーク・all is lost）]"]
   act3_finale:
+    chapters: "[例：CH15-17（エピローグは別記）]"
     showdown: "[最終競技/選択]"
     embodiment_of_will:
       fact: "[行為で示す想い：古い自分では打てない手を打つ]"
       drive_variable: "[報酬の最大化＋負荷の最小化：理屈を排除した行動描写のみでカタルシスを生む]"
+
+# 報酬番号の正本（多段報酬連鎖の台帳）。章サマリー・chapter_sequence.csv の【有形報酬N】【無形報酬N】はここを参照する。
+reward_chain:
+  tangible:
+    - id: "有形報酬1"
+      content: "[具体的な物質的報酬]"
+      chapter: "[CHXX]"
+  intangible:
+    - id: "無形報酬1"
+      content: "[評価・神話・関係性などの無形報酬]"
+      chapter: "[CHXX]"
+
+# 派生：章を束ねた起承転結の読み下し地図（正本は acts と各 chapter_XX_summary.yaml）。
+episode_index:
+  - episode_id: 1
+    chapters: "[例：CH01-02]"
+    act: "[属する幕。例：act1_setup（【起】前半）]"
+    title: "TBD"
+    summary: "[このエピソード（章群）のストーリー要約]"
+
+# 検証所見・ループ修正の追記先（chapter_summary の design_notes と対称。本編開示義務なし）。
+# 例：midpointの驚きが弱い理由、embodimentとroadmapのズレの整理、起承転結→4幕の対応注記など。
+design_notes:
+  notes: "[検証で見つかった所見・例外・割り切りを完結文で記録（SELF_REVIEW【設計メモの自己完結性】準拠）]"
 
 validation_hook:
   is_linked_to_macro_concept: false # 全体の探求・危機・悪の「下位構造」になっているか
   is_midpoint_irreversible: false
   is_finale_embodiment: false
   has_catharsis_core: false # sub_catharsisがcatharsis_engineの具体的なインスタンスとして一文で成立しているか（抽象語・約束手形は不可）
-  is_roadmap_within_one_step: false # roadmap_stepが1段のみであり、embodiment_of_willがその段の進展として機能しているか
+  is_roadmap_within_one_step: false # 二人制検査：各キャラ1段以内 AND アークごとに1人以上前進 AND ノルクが2アーク連続据え置きでない（ARCHITECTURE 2.3）
+
+total_chapters: 0

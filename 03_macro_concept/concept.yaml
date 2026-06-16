@@ -20,6 +20,11 @@ priority_variables:
 
 
 protagonist_growth_roadmap:
+  # 【最重要・暫定 status: provisional】本作はバディもの。成長柱は2本——ノルク（本ロードマップ）と
+  # マーレン（characters.yaml / marlen.growth_roadmap、ノルクと鏡映）。アーク検査は二人制（ARCHITECTURE 2.3）：
+  # ①各キャラ1アーク1段以内 ②アークごとに主役サイドの誰か1人以上が前進 ③ノルクが2アーク連続で据え置きにならない。
+  # 段定義そのものも各アーク設計の着手時に見直す（固定しない）。
+  status: provisional
   theme: "誤闘の解凍：打算の仮面が剥がれていく過程として、『隠れる平穏』から『信頼した少数に見られていても成り立つ日常』への再定義。アーク設計（L2）時に現在の段数を確認し、1アークで一段以上は進めないこと。"
   milestones:
     - step: 1

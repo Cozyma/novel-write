@@ -334,3 +334,19 @@
   - **整合確認**: CH07の「無傷の魔物の高額買い取り＋薬物の痕跡検出」は汚染個体設定でむしろ自然化（無傷の死骸だから検出が綺麗にできる）。reward_chain有形報酬3も変更不要。
   - **派生同期**: chapter_sequence.csv CH05行・arc_summary ep3。
 - **決定事項（参照マップの新設・トークン節約）**: `00_system/REFERENCE_MAP.md` を新設。①概念→正本パスの即答索引（手札・報酬番号・台帳・死語などの置き場所）②作業ケース別の最小参照セット（A:設定壁打ち／B:章核壁打ち／C:全章一括作業／D:語彙変更／E:コミット／F:L4執筆〔未実施・着手時に実績更新〕）。タスク着手時フック（ARCHITECTURE 3章）に「マップ参照→最小セット決定→読み込み」を組み込み、マップに無いケースは完了時に実績追記する運用。今セッションの実績がベース。
+
+## 2026-06-16
+- **現在の取り扱いタスク**: TODO 4【スキーマドリフト解消】の壁打ち。`arc_01/arc_summary.yaml`（episodes一覧＝起承転結＋reward_chain形式）と `template_arc_summary.yaml`（ハリウッド式4幕構造：macro_linkage / acts / midpoint / embodiment / validation）の不一致を整理し、第1アークをハリウッド式4幕へ実地当てはめ検証（midpoint＝CH10強行突入、embodiment＝CH15〜17）。sub_catharsis・roadmap_step記入も同時。参照ケース＝C（スキーマ移行・全章一括）。
+- **決定事項（TODO 4完了・ドリフト診断）**: ドリフトは3層——①「episode」語の二義性（実データ＝起承転結のCH束ね単位／テンプレ＝4幕を1つ持つアーク全体スケール）②構造系（日本式起承転結 vs ハリウッド式4幕＋midpoint不可逆・embodiment）③付帯（実データにvalidation_hook無し／テンプレにreward_chain無し）。
+- **決定事項（統合方針＝案C採用）**: arc_summaryをアーク全体に1つの4幕構造を持つ三層へ再編。`acts`（4幕＝物語曲線の正本・各幕にchapters明記）＋`episode_index`（旧episodes＝派生のストーリー地図・起承転結を保持）＋`reward_chain`（番号台帳・現状維持）＋`design_notes`（検証所見）＋`validation_hook`（検証結論）。テンプレートも同三層構造へ更新（`episode_id: XX`の単一エピソード見出しを廃し、アーク単位ヘッダ＋acts.chapters・reward_chain・episode_index・design_notesを新設）。
+- **決定事項（4幕の実地当てはめ・検証結論）**:
+  - 章割当: act1_setup=CH01-04／act2a_trouble=CH05-09／midpoint=CH10／act2b_fightback=CH11-14／act3_finale=CH15-17（CH18-19エピローグ）。
+  - **midpoint=CH10確定**: 「見えざる大物の判明＋ノルク提案を退けた戦略決裂＋情報不足の強行突入決定」。不可逆性・break・revelationは成立、ただし**驚きの最大化は弱い**＝本アークは危機ドリブン（核は勘違い＆教条破綻でどんでん返し型でない）と所見記録（design_notes.midpoint_revelation_weak）。CH13-14は midpoint でなく act2b末の all is lost。
+  - **embodiment=CH14起点確定**（TODOのCH15は記憶ブレ・CSV準拠でCH14「足が止まる」）: CH14残る→CH16-17切り札解禁＝古い自分（隠匿・息を潜める）を破る行為。**ただしノルク本人は打算ラッピングのまま自己認識は据え置き**＝roadmap step1「知られる」に留まり、変化はマーレン側（CH17で頭痛の物証を見て確信）。行為（step3的）と自己認識（step1）のズレは勘違いエンジンと同根（design_notes.embodiment_vs_roadmap）。is_roadmap_within_one_step の根拠。
+  - **sub_catharsis確定**: 加護の消失要件をボス自身に踏み抜かせ自壊→頭痛の代償付き超火力蹂躙（catharsis_engine.executionのインスタンス）。macro_peaks=報酬/驚き。validation_hook全項目true。
+- **還流チェック**: concept.yaml と矛盾なし（roadmap step1達成・stakes・catharsis_engine主従ルールに準拠して記述）。episode_index・acts.chapters は chapter_sequence.csv の章割当と一致。reward_chain・各章summary（正本）は不変＝派生の片側更新なし。
+- **REFERENCE_MAP更新**: 索引に「アークの4幕構造・sub_catharsis・roadmap_step→arc_summary.yaml/acts・macro_linkage」を追記。
+- **決定事項（成長ロードマップのバディ二人制化）**: 「バディものなのにロードマップがノルク1本」への対処。マーレンに `growth_roadmap` を新設（誤闘＝教条依存。ノルクの打算の仮面と鏡映の5段：揺らぐ→認める→委ねる→解禁→再定義）。検査を二人制へ拡張——①各キャラ1アーク1段以内 ②アークごとに1人以上前進 ③ノルクが2アーク連続据え置きにならない（単純OR緩和の穴＝主人公の長期停滞を塞ぐ）。第1アーク＝ノルクstep1『知られる』＋マーレンstep1『揺らぐ』が同一事象で各1段前進（ノルク据え置きをマーレン前進が裏付け）。
+- **決定事項（最重要箇所の常時見直しの仕組み化）**: 成長設計は本作の最重要箇所のため、両ロードマップを `status: provisional` とし、各アーク設計の着手時に「現在の段の確認」に加え「段定義そのものの妥当性」を必ず見直すフックを ARCHITECTURE 2.3 に明文化（口頭の願望でなく仕組みへ）。
+- **反映ファイル**: characters.yaml（marlen.growth_roadmap新設）／concept.yaml（protagonist_growth_roadmapに二人制・provisional注記）／ARCHITECTURE.md 2.3（キャラ層をバディ二人制＋見直しフックへ）／template_arc_summary.yaml・arc_01/arc_summary.yaml（roadmap_stepを二人制構造へ・validation文言更新・design_notes.buddy_roadmap追加）／REFERENCE_MAP.md（索引追記）。
+- **残**: TODO 5（全キャラ concept_relation の棚卸し）。

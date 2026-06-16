@@ -19,6 +19,8 @@
 | 切り札の制約詳細（生体負荷・感情ノイズ・隠匿・遮断）・条項告発・遺技ロード・破礼具 | `01_static_database/world/setting_magic.yaml` |
 | バディ対比（二種類の自前） | `setting_magic.yaml` / combat_contrast.buddy_contrast |
 | 報酬番号の台帳（有形1〜5・無形1〜4） | `04_meso_plot/arc_01/arc_summary.yaml` / reward_chain |
+| アークの4幕構造・sub_catharsis・roadmap_step・章割当 | `04_meso_plot/arc_01/arc_summary.yaml` / acts・macro_linkage（episode_indexは派生地図） |
+| 成長ロードマップ（バディ二人制・最重要・暫定） | ノルク=`concept.yaml`/protagonist_growth_roadmap、マーレン=`characters.yaml`/marlen.growth_roadmap、二人制検査=`ARCHITECTURE.md` 2.3 |
 | 章の核・ビート（正本。CSV・arc_summaryは派生） | `04_meso_plot/arc_01/chapter_XX_summary.yaml` |
 | 長距離伏線（muddy_blood_paradox・第零機関の種） | `02_dynamic_states/resources_states.yaml` |
 | 累積カウンタ（nork.exposure_level） | `02_dynamic_states/character_states.yaml` |

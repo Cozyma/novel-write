@@ -4,8 +4,7 @@
 
 ## A. 執筆着手前のプロット品質ゲート（順序依存・上から消化）
 2026-06-12のスキーマ改修（catharsis_core必須化・階層検査）により、執筆着手前に既存プロットの品質ゲート通過が必要になった。
-**推奨消化順序: 4 → 5**（1・2・3・3bは2026-06-12完了→アーカイブ参照）。
-- [ ] 4.【スキーマドリフト解消】arc_01/arc_summary.yaml（エピソード一覧形式）とtemplate_arc_summary.yaml（エピソード単位4幕構造）の不一致を整理。arc_01のsub_catharsis・roadmap_step記入もこのタイミングで（3.と同時推奨）。ハリウッド式4幕の実地検証を兼ねる（midpoint不可逆＝CH10強行突入決定、embodiment＝CH15〜17が候補。ARCHITECTURE 2.3参照）
+**残り: 5**（1・2・3・3bは2026-06-12完了／4は2026-06-16完了→アーカイブ参照）。
 - [ ] 5.【検査実行】既存キャラ全員のconcept_relationが「どの変数をどの段でどう駆動するか」の一文として成立しているかの棚卸し
 
 ## B. 執筆準備（Aの完了後・第1話着手まで）
@@ -37,6 +36,12 @@ L4ワークフロー（ARCHITECTURE.md [Hook: L4執筆時]）に従う。
 ---
 
 ## アーカイブ（完了済み・経緯）
+
+### A-4 スキーマドリフト解消＋4幕実地検証（2026-06-16完了）
+- [x] ドリフトを3層で診断（episode語の二義性／起承転結 vs ハリウッド4幕／validation・reward_chainの非対称）
+- [x] 統合方針＝案C：arc_summaryを三層（acts=4幕正本＋episode_index=派生地図＋reward_chain＋design_notes＋validation_hook）へ再編。template_arc_summary.yamlも同構造へ更新（単一episode見出しを廃止）
+- [x] 4幕の章割当確定（setup=CH01-04／trouble=CH05-09／midpoint=CH10／fightback=CH11-14／finale=CH15-17・epilogue=CH18-19）。midpoint=CH10（驚き弱・危機ドリブンと所見化）、embodiment=CH14起点・roadmap step1据え置き（行為と自己認識のズレを明記）。sub_catharsis・roadmap_step記入、validation_hook全項目true
+- [x] REFERENCE_MAP索引に「アークの4幕・sub_catharsis・roadmap_step」行を追記
 
 ### Phase 1: L1 Macro Concept（〜2026-06-10完了）
 - [x] 究極の探求・究極の危機・悪の支配の壁打ち／マーレン・スィグナ・ノルク・セリファの設定確定

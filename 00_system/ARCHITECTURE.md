@@ -35,7 +35,7 @@
 
 - **適用する層**:
   - **L2アーク層（主戦場）**: アーク（約19章）＝映画1本のスケール。4幕構造・midpoint不可逆・wrong_actions（誤闘）・embodiment_of_will（想いの身体化）は `template_arc_summary.yaml` で運用する。
-  - **キャラ層**: キャラクターアークは `concept.yaml` の `protagonist_growth_roadmap`（誤闘の解凍5段）として移植済み。各アークの `roadmap_step` で1アーク1段の検査を行う。
+  - **キャラ層（バディ二人制）**: キャラクターアークは2本柱で運用する——ノルク＝`concept.yaml` の `protagonist_growth_roadmap`、マーレン＝`characters.yaml` の `marlen.growth_roadmap`（ノルクと鏡映：打算の仮面／教条の鎧）。各アークの `roadmap_step` で**二人制検査**を行う：①各キャラ1アーク1段以内（早回し防止）②アークごとに主役サイドの誰か1人以上が前進（前進担保）③ノルクが2アーク連続で据え置きにならない（主人公の長期停滞検出）。**この成長設計は本作の最重要箇所のため両ロードマップを `status: provisional` とし、各アーク設計の着手時に「現在の段の確認」だけでなく「段定義そのものの妥当性」も必ず見直す（固定しない）。**
   - **L1（語彙と賭け金のみ）**: wrong_belief＝`internal_flaw`【誤闘】、evils.external＝`core_conflict`【究極の危機】のマッピングで取り込み済み。`stakes`（win/lose）は固定項目として有効。
   - **長距離台帳**: setup/payoff規律は `02_dynamic_states/resources_states.yaml`（planted/fired管理）で運用。
 - **適用しない層（禁止）**:
