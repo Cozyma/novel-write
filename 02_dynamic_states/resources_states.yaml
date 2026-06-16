@@ -5,8 +5,8 @@
 # status: planned（プロット上の予定）/ planted（本文で仕込み済み）/ partially_fired / fired
 # 例:
 #   - fact_id: fact_01
-#     description: "密造薬物の精製工程に旧魔導院の廃棄技術と類似する痕跡（第零機関への接続）"
-#     planted_at: "arc_01/CH09"
+#     description: "危険案件の汚染魔物（CH05）の壊れ方に旧魔導院の廃棄技術と類似する痕跡（第零機関への接続。ボスの汚職とは無関係）"
+#     planted_at: "arc_01/CH05"
 #     payoff_due: "第零機関関連アーク（未定）"
 #     status: "planned"
 
