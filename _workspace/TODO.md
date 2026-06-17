@@ -8,12 +8,14 @@
 - [x] D節【CH16演出】（演算的・手続き的リスク）は本リデザインで解消（連携必殺＝駆け引き化）。下のD節該当項目は削除する。
 - **【繰越・要確認】CSVの追加同期（TODO逸脱・正本→派生原則を優先）**: 当初TODOは「row11は不変／row17は代償源差替のみ」だったが、CH11・CH12正本の変更（隠蔽設備確認→余裕観測）と片側更新禁止により **row11・row12も余裕観測へ同期**、row17は要件自壊/自滅の残骸も含め全文同期、row18は「偶然の事故」→「偶発的な事故（カバーストーリー）」へ表記統一。問題なければ確認のみで可。
 
-## A0b. 【新規 2026-06-17】世界観の中核エンジン化（多神クラン乱立）の章派生
-2026-06-17、世界軸を「律神教条の一神支配」→「信仰＝実利の循環で思想が自己強化され各神クランが乱立・衝突する世界」へ変更（正本反映済：setting_worldview.yaml / divine_economy・dogmatism格下げ、concept.yaml / core_conflict・escalation_rule、OVERVIEW.md）。律神教条は敵の一パターンへ降格。章派生が未反映。
-- [ ] CH01：暗殺者に闘神の加護を付与（『腕では勝てない』の根拠＝闘神加護。要件攻略は核にしない＝disclosure_rule。catharsis_core〔人目製造で職業撤退〕は不変）。CSV row1・arc_summary同期
-- [ ] CH05：魔獣を獣神の加護持ちへ整合（『汚染廃液で本能＝獣神要件が壊れた魔獣』＝生物的に強いが本能が壊れて隙ができる、で既存核と接続）。CSV row5・arc_summary同期
-- [ ] grep全列挙で旧フレーム残骸を点検——『教条主義システム＝世界の支配制度』『律神以外＝異端』等が章・CSV・arc_summaryに残っていないか。必要なら deprecated_terms 登録
-- [ ] 闘神・獣神は setting_worldview pantheon の記述以上に深掘りしない（氷山。要件攻略の核化はarc1で禁止）
+## A0b. 【完了 2026-06-17】世界観の中核エンジン化＋辺境経済＋ボス汚職の再設計の章派生
+正本反映済：①多神クラン乱立（setting_worldview / divine_economy・dogmatism格下げ、concept / core_conflict・escalation_rule、OVERVIEW）②辺境都市の二重依存経済（city_navel / frontier_economy、guild / raison_detre＝魔獣討伐＆素材経済の管理独占）。章派生も全消化（grep全列挙→章正本→arc_summary/CSV→deprecated_terms）。残骸再検査済（実データの汚染/廃液/異端ヒットは全て正当＝負の文・差別語・誤読ラベル・移行記録）。
+- [x] 【ボス汚職の再設計】汚職＝(主)危険な討伐を規定人数・保護以下の編成で下請けに使い潰し費用着服＋死を握り潰す／(従)魔獣素材の買い叩き・横流し（蓄財＝CH17、横流し利権＝CH18）。廃液汚染チェーン廃止。波及：arc_summary local_evil／CH06・07・09・10・16・17・18／CSV row5
+- [x] 【CH05再設計】魔獣＝獣神の真っ当に強い獣（異常化させない）。敗因＝規定人数以下で教条の規定陣形が組めず破綻。ノルクは現物の獣の本能を読み段1で窓→マーレンの一撃（連携必殺の前振り維持）。揉み消し要員＝「規定人数以下だった記録」を消す。読む文法ライン維持。CSV row5・arc_summary同期済
+- [x] 【第零機関フック付け替え】「魔獣の壊れ方の旧魔導院痕跡」→「討伐現場の隅の旧施設痕跡にノルクだけが気づく」。CH05・CH09 design_note・arc_summary sub_quest・resources_states 例コメント同期
+- [x] CH01：暗殺者に闘神の加護を付与（浅い頭出し＝disclosure_rule。catharsis_core不変）。build_up＋design_note
+- [x] deprecated_terms登録＋残骸点検：密造網エントリ更新＋『汚染魔物／壊れた習性／残存反射』系を新規登録。grep全列挙で残骸ゼロ確認
+- [x] 闘神・獣神は setting_worldview pantheon の記述以上に深掘りしない（氷山。要件攻略の核化はarc1で禁止）＝遵守
 
 ## A. 執筆着手前のプロット品質ゲート（順序依存・上から消化）
 2026-06-12のスキーマ改修（catharsis_core必須化・階層検査）により、執筆着手前に既存プロットの品質ゲート通過が必要になった。
