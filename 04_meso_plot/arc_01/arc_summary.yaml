@@ -20,7 +20,7 @@ macro_linkage:
 macro_peaks:
   # アーク全体で最大化する変数（探求/報酬/驚き/危機）。priority_variables準拠。
   primary_variable: "報酬"   # 教条のエリートを叩き潰す蹂躙のカタルシス
-  secondary_variable: "驚き" # 必死に誤魔化す本人と『深淵の化け物』誤認のギャップ
+  secondary_variable: "驚き" # 必死に誤魔化す本人と『底の知れない化け物』誤認のギャップ
 
 acts:
   # 本作自身のカタルシス曲線（積み上げ→絶望→蹂躙）。各段＝role（構造役割の一文）＋drive_variable。読みレンズは起承転結（補助線）。
