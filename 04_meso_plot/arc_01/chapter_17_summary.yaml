@@ -19,7 +19,7 @@ design_notes:
   - "【有形報酬4】ボスの遺産（不正蓄財の隠し金庫の回収）。番号の正本は arc_summary.yaml / reward_chain。"
   - "【無形報酬4】マーレンの畏怖と気付き——打算ラッピングの亀裂。CH15で読者だけが知っていた空振りが、事後の三層物証（崩れた生身＝身体／達成条件充足＝行動／隠そうとした仕草＝意図）で彼女に届く。質量の核は『涼しい顔の手練れの仮面が彼女の前で崩れる落差』——頭痛単体でなく、CH16でセリファに加護のゆらぎを読ませ続けた高負荷の代償（同僚の残響に触れた反動＝hidden_want・死の拒絶直結）の噴出として『隠匿の破れ』を事象化することで、roadmap step1（ノルク＝知られる／マーレン＝揺らぐの完成）の決定的着地に見合う重量を持たせる。心酔でなく『危うさ（綱渡り）』への気付き（characters.yaml / marlen concept_relation・marlen.growth_roadmap step1 に準拠、reader_knowledge管理）。"
   - "代償の発露は一過性で死の拒絶・隠匿の範囲内。exposure_level（システム検知）には影響せず、人的目撃はマーレンのみ（reader_knowledge.yaml で管理）。"
-  - "超火力（遺技ロード・砲撃特化）は第1アークでは温存＝抜かない。確信崩しの連携で決着するため不要であり、隠匿リスクも冒さない（リスク管理の徹底＝キャラ整合）。存在は『底知れない余力』として匂わせるに留め、初使用と出所開示は後のアーク（concept.yaml / catharsis_engine.series_engine の超火力部）。代償の発生源はCH16で加護のゆらぎを高負荷で読ませ続けた負荷＝同僚の残響に触れた反動（setting_magic.yaml / biological_cost.second_cost）。"
+  - "超火力（遺技ロード・砲撃特化）は第1アークでは温存＝抜かない。確信崩しの連携で決着するため不要であり、何より超火力の最大コスト＝セリファの残響摩耗（仲間の最後の欠片を失うリスク。hidden_want・死の拒絶直結）を冒せない＝温存の本当の理由（隠匿リスク回避は副次。setting_magic.yaml / legacy_load.cost・biological_cost.second_cost）。存在は『底知れない余力』として匂わせるに留め、初使用と出所開示は後のアーク（concept.yaml / catharsis_engine.series_engine の超火力部・arsenal_progression）。代償の発生源はCH16で加護のゆらぎを高負荷で読ませ続けた負荷＝同僚の残響に触れた反動（setting_magic.yaml / biological_cost.second_cost）。"
 
 scenes:
   - scene_01: "丸裸のボスを最小の一手で呆気なく片付ける（超火力は抜かない）"
