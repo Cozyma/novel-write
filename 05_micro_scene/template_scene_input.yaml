@@ -6,9 +6,11 @@ pov_character: "TBD"
 # 規律：①WHAT限定（動詞と事実のみ。情景の再話＝HOW を混ぜない＝arc_summary の episode_index と同じ構造的ドリフトを招く）
 #       ②正本なのは起稿〜再生成フェーズのみ。07_final_text 確定後は本文が正本に戻り本セクションは履歴（双方向同期を永続させない）
 #       ③採用発明・修正は decision_log 経由でここへ還流（章核に関わるものは catharsis_core へ）。物理整合・行動妥当性は描写を盛る前にこの事象レベルで検算・修正する。
+#       ④（任意）load-bearing な「シーン固有の決め台詞」は該当 event に fixed_line で語句ごと固定してよい。ただし章の核を成す台詞は catharsis_core、全話横断の口癖は characters.yaml / dialogue_samples が正本——それらはここへ複製せず参照する（一台詞一ホーム＝SELF_REVIEW §3c【決め台詞の正本配置】）。
 event_timeline:
   - id: E1
     event: "[起こる事実を動詞で。例：主人公が現場に到着し、敵が人質を詰めている]"
+    # fixed_line: "[シーン固有の決め台詞を語句ごと固定する場合のみ。核台詞・口癖はここに複製せず catharsis_core / dialogue_samples を参照]"
   # - id: E2 ...（時系列順に原子的事象を列挙）
 
 # Pre-Hook検証用：以下が明確でないと生成プロンプトを発行しない
