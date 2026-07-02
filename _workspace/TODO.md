@@ -34,10 +34,11 @@ L4ワークフロー（ARCHITECTURE.md [Hook: L4執筆時]）に従う。
 
 **【スパイク実施 2026-06-17・気付き採取】** CH01 scene_01（救出戦）を3パターン試作（06_draft_output/chapter_01/）——三人称ノルク寄り・感覚厚め（scene_01_draft.md）／一人称・厚め（scene_01_draft_1stperson.md）。気付き：①「淡泊」は感覚描写の増量で解消（POV非依存と実証）②描写を厚くしても三人称ノルク寄りは内心3点で抑制＝余裕の誤認が強い／一人称は必死さ＋笑いが内から出るが隠匿の運用ルールが要る。**判断状況**: (a) 語り＝**一人称に確定**（2026-06-18。三人称版とのA/B比較→一人称採用。文体アンカー兼用。正本＝scene_01_input.yaml pov_character）。残る保留＝(b) 文体トーン（乾いた言い回しの温度・実執筆で詰める）。**(c) 連載粒度＝scene単位で1話に確定（2026-06-18）**＝第1話scene_01／第2話scene_02。decision_log（各ドラフト末尾）＝scene_input/DBが埋めるべき項目の経験リスト（暗殺者の闘神加護の戦闘型・スラムの地理質感 等）。**【採用・formalize済 2026-06-17】event_timeline（描写中立の原子的事象列＝語り非依存の正本）を導入**——scene_01_input.yaml に試作し、両POVを同一事象から再生成して「事象固定で描写だけ差し替わる」を実証。レビューのフィックス（区画全体警報/捕縛/初手読み/撤退の損得）を事象レベルで一括継承。ARCHITECTURE L4フック＋template_scene_input に規律3点（WHAT限定/ライフサイクル/還流）を明文化。→ POV決定は再生成が安くなったので低コストで先送り可。
 
-- [ ] 第1話のscene_input作成（open_questions列挙→対話解決→全resolved確認）
-- [ ] 第1話の初版自動生成＋decision_log提出
-- [ ] 自動バリデーション＋人間判定ループの実地検証（差し戻し・還流の動線確認）
-- [ ] 章完成時の台帳反映（decision_log→02_dynamic_states）サイクルの検証
+- [x] 【完了 2026-06-18】第1話（scene_01）のscene_input作成＋初版自動生成＋decision_log提出（open_questions全resolved。人間判定の修正2巡＝灰の斡旋所の初出管理 2026-06-18／スィグナ護衛廃止 2026-06-19 を event_timeline へ還流済）
+- [x] 【完了 2026-06-19】第2話（scene_02）のscene_input＋初版ドラフト＋decision_log（食事モチーフ導入込み。open_questionsは提案resolution付き＝最終確認は人間判定に併合）
+- [ ] scene_01/02 の人間判定（読了判定）→ 07_final_text への確定（未通過＝07_final_textは空。確定後に event_timeline は履歴へ降格）
+- [ ] 自動バリデーション（④）の実地検証（検査器 `00_system/validate.py`〔2026-07-02新設〕を scene_input／章summaryへ適用）
+- [ ] 章完成時の台帳反映（decision_log→02_dynamic_states）サイクルの検証 ← B節【台帳初期投入】とセットで実施（scene_02 open_questions の reader_knowledge 初期投入案を参照）
 
 ## D. 保留中の設計論点（執筆をブロックしない・壁打ち待ち）
 - [ ] 【プロット再編】新キャラ（ファン枠後輩・名家の令嬢・狂信者バーサーカー）の本格登場を第2アーク方針確定後に詳細プロットへ落とし込む（第1アーク内の種まきは反映済み）

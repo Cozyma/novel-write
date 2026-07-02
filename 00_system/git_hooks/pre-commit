@@ -1,0 +1,43 @@
+#!/bin/sh
+# pre-commit — ARCHITECTURE.md [Hook: コミット前] の機械化（2026-07-02新設）
+# ① deprecated_terms.yaml の全パターンを実データ領域へ grep（残骸検査）
+# ② CONTEXT.md / TODO.md の反映確認リマインド
+# いずれも非ブロック（exit 0）——ヒット＝即違反ではなく文脈確認の対象（台帳の note 参照）。
+# 有効化: git config core.hooksPath 00_system/git_hooks
+
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+DATA_DIRS="01_static_database 02_dynamic_states 03_macro_concept 04_meso_plot 05_micro_scene 06_draft_output 07_final_text"
+TERMS_FILE="00_system/deprecated_terms.yaml"
+
+echo "=== [コミット前フック] deprecated_terms 残骸検査 ==="
+hits=0
+sed -n 's/^[[:space:]]*- pattern: "\(.*\)"[[:space:]]*$/\1/p' "$TERMS_FILE" | while IFS= read -r pat; do
+  [ -z "$pat" ] && continue
+  found=$(grep -rEn "$pat" $DATA_DIRS 2>/dev/null)
+  if [ -n "$found" ]; then
+    echo "--- pattern: $pat"
+    echo "$found"
+    echo ""
+  fi
+done > /tmp/deprecated_hits.$$ 2>/dev/null
+# サブシェル対策：出力ファイルの有無でヒット判定
+if [ -s /tmp/deprecated_hits.$$ ]; then
+  hits=1
+  cat /tmp/deprecated_hits.$$
+  echo ">>> ヒットあり＝即違反ではなく文脈確認の対象（$TERMS_FILE の note に既知の正当ヒットを記載）。"
+else
+  echo "残骸ヒットなし。"
+fi
+rm -f /tmp/deprecated_hits.$$
+
+echo "=== [コミット前フック] 反映確認 ==="
+staged=$(git diff --cached --name-only)
+for f in _workspace/CONTEXT.md _workspace/TODO.md; do
+  if ! echo "$staged" | grep -qx "$f"; then
+    echo "注意: $f がステージに含まれていません（決定事項・引き継ぎの反映漏れがないか確認）"
+  fi
+done
+echo "ルール領域（ARCHITECTURE / SELF_REVIEW / variable_rules）への反映要否も確認のこと。"
+
+exit 0

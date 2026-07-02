@@ -52,7 +52,8 @@
 ### ケースE: コミット
 - コミット前フックのみ（deprecated_termsスイープ＋CONTEXT/TODO反映確認）。追加の読み込み不要
 
-### ケースF: L4執筆（シーン生成。未実施・着手時に実績で更新すること）
-- **必読**: 対象章summary（catharsis_coreゲート確認）/ `template_scene_input.yaml` / `characters.yaml`の登場キャラoutput_hook / ARCHITECTURE [Hook: L4執筆時]
-- **必要時**: `02_dynamic_states`の3台帳（長距離・累積・誤読）/ 直前章summary・前シーン本文
+### ケースF: L4執筆（シーン生成。CH01 scene_01/02 の実績で更新 2026-07-02）
+- **必読**: 対象章summary（catharsis_coreゲート確認）/ `template_scene_input.yaml` / ARCHITECTURE [Hook: L4執筆時] / `SELF_REVIEW.md` §1・§2＋§3c（レンダー層セルフパス）/ `characters.yaml`の登場キャラ（output_hook・dialogue_samples・speech_rule）
+- **必要時**: 直前シーンの scene_input＋本文（継続性——固有名の初出管理・段1反動の引き継ぎで実績あり）/ `setting_magic.yaml` biological_cost（代償描写の単一出典＝TODO.md E項）/ `02_dynamic_states`の3台帳（長距離・累積・誤読。初期投入後）
 - **読まない**: `_workspace`内の旧ドラフト（旧語彙が残存。TODO.md E項）
+- **生成前ゲート**: `00_system/validate.py` でスキーマ・open_questions全resolved・【負荷】上限を機械検査（④自動バリデーションの検査器）
