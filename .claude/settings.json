@@ -6,7 +6,11 @@
       "Bash(sh 00_system/git_hooks/pre-commit)",
       "Bash(python 00_system/validate.py)",
       "Bash(echo \"exit=$?\")",
-      "Bash(python 00_system/validate.py 05_micro_scene/template_scene_input.yaml 04_meso_plot/template_chapter_summary.yaml)"
+      "Bash(python 00_system/validate.py 05_micro_scene/template_scene_input.yaml 04_meso_plot/template_chapter_summary.yaml)",
+      "Bash(git update-index *)",
+      "Bash(echo \"---\\(exit $?\\)---\")",
+      "Bash(echo \"\\(exit $?\\)\")",
+      "Bash(echo \"sweep exit=$?\")"
     ]
   }
 }

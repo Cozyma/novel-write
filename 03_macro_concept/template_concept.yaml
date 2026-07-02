@@ -26,15 +26,15 @@ evils:
   internal: "[内的な敵：諦め、恐怖、自己防衛など]"
 
 # -----------------------------------------------------
-# 【2. Catharsis Engine（ギャップ無双・快感の出力装置）】
+# 【2. Catharsis Engine（誤認ギャップ×綱渡り・快感の出力装置）】
 # -----------------------------------------------------
 core_misunderstanding:
   truth: "[真実：読者と主人公側だけが知っている圧倒的な事実]"
   public_misconception: "[世間の誤認：表社会や敵が抱く過小評価や見当違い]"
   
 catharsis_engine:
-  trigger: "[無双の引き金：どのような状況下で力を振るうか]"
-  execution: "[蹂躙のプロセス：敵の常識をどう打ち砕くか]"
+  trigger: "[発火条件：どのような状況で衝突が始まり、何が賭かるか]"
+  execution: "[決着のプロセス：工夫と代償のやりくりで、敵の理屈をどう内側から詰ませるか]"
   reaction: "[周囲の反応：目撃者の畏怖や、さらに深まる勘違い]"
 
 tone_contrast:
@@ -47,7 +47,7 @@ tone_contrast:
 series_engine:
   long_term_mystery: "[長期的な謎：全体を通して小出しにする最大の伏線や謎]"
   escalation_rule: "[エスカレーション法則：章ごとに敵や舞台のスケールがどう拡大するか]"
-  reward_cycle: "[報酬のループ構造：「過小評価（底辺手配屋）→危機→無双（元最凶兵器）→畏怖」の定番展開パターン]"
+  reward_cycle: "[報酬のループ構造：「過小評価→危機→綱渡りの決着→畏怖と誤読の深化」の定番展開パターン]"
 
 # -----------------------------------------------------
 # 【4. Priority Variables（マクロ4変数の抽象集約）】
@@ -62,6 +62,6 @@ priority_variables:
 validation_hook:
   # 「記入されているか（ハコの存在）」ではなく「具体的に言えるか」を検査する。抽象語・約束手形は不可。
   is_dramatic_skeleton_defined: false
-  is_catharsis_engine_defined: false # 蹂躙のプロセスが具体的な手順として書けているか
+  is_catharsis_engine_defined: false # 決着のプロセスが具体的な手順として書けているか
   is_series_engine_defined: false
   is_variable_aggregation_stated: false # 本作の面白さがマクロ4変数の式として一文で言えるか
