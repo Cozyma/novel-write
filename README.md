@@ -13,7 +13,8 @@
 ├── CLAUDE.md                 # Claude Code用エントリポイント（AGENTS.mdを読み込む）
 ├── AGENTS.md                 # 【AI規約】エージェントの振る舞い・運用ルール（AI必読）
 ├── _workspace/               # 【自由検討領域】人間とAIの壁打ち・メモ（AIは指示なしに読み込まない）
-│   ├── CONTEXT.md            # 作業文脈・決定事項ログ（セッション開始時に必読）
+│   ├── CONTEXT.md            # 作業文脈・決定事項ログ（セッション開始時に必読・直近のみ保持）
+│   ├── CONTEXT_archive.md    # 過去ログの移設先（通常セッションでは読まない）
 │   ├── TODO.md               # 執筆TODO（セッション開始時に必読）
 │   ├── 01_macro_notes/       # 企画・キャラクター設計の検討ログ
 │   ├── 02_meso_notes/        # 話数ごとの展開や変数のピーク調整
@@ -22,14 +23,17 @@
 │   └── imported_settings/    # 旧プロジェクトから取り込んだ設定（精査済み・正式版はDBへ移行済み）
 ├── 00_system/                # 【システムルール】プロンプトと制約条件の定義
 │   ├── ARCHITECTURE.md       # 4階層アーキテクチャ・参照チェーン・運用フック（構造ルールの正本）
-│   ├── SELF_REVIEW.md        # AIの自己検証・メタチェック指針
+│   ├── SELF_REVIEW.md        # AIの自己検証・メタチェック指針（フェーズ別 §3a/3b/3c）
+│   ├── REFERENCE_MAP.md      # 作業ケース別の最小参照セット（トークン節約の索引）
 │   ├── variable_rules.md     # 7変数の定義・判定基準（変数定義の正本）
+│   ├── deprecated_terms.yaml # 廃止語彙・死語台帳（コミット前フックが機械grep）
+│   ├── validate.py           # scene_input／chapter_summary のスキーマ・負荷上限・生成ゲートの検査器
+│   ├── git_hooks/            # バージョン管理された git フック（pre-commit＝残骸grep＋反映確認）
 │   ├── trait_patterns.yaml   # キャラ特性×変数寄与の抽象パターン定義（マッピング層）
 │   └── prompt_templates/     # 処理別（生成、推敲、状態抽出）のプロンプト
 ├── 01_static_database/       # 【不変データ】世界観・キャラクターの絶対的真実（語彙の単一出典）
 │   ├── characters.yaml       # 人物DB（経歴、口調、story_hooks、output_hook）
-│   ├── world/                # 世界観、地理、用語集、歴史的ルール
-│   └── timeline.md           # 絶対時間の総合年表（出来事が起きた時系列）
+│   └── world/                # 世界観、地理、用語集、歴史的ルール
 ├── 02_dynamic_states/        # 【動的データ】本文（正本）から再構成困難な状態のみの派生台帳（章完成時更新）
 │   ├── character_states.yaml # 累積カウンタ（exposure_level等：全話を読み返さないと合計できない値）
 │   ├── resources_states.yaml # 長距離の事実・チェーホフの銃台帳（隣接コンテキスト外で回収される仕込み）
@@ -45,12 +49,18 @@
 │       └── scene_YY_input.yaml # 起こる事実（Fact）・open_questions・段落ごとの変数指定
 ├── 06_draft_output/          # 【AI生成結果】AIが出力した一次原稿
 │   └── chapter_XX/
-│       ├── scene_YY_draft.md  # 生成された本文テキスト（decision_logを必ず添付）
-│       └── scene_YY_eval.json # テキストに対するAIの変数自己評価スコア
+│       └── scene_YY_draft*.md # 生成された本文テキスト（decision_log・セルフパス結果を必ず添付）
 └── 07_final_text/            # 【最終成果物】人間が推敲・確定した最終原稿
 ```
 
-※ `05_micro_scene/` 以下の格納は章（chapter）単位で切る。L3が章単位のため、シーンの親は常に章である。
+※ `05_micro_scene/` 以下の格納は章（chapter）単位で切る。L3が章単位のため、シーンの親は常に章である。連載粒度はシーン単位＝1話（2026-06-18確定）。
+
+### セットアップ（新規クローン時）
+
+```sh
+git config core.hooksPath 00_system/git_hooks   # コミット前フック（deprecated_terms残骸grep＋CONTEXT/TODO反映確認）を有効化
+python 00_system/validate.py                    # scene_input／chapter_summary の機械検査（依存ライブラリ不要）
+```
 
 ## 2. 7変数のスコープ（解像度）定義
 
@@ -67,13 +77,13 @@
   - 短距離の状態は台帳ではなく直近コンテキスト（前シーン本文・章サマリー）から再構成する。台帳・直近本文と矛盾する描写を禁止する。
 - **Step 2: Generation（描写のレンダリング）**
   - **処理**: ARCHITECTURE.mdのL4フローに従い本文を生成し、サマリーに無い判断を `decision_log` として添付する。
-  - **出力先**: `06_draft_output/episode_XX/scene_YY_draft.md`
+  - **出力先**: `06_draft_output/chapter_XX/scene_YY_draft*.md`
 - **Step 3: 状態関連イベントの抽出**
   - **処理**: decision_logと本文から「台帳対象の変化」のみを抽出する——長距離の仕込み（チェーホフの銃）、累積カウンタの加算（exposure_level等）、認識・誤読モデルの変化、読者への開示。短距離の物理変化は抽出対象外（本文が正本）。
 - **Step 4: Commit（章完成時の台帳反映）**
   - **処理**: 毎シーンではなく**章（チャプター）完成・人間判定通過後**に、Step 3の抽出分を台帳へ反映する。「正本（本文）→派生（台帳）」の同期方向を厳守（ARCHITECTURE.md 2.1参照）。
 - **Step 5: Validation-Hook（論理チェック）**
-  - **処理**: 更新後の台帳が `01_static_database/` の世界観ルールやタイムラインと矛盾していないかを機械的に検証する。【負荷】が上限値（80%）を超えている場合、または論理破綻を検知した場合は処理を停止し、人間にアラートを出力する。
+  - **処理**: 更新後の台帳が `01_static_database/` の世界観ルールと矛盾していないかを検証する。機械検査可能な項目（スキーマ準拠・open_questions全resolved＝生成ゲート・【負荷】上限80%・語彙）は `00_system/validate.py` が担う。論理破綻を検知した場合は処理を停止し、人間にアラートを出力する。
 
 ## 4. エージェントへの基本命令（Prompt Grounding）
 

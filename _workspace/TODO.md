@@ -37,6 +37,7 @@ L4ワークフロー（ARCHITECTURE.md [Hook: L4執筆時]）に従う。
 - [x] 【完了 2026-06-18】第1話（scene_01）のscene_input作成＋初版自動生成＋decision_log提出（open_questions全resolved。人間判定の修正2巡＝灰の斡旋所の初出管理 2026-06-18／スィグナ護衛廃止 2026-06-19 を event_timeline へ還流済）
 - [x] 【完了 2026-06-19】第2話（scene_02）のscene_input＋初版ドラフト＋decision_log（食事モチーフ導入込み。open_questionsは提案resolution付き＝最終確認は人間判定に併合）
 - [ ] scene_01/02 の人間判定（読了判定）→ 07_final_text への確定（未通過＝07_final_textは空。確定後に event_timeline は履歴へ降格）※scene_01 は2026-07-02の事象改変（E6逃走試行の死・E10三点測量・E13一発勝負）で該当区間を再レンダー済＝再判定対象
+- [ ] 【新規 2026-07-02】第3話（CH02＝1話統合）の人間判定——input＋初版ドラフト生成済（05_micro_scene/chapter_02/scene_01_input.yaml／06_draft_output/chapter_02/scene_01_draft_1stperson.md）。粒度判断（CH02を1話に統合）と発明4件（清書回収・消せる側の読み・名乗り初出・遵守率100%照会）の承認込み
 - [ ] 自動バリデーション（④）の実地検証（検査器 `00_system/validate.py`〔2026-07-02新設〕を scene_input／章summaryへ適用）
 - [ ] 章完成時の台帳反映（decision_log→02_dynamic_states）サイクルの検証 ← B節【台帳初期投入】とセットで実施（scene_02 open_questions の reader_knowledge 初期投入案を参照）
 
