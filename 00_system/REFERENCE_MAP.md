@@ -15,6 +15,7 @@
 | 加護の二類型（普遍/固有）・神の履歴・対抗文化・真信者・分配則 | `01_static_database/world/setting_worldview.yaml`（dogmatism配下） |
 | 組織（ギルド/斡旋所/第零機関/ヴェルミ）・社会語彙（査定官/無加護/濁り血/清血） | `setting_worldview.yaml`（organizations / vocabulary） |
 | 古い血（種族の実体・氷山） | `setting_worldview.yaml` / old_blood |
+| 命名規則（ノルド語ベース＋アレンジ・レジスタ分け） | `setting_worldview.yaml` / naming_rules |
 | ノルクの手札①〜⑤と誤読対・切り札の概要 | `01_static_database/characters.yaml` / nork combat_style |
 | 切り札の制約詳細（生体負荷・感情ノイズ・隠匿・遮断）・条項告発・遺技ロード・破礼具 | `01_static_database/world/setting_magic.yaml` |
 | バディ対比（二種類の自前） | `setting_magic.yaml` / combat_contrast.buddy_contrast |
