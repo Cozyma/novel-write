@@ -14,7 +14,9 @@
       "Bash(python 00_system/validate.py 05_micro_scene/chapter_02/scene_01_input.yaml)",
       "Bash(python 00_system/validate.py 05_micro_scene/chapter_01/scene_02_input.yaml)",
       "Bash(echo \"---\\(exit $?\\)\")",
-      "Bash(echo \"---グリム残骸チェック終了\\(exit $?\\)\")"
+      "Bash(echo \"---グリム残骸チェック終了\\(exit $?\\)\")",
+      "Bash(echo \"---残骸チェック\\(exit $?\\)\")",
+      "Bash(python 00_system/validate.py 05_micro_scene/chapter_03/scene_01_input.yaml)"
     ]
   }
 }
