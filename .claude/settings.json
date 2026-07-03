@@ -11,7 +11,8 @@
       "Bash(echo \"---\\(exit $?\\)---\")",
       "Bash(echo \"\\(exit $?\\)\")",
       "Bash(echo \"sweep exit=$?\")",
-      "Bash(python 00_system/validate.py 05_micro_scene/chapter_02/scene_01_input.yaml)"
+      "Bash(python 00_system/validate.py 05_micro_scene/chapter_02/scene_01_input.yaml)",
+      "Bash(python 00_system/validate.py 05_micro_scene/chapter_01/scene_02_input.yaml)"
     ]
   }
 }
