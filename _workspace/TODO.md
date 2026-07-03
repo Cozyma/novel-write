@@ -32,6 +32,13 @@
 ## C. Phase 4: L4 Nano Scene（執筆とシステム連動の検証）
 L4ワークフロー（ARCHITECTURE.md [Hook: L4執筆時]）に従う。
 
+- [ ] 【再現性実験 2026-07-02起票・次セッションの最初のタスク】第4話のブラインド再生成→ズレ測定。目的＝event_timeline（逆生成済み）＋最新規律群から現行ドラフトがどれだけ再現できるか＝人間フィードバックの成果がシステムに固定された度合いの実測。手順：
+  ①参照はケースFの最小セットのみ——chapter_03_summary／05_micro_scene/chapter_03/scene_01_input.yaml（E1-E9・fixed_line・generation_blocks）／00_system/prompt_templates/scene_generation_prompt.md／SELF_REVIEW §1・§2・§3c／characters.yaml の登場キャラ（nork・marlen・viktel・serifa＝appearance/speech_rule/layer_rule【自己神話の分析禁止】込み）／継続性用に直前話ドラフト（06_draft_output/chapter_02/scene_01_draft_1stperson.md）
+  ②【ブラインド条件・厳守】既存の 06_draft_output/chapter_03/scene_01_draft_1stperson.md は**本文・改稿ログ・decision_log 含め一切読まない**（読むと実験が汚染される）
+  ③出力先＝06_draft_output/chapter_03/scene_01_regen_1stperson.md（比較用の別ファイル。セルフパス③'＋decision_log 添付・validate 実行）
+  ④生成完了後に**初めて**既存ドラフトを開き、ズレを3層で分類して報告——(a)事象レベル（E列の解釈差）(b)台詞・ビートレベル（fixed_line/予約語以外の発明差）(c)文体・温度レベル。特定したいのは「input に無く、人間フィードバックでしか入らなかった要素」＝正本の穴
+  ⑤regen は比較用であり、人間判定なしに正本ドラフトを置き換えない
+
 **【スパイク実施 2026-06-17・気付き採取】** CH01 scene_01（救出戦）を3パターン試作（06_draft_output/chapter_01/）——三人称ノルク寄り・感覚厚め（scene_01_draft.md）／一人称・厚め（scene_01_draft_1stperson.md）。気付き：①「淡泊」は感覚描写の増量で解消（POV非依存と実証）②描写を厚くしても三人称ノルク寄りは内心3点で抑制＝余裕の誤認が強い／一人称は必死さ＋笑いが内から出るが隠匿の運用ルールが要る。**判断状況**: (a) 語り＝**一人称に確定**（2026-06-18。三人称版とのA/B比較→一人称採用。文体アンカー兼用。正本＝scene_01_input.yaml pov_character）。残る保留＝(b) 文体トーン（乾いた言い回しの温度・実執筆で詰める）。**(c) 連載粒度＝scene単位で1話に確定（2026-06-18）**＝第1話scene_01／第2話scene_02。decision_log（各ドラフト末尾）＝scene_input/DBが埋めるべき項目の経験リスト（暗殺者の闘神加護の戦闘型・スラムの地理質感 等）。**【採用・formalize済 2026-06-17】event_timeline（描写中立の原子的事象列＝語り非依存の正本）を導入**——scene_01_input.yaml に試作し、両POVを同一事象から再生成して「事象固定で描写だけ差し替わる」を実証。レビューのフィックス（区画全体警報/捕縛/初手読み/撤退の損得）を事象レベルで一括継承。ARCHITECTURE L4フック＋template_scene_input に規律3点（WHAT限定/ライフサイクル/還流）を明文化。→ POV決定は再生成が安くなったので低コストで先送り可。
 
 - [x] 【完了 2026-06-18】第1話（scene_01）のscene_input作成＋初版自動生成＋decision_log提出（open_questions全resolved。人間判定の修正2巡＝灰の斡旋所の初出管理 2026-06-18／スィグナ護衛廃止 2026-06-19 を event_timeline へ還流済）
