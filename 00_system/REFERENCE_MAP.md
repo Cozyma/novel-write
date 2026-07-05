@@ -26,6 +26,7 @@
 | 長距離伏線（muddy_blood_paradox・第零機関の種） | `02_dynamic_states/resources_states.yaml` |
 | 累積カウンタ（nork.exposure_level） | `02_dynamic_states/character_states.yaml` |
 | キャラ別誤読モデル・読者開示 | `02_dynamic_states/reader_knowledge.yaml` |
+| 第1アーク凍結レイヤー（仲間・第零機関・ヴェルミ・遺技ロード）の運用規律 | `03_macro_concept/concept.yaml` 冒頭コメント（2026-07-05） |
 | 没案の退避先 | `_workspace/01_macro_notes/discarded_ideas.md` |
 | 部隊ロスター草案（仮置き・未確定） | `_workspace/01_macro_notes/squad_roster_draft.md` |
 
@@ -40,7 +41,7 @@
 ### ケースB: 章の核・プロットの壁打ち（対象1〜2章）
 - **必読**: `template_chapter_summary.yaml` / 対象章＋前後章のsummary / `SELF_REVIEW.md`【面白さの核の実在検証】
 - **必要時**: `characters.yaml`（登場キャラのみ）/ `concept.yaml`（catharsis_engine・misunderstanding_escalation）/ `arc_summary.yaml` 該当幕(acts) / CSV該当行
-- **読まない**: 関係しない章。worldview・magicは該当項目のみ（全文不要）
+- **読まない**: 関係しない章。worldview・magicは該当項目のみ（全文不要）。**第1アーク凍結レイヤー**（仲間・第零機関・ヴェルミ・遺技ロードの深層＝nork background深層・legacy_load・zero_institution/vermi）——章設計の材料にしない（concept.yaml冒頭の凍結規律・2026-07-05）
 
 ### ケースC: スキーマ移行・全章一括の整合作業
 - **必読**: 対象テンプレート / 対象全ファイル / CSV / `arc_summary.yaml`
@@ -56,5 +57,5 @@
 ### ケースF: L4執筆（シーン生成。CH01 scene_01/02 の実績で更新 2026-07-02）
 - **必読**: 対象章summary（catharsis_coreゲート確認）/ `template_scene_input.yaml` / ARCHITECTURE [Hook: L4執筆時] / `00_system/prompt_templates/scene_generation_prompt.md`（レンダー規律の正本＝ミクロ変数の定量制御・描写厳守3点）/ `SELF_REVIEW.md` §1・§2＋§3c（レンダー層セルフパス）/ `characters.yaml`の登場キャラ（output_hook・appearance・dialogue_samples・speech_rule）
 - **必要時**: 直前シーンの scene_input＋本文（継続性——固有名の初出管理・段1反動の引き継ぎで実績あり）/ `setting_magic.yaml` biological_cost（代償描写の単一出典＝TODO.md E項）/ `02_dynamic_states`の3台帳（長距離・累積・誤読。初期投入後）
-- **読まない**: `_workspace`内の旧ドラフト（旧語彙が残存。TODO.md E項）
+- **読まない**: `_workspace`内の旧ドラフト（旧語彙が残存。TODO.md E項）。**第1アーク凍結レイヤー**（仲間・第零機関・ヴェルミ・遺技ロードの深層）——本文へ開示しない・材料にしない（concept.yaml冒頭の凍結規律・2026-07-05。接点はCH05一行／CH16-17相棒破損リスク／CH19引きの3点のみ）
 - **生成前ゲート**: `00_system/validate.py` でスキーマ・open_questions全resolved・【負荷】上限を機械検査（④自動バリデーションの検査器）

@@ -14,9 +14,10 @@
 #     does_not_know: ["セリファの存在", "ヴェルミ・抹消された経歴", "遺技ロードの仕組み"]
 
 # 読者への開示状況（誤認設計・優越感の管理）
+# revealed_to_reader の値は3段階（2026-07-05是正＝ドラフト実態への同期）: true（言語化済み）/ implied（行為から推定可能・言語化未開示）/ false（未開示）。
 # 例:
 # reader_disclosure:
 #   - info_id: "nork_true_motive"
 #     description: "介入の真の動機が義理であること（打算ラッピングの中身）"
-#     revealed_to_reader: true    # 読者は知っている
-#     revealed_to_characters: []  # 作中では誰も知らない（読者の優越感の源泉）
+#     revealed_to_reader: "implied"  # 行為の連なりと言い訳の空々しさから察せる。一人称は言語化を拒む（『考えないことにした』）。由来（仲間・隊の不文律）は false 相当の完全未開示
+#     revealed_to_characters: []     # 作中では誰も知らない（読者の優越感は『言い訳が噓だと行為で分かる』ことで成立＝動機の言語化を要しない）

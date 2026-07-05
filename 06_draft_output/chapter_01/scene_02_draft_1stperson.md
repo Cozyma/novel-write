@@ -2,7 +2,7 @@
 
 - 生成元: 05_micro_scene/chapter_01/scene_02_input.yaml の event_timeline **E1-E9**（語り非依存の固定事象列）
 - 2026-06-18 初版。語り＝ノルク一人称（scene_01 と同一・文体アンカー準拠）。open_questions 全デフォルト解決済み。
-- 「なぜ助けた」問答＝二重勘違いの確立＋斡旋所への招き。決め台詞は chapter_01_summary act3_climax（turn・cliffhanger）が正本ホーム。
+- 「なぜ助けた」問答＝強者誤認の確立（力のズレに人柄のズレが合流。2026-07-05是正＝旧記「二重勘違い」）＋斡旋所への招き。決め台詞は chapter_01_summary act3_climax（turn・cliffhanger）が正本ホーム。
 - 末尾にレンダー層セルフパス結果ログ（ARCHITECTURE ③' / SELF_REVIEW §3）。
 
 ---
