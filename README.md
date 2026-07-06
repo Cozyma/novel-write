@@ -38,7 +38,8 @@
 │   ├── ARCHITECTURE.md       # 4階層アーキテクチャ・参照チェーン・運用フック（構造ルールの正本）
 │   ├── SELF_REVIEW.md        # AIの自己検証・メタチェック指針（フェーズ別 §3a/3b/3c）
 │   ├── REFERENCE_MAP.md      # 作業ケース別の最小参照セット（トークン節約の索引）
-│   ├── variable_rules.md     # 7変数の定義・判定基準（変数定義の正本）
+│   ├── variable_rules.md     # 7変数の定義・判定基準（変数定義の正本。§0＝診断軸であり生成ターゲットにしない）
+│   ├── UNIVERSAL_LESSONS.md  # プロジェクト非依存の普遍教訓（定式生成の不可能性・観測可能性ゲート・オラクル中心設計）
 │   ├── deprecated_terms.yaml # 廃止語彙・死語台帳（コミット前フックが機械grep）
 │   ├── validate.py           # scene_input／chapter_summary のスキーマ・負荷上限・生成ゲートの検査器
 │   ├── git_hooks/            # バージョン管理された git フック（pre-commit＝残骸grep＋反映確認）
