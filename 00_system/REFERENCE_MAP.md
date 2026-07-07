@@ -25,11 +25,12 @@
 | 成長ロードマップ（バディ二人制・最重要・暫定） | ノルク=`concept.yaml`/protagonist_growth_roadmap、マーレン=`characters.yaml`/marlen.growth_roadmap、二人制検査=`ARCHITECTURE.md` 2.3 |
 | 章の核・ビート（正本。CSV・arc_summaryは派生） | `04_meso_plot/arc_01/chapter_XX_summary.yaml` |
 | 長距離伏線（muddy_blood_paradox・第零機関の種） | `02_dynamic_states/resources_states.yaml` |
-| 累積カウンタ（nork.exposure_level） | `02_dynamic_states/character_states.yaml` |
-| キャラ別誤読モデル・読者開示 | `02_dynamic_states/reader_knowledge.yaml` |
+| 累積カウンタ（金銭・ツケ等の真の合算値のみ。exposure_level・誤読台帳は廃止 2026-07-07＝ARCHITECTURE 2.1） | `02_dynamic_states/character_states.yaml` |
 | 第1アーク凍結レイヤー（仲間・第零機関・ヴェルミ・遺技ロード）の運用規律 | `03_macro_concept/concept.yaml` 冒頭コメント（2026-07-05） |
-| 没案の退避先 | `_workspace/01_macro_notes/discarded_ideas.md` |
-| 部隊ロスター草案（仮置き・未確定） | `_workspace/01_macro_notes/squad_roster_draft.md` |
+| 没案の退避先 | `_workspace/archive/01_macro_notes/discarded_ideas.md` |
+| 部隊ロスター草案（仮置き・未確定） | `_workspace/archive/01_macro_notes/squad_roster_draft.md` |
+| **A2再構成の拘束文書（憲章・骨格・戦闘カノン）** | `_workspace/canon/`（最上位＝arc01_rebuild_charter.md。権威マップ＝README §1b） |
+| 試作台帳（判定ログ・注意台帳）とレンダー | `_workspace/probes/arc01_probes.md`（親専用）・`_workspace/probes/renders/`（コールドの参照面） |
 
 ## 2. 作業ケース→最小参照セット
 
@@ -60,3 +61,9 @@
 - **必要時**: 直前シーンの scene_input＋本文（継続性——固有名の初出管理・段1反動の引き継ぎで実績あり）/ `setting_magic.yaml` biological_cost（代償描写の単一出典＝TODO.md E項）/ `02_dynamic_states`の3台帳（長距離・累積・誤読。初期投入後）
 - **読まない**: `_workspace`内の旧ドラフト（旧語彙が残存。TODO.md E項）。**第1アーク凍結レイヤー**（仲間・第零機関・ヴェルミ・遺技ロードの深層）——本文へ開示しない・材料にしない（concept.yaml冒頭の凍結規律・2026-07-05。接点はCH05一行／CH16-17相棒破損リスク／CH19引きの3点のみ）
 - **生成前ゲート**: `00_system/validate.py` でスキーマ・open_questions全resolved・【負荷】上限を機械検査（④自動バリデーションの検査器）
+
+### ケースG: A2第1アーク再構成（試作ループ・2026-07-07新設）
+- **必読（親セッション＝設計・判定記帳役）**: `_workspace/canon/` 3本（憲章=最上位／骨格／戦闘カノン）＋ `_workspace/probes/arc01_probes.md`（試作台帳＝判定ログ・注意台帳。**親専用**）
+- **コールドレンダー**: 渡すのはパケット（`_workspace/probes/renders/`）＋憲章＋骨格のみ。**試作台帳・旧ドラフト（06）・characters.yaml は渡さない**（台帳汚染の実測＝試作1 v4・注意⓮パケット方式）
+- **読まない**: 01〜06のプール全般（参照は「候補」扱い・借用は decision_log で申告＝憲章§2。再承認済みキー＝`# status: reapproved` は拘束あり）／CONTEXT の直近セッションより前／`_workspace/archive/`
+- **判定**: 人間の読了判定が終了条件。複数項目はレビューシート方式（ARCHITECTURE §3 [Hook: 複数項目フィードバック時]）

@@ -17,6 +17,16 @@
 
 構造ルール・イベントフックの正本は [00_system/ARCHITECTURE.md](00_system/ARCHITECTURE.md)、エージェントの振る舞い規約は [AGENTS.md](AGENTS.md)、セルフレビュー指針は [00_system/SELF_REVIEW.md](00_system/SELF_REVIEW.md)。
 
+## 1b. 権威マップ（A2再構成期間の特例・2026-07-06〜）
+
+第1アーク全面再構成（人間決定・憲章参照）の期間中、権威の所在は通常の4階層と**異なる**：
+
+- **拘束文書＝ `_workspace/canon/`**——`arc01_rebuild_charter.md`（憲章・最上位）→ `arc01_skeleton_draft.md`（骨格）→ `arc01_combat_canon_draft.md`（戦闘カノン）
+- **`01_static_database/`〜`06_draft_output/` は提案プール**＝拘束力なし（各直下の `_POOL_NOTICE.md` 参照）。例外＝`# status: reapproved` コメント付きのキーのみ再承認済み＝拘束あり
+- **`00_system/` は作業規約として全面有効**（設定ではなくプロセス。ただし文中の実例は旧設定を指すことがある＝再構成確定後に差し替え）
+- 試作の実執筆は `_workspace/probes/`（台帳＝親専用／`renders/`＝コールドレンダーの参照面。最小参照セット＝REFERENCE_MAP ケースG）
+- **再構成確定後**: 新世代正本は版付きサブディレクトリ（例 `04_meso_plot/arc_01_v2/`）へ着地し、本節を撤去して通常の4階層権威へ戻す（憲章 §7-3）
+
 ## 2. 全体ディレクトリ構造
 
 ```plaintext
@@ -25,15 +35,12 @@
 ├── OVERVIEW.md               # 企画概要（編集者・レビュアー向け。物語の中身はこちら）
 ├── CLAUDE.md                 # Claude Code用エントリポイント（AGENTS.mdを読み込む）
 ├── AGENTS.md                 # 【AI規約】エージェントの振る舞い・運用ルール（AI必読）
-├── _workspace/               # 【自由検討領域】人間とAIの壁打ち・メモ（AIは指示なしに読み込まない）
+├── _workspace/               # 【作業領域】（2026-07-07に3層へ再編）
 │   ├── CONTEXT.md            # 作業文脈・決定事項ログ（セッション開始時に必読・直近のみ保持）
-│   ├── CONTEXT_archive.md    # 過去ログの移設先（通常セッションでは読まない）
 │   ├── TODO.md               # 執筆TODO（セッション開始時に必読）
-│   ├── 01_macro_notes/       # 企画・キャラクター設計の検討ログ
-│   ├── 02_meso_notes/        # 話数ごとの展開や変数のピーク調整
-│   ├── 02_meso_plot/         # プロット草案（旧版含む。正式版は 04_meso_plot/ のみを参照）
-│   ├── 03_micro_notes/       # シーン内の具体的な行動（Fact）の推敲
-│   └── imported_settings/    # 旧プロジェクトから取り込んだ設定（精査済み・正式版はDBへ移行済み）
+│   ├── canon/                # 【現行の拘束文書】憲章・骨格・戦闘カノン（→ §1b 権威マップ）
+│   ├── probes/               # 試作台帳（arc01_probes.md＝親専用）／renders/＝レンダー本文・パケット（コールドの参照面）
+│   └── archive/              # 旧ログ（CONTEXT_archive）・旧notes・棚卸し記録（通常セッションでは読まない。旧語彙残存）
 ├── 00_system/                # 【システムルール】プロンプトと制約条件の定義
 │   ├── ARCHITECTURE.md       # 4階層アーキテクチャ・参照チェーン・運用フック（構造ルールの正本）
 │   ├── SELF_REVIEW.md        # AIの自己検証・メタチェック指針（フェーズ別 §3a/3b/3c）
@@ -43,15 +50,14 @@
 │   ├── deprecated_terms.yaml # 廃止語彙・死語台帳（コミット前フックが機械grep）
 │   ├── validate.py           # scene_input／chapter_summary のスキーマ・負荷上限・生成ゲートの検査器
 │   ├── git_hooks/            # バージョン管理された git フック（pre-commit＝残骸grep＋反映確認）
-│   ├── trait_patterns.yaml   # キャラ特性×変数寄与の抽象パターン定義（マッピング層）
 │   └── prompt_templates/     # 処理別（生成、推敲、状態抽出）のプロンプト
 ├── 01_static_database/       # 【不変データ】世界観・キャラクターの絶対的真実（語彙の単一出典）
 │   ├── characters.yaml       # 人物DB（経歴、口調、story_hooks、output_hook）
 │   └── world/                # 世界観、地理、用語集、歴史的ルール
 ├── 02_dynamic_states/        # 【動的データ】本文（正本）から再構成困難な状態のみの派生台帳（章完成時更新）
-│   ├── character_states.yaml # 累積カウンタ（exposure_level等：全話を読み返さないと合計できない値）
+│   ├── character_states.yaml # 累積カウンタ（金銭・ツケ等の真の合算値のみ。exposure_level は廃止 2026-07-07）
 │   ├── resources_states.yaml # 長距離の事実・チェーホフの銃台帳（隣接コンテキスト外で回収される仕込み）
-│   └── reader_knowledge.yaml # 認識・誤読台帳（キャラ別の対ノルク誤読モデル＋読者への開示状況）
+│   └── reader_knowledge.yaml # 廃止（2026-07-07・トリガー付き保留＝ARCHITECTURE 2.1。ファイルはプール素材として残置）
 ├── 03_macro_concept/         # 【L1 作品方針】コンセプト・優先変数（concept.yaml / template_concept.yaml）
 ├── 04_meso_plot/             # 【L2/L3 プロット】アーク・チャプター構成（template_*.yaml がスキーマ正本）
 │   └── arc_XX/
@@ -89,7 +95,7 @@ python 00_system/validate.py                    # scene_input／chapter_summary 
   - **処理**: ARCHITECTURE.mdのL4フローに従い本文を生成し、サマリーに無い判断を `decision_log` として添付する。
   - **出力先**: `06_draft_output/chapter_XX/scene_YY_draft*.md`
 - **Step 3: 状態関連イベントの抽出**
-  - **処理**: decision_logと本文から「台帳対象の変化」のみを抽出する——長距離の仕込み（チェーホフの銃）、累積カウンタの加算（exposure_level等）、認識・誤読モデルの変化、読者への開示。短距離の物理変化は抽出対象外（本文が正本）。
+  - **処理**: decision_logと本文から「台帳対象の変化」のみを抽出する——長距離の仕込み（チェーホフの銃＝planted/fired）と真の累積値（金銭・ツケ等）の加算のみ（認識・誤読台帳と目撃露出度は廃止 2026-07-07＝ARCHITECTURE 2.1）。短距離の物理変化は抽出対象外（本文が正本）。
 - **Step 4: Commit（章完成時の台帳反映）**
   - **処理**: 毎シーンではなく**章（チャプター）完成・人間判定通過後**に、Step 3の抽出分を台帳へ反映する。「正本（本文）→派生（台帳）」の同期方向を厳守（ARCHITECTURE.md 2.1参照）。
 - **Step 5: Validation-Hook（論理チェック）**

@@ -7,7 +7,8 @@
 
 cd "$(git rev-parse --show-toplevel)" || exit 1
 
-DATA_DIRS="01_static_database 02_dynamic_states 03_macro_concept 04_meso_plot 05_micro_scene 06_draft_output 07_final_text"
+# 2026-07-07: A2期間の新規執筆域（_workspace/canon・probes/renders）を検査対象へ追加（ARCHITECTURE [Hook: コミット前]）
+DATA_DIRS="01_static_database 02_dynamic_states 03_macro_concept 04_meso_plot 05_micro_scene 06_draft_output 07_final_text _workspace/canon _workspace/probes/renders"
 TERMS_FILE="00_system/deprecated_terms.yaml"
 
 echo "=== [コミット前フック] deprecated_terms 残骸検査 ==="

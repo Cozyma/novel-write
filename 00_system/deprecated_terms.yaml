@@ -97,5 +97,5 @@ deprecated_terms:
     note: "死語なのは『ノルクの術式系を神と無関係の系統と定義する』用法のみ。『非神行使』（魔導具の市井の弱い行使＝mana_substrate.design_rule）は別概念で正当。ノルクが現行経済の台帳上『無加護』である事実は不変（CH16ランク外の勝ち筋は無傷）。移行を記録する側の文（本台帳・CONTEXT）は正当ヒット。"
   - pattern: "不協和音の痕跡|波形を監視|干渉波形|遮断結界|遮断設備|dissonance_trace|隠匿制約"
     reason: "教条システムによる波形の自動監視（dissonance_trace）・遮断結界を機構ごと完全削除（2026-07-05・人間決定）。律神は一クランに格下げ済みで、世界規模の監視網は多神経済と矛盾する律神＝世界OS化のドリフト残滓だった。序盤ドラフトが描いてきた脅威も一貫して人の目・照会・噂であり、機械の監視は物語に一度も参加していなかった（つじつま合わせ先行の設計を廃止）。"
-    replacement: "隠匿の生存則（setting_magic.yaml / concealment_rule）＝①人目と噂（誤読『謎の加護持ち』が隠れ蓑）②セリファの摩耗（義理の制約＝応援燃料直結）③伏せ札の温存。stakes.lose＝追っ手の顔はヴェルミを消した主体（縦軸の敵）。exposure_level は目撃露出度（噂・神話化の燃料）へ再定義（character_states.yaml）。"
+    replacement: "隠匿の生存則（setting_magic.yaml / concealment_rule）＝①人目と噂（誤読『謎の加護持ち』が隠れ蓑）②セリファの摩耗（義理の制約＝応援燃料直結）③伏せ札の温存。stakes.lose＝追っ手の顔はヴェルミを消した主体（縦軸の敵）。exposure_level は目撃露出度（噂・神話化の燃料）へ再定義（character_states.yaml）→ 2026-07-07にカウンタ自体を廃止（台帳縮小＝ARCHITECTURE 2.1。数値カウンタを持たない）。"
     note: "《不協和音》はノルクのコードネーム（部隊の音楽用語テーマ・naming_rules）として正当・存続。CH01の『干渉波』（暗殺者の人除け結界＝市井の魔導具）は別概念で正当。移行を記録する側の文（concealment_rule・character_states・章design_notesの削除注記）は正当ヒット。"

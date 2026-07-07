@@ -24,7 +24,7 @@
       "Bash(sed -i 's/拘束は憲章（_workspace\\\\/arc01_rebuild_charter.md）の不可侵5点のみ・仮採用正本を死守しない/拘束は憲章の不可侵4点のみ（縁者型は暫定方針・核の式は仮説）・仮採用正本を死守しない/' MEMORY.md)",
       "PowerShell($t = Get-Content \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\5c1753ff-3e82-4216-baab-aa53d8e63eb8\\\\scratchpad\\\\draft_probe2.txt\" -Raw -Encoding UTF8; \\($t -replace '\\\\s',''\\).Length)",
       "Bash(git -C /c/Users/pn-t-kojima/Documents/novel-write diff --stat)",
-      "Bash(git -C /c/Users/pn-t-kojima/Documents/novel-write diff -- _workspace/arc01_probes.md)",
+      "Bash(git -C /c/Users/pn-t-kojima/Documents/novel-write diff -- _workspace/probes/arc01_probes.md)",
       "Bash(git -C /c/Users/pn-t-kojima/Documents/novel-write diff -- .claude/settings.json)",
       "PowerShell($t = Get-Content \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\ee6d3db1-3498-4f14-9a21-63d182d9eb36\\\\scratchpad\\\\probe2_v6_render.md\" -Raw -Encoding UTF8; $body = \\($t -split '### decision_log'\\)[0] -replace '# 試作2 v6 レンダー（コールドスタート・E1〜E9固定）','' -replace '## 本文',''; \\($body -replace '\\\\s',''\\).Length)",
       "PowerShell($t = Get-Content \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\ee6d3db1-3498-4f14-9a21-63d182d9eb36\\\\scratchpad\\\\probe3_v2_render.md\" -Encoding UTF8 -Raw; $start = $t.IndexOf\\(\"該当なし\"\\); $end = $t.IndexOf\\(\"### decision_log\"\\); $body = $t.Substring\\($start, $end - $start\\); \\($body -replace '\\\\s',''\\).Length)",
@@ -34,7 +34,8 @@
       "Skill(artifact-design)",
       "Skill(artifact-design:*)",
       "PowerShell(\\(Get-ItemProperty \"HKCU:\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\User Shell Folders\"\\).\"{374DE290-123F-4565-9164-39C4925E467B}\"; Get-ChildItem \"$env:USERPROFILE\" -Directory | Select-Object -ExpandProperty Name)",
-      "Read(//c/pn-t-kojima/**)"
+      "Read(//c/pn-t-kojima/**)",
+      "Bash(python -)"
     ]
   }
 }
