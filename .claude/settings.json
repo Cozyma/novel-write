@@ -30,7 +30,11 @@
       "PowerShell($t = Get-Content \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\ee6d3db1-3498-4f14-9a21-63d182d9eb36\\\\scratchpad\\\\probe3_v2_render.md\" -Encoding UTF8 -Raw; $start = $t.IndexOf\\(\"該当なし\"\\); $end = $t.IndexOf\\(\"### decision_log\"\\); $body = $t.Substring\\($start, $end - $start\\); \\($body -replace '\\\\s',''\\).Length)",
       "PowerShell($p = \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\ee6d3db1-3498-4f14-9a21-63d182d9eb36\\\\scratchpad\\\\probe1_v1_render.md\"; $t = Get-Content $p -Raw -Encoding UTF8; $body = \\($t -split '### decision_log'\\)[0]; $body = \\($body -split '## 本文'\\)[1]; $clean = $body -replace '\\\\s',''; $clean.Length)",
       "PowerShell($t = Get-Content \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\ee6d3db1-3498-4f14-9a21-63d182d9eb36\\\\scratchpad\\\\probe1_v2_render.md\" -Raw -Encoding UTF8; $body = \\($t -split '### decision_log'\\)[0]; $clean = $body -replace '\\\\s',''; $clean.Length)",
-      "PowerShell($t = Get-Content \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\ee6d3db1-3498-4f14-9a21-63d182d9eb36\\\\scratchpad\\\\probe1_v2_render.md\" -Raw -Encoding UTF8; $body = \\($t -split '### decision_log'\\)[0]; \\($body -replace '\\\\s',''\\).Length)"
+      "PowerShell($t = Get-Content \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\ee6d3db1-3498-4f14-9a21-63d182d9eb36\\\\scratchpad\\\\probe1_v2_render.md\" -Raw -Encoding UTF8; $body = \\($t -split '### decision_log'\\)[0]; \\($body -replace '\\\\s',''\\).Length)",
+      "Skill(artifact-design)",
+      "Skill(artifact-design:*)",
+      "PowerShell(\\(Get-ItemProperty \"HKCU:\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\User Shell Folders\"\\).\"{374DE290-123F-4565-9164-39C4925E467B}\"; Get-ChildItem \"$env:USERPROFILE\" -Directory | Select-Object -ExpandProperty Name)",
+      "Read(//c/pn-t-kojima/**)"
     ]
   }
 }
