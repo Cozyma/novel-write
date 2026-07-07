@@ -1,0 +1,399 @@
+<title>試作4 v1 読了判定シート</title>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --ink: #2b2a26;
+    --ink-soft: #6b675e;
+    --line: #e3ddd2;
+    --accent: #3d5a80;
+    --accent-soft: #e8eef5;
+    --good: #2e7d4f;
+    --good-bg: #e3f1e8;
+    --mid: #b07d10;
+    --mid-bg: #f7edd4;
+    --bad: #b03a2e;
+    --bad-bg: #f8e3e0;
+    --prose-bg: #fffdf9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201f1c;
+      --surface: #2a2925;
+      --ink: #e8e4dc;
+      --ink-soft: #a09a8e;
+      --line: #44423c;
+      --accent: #8fb0d4;
+      --accent-soft: #32405233;
+      --good: #7fc79d;
+      --good-bg: #23392c;
+      --mid: #d9b35c;
+      --mid-bg: #3d3521;
+      --bad: #e08a80;
+      --bad-bg: #462a26;
+      --prose-bg: #262521;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201f1c;
+    --surface: #2a2925;
+    --ink: #e8e4dc;
+    --ink-soft: #a09a8e;
+    --line: #44423c;
+    --accent: #8fb0d4;
+    --accent-soft: #32405233;
+    --good: #7fc79d;
+    --good-bg: #23392c;
+    --mid: #d9b35c;
+    --mid-bg: #3d3521;
+    --bad: #e08a80;
+    --bad-bg: #462a26;
+    --prose-bg: #262521;
+  }
+  :root[data-theme="light"] {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --ink: #2b2a26;
+    --ink-soft: #6b675e;
+    --line: #e3ddd2;
+    --accent: #3d5a80;
+    --accent-soft: #e8eef5;
+    --good: #2e7d4f;
+    --good-bg: #e3f1e8;
+    --mid: #b07d10;
+    --mid-bg: #f7edd4;
+    --bad: #b03a2e;
+    --bad-bg: #f8e3e0;
+    --prose-bg: #fffdf9;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 2rem 1rem 5rem;
+  }
+  main { max-width: 44rem; margin: 0 auto; }
+  header h1 {
+    font-size: 1.35rem;
+    margin: 0 0 .3rem;
+    letter-spacing: .02em;
+    text-wrap: balance;
+  }
+  header .sub {
+    color: var(--ink-soft);
+    font-size: .85rem;
+    margin: 0 0 1.5rem;
+  }
+  .howto {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: .7rem 1rem;
+    font-size: .85rem;
+    margin-bottom: 2rem;
+  }
+  section.seg {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 1.4rem;
+    overflow: hidden;
+  }
+  .seg-head {
+    display: flex;
+    align-items: baseline;
+    gap: .6rem;
+    padding: .6rem 1rem .4rem;
+    flex-wrap: wrap;
+  }
+  .seg-head h2 { font-size: .95rem; margin: 0; }
+  .chip {
+    font-size: .7rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: .1rem .6rem;
+    white-space: nowrap;
+  }
+  .prose {
+    background: var(--prose-bg);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 1rem 1.2rem;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    font-size: .98rem;
+    line-height: 2;
+  }
+  .prose p { margin: 0 0 1em; }
+  .prose p:last-child { margin-bottom: 0; }
+  .judge {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .7rem 1rem;
+    flex-wrap: wrap;
+  }
+  .judge .label { font-size: .8rem; color: var(--ink-soft); }
+  .jbtn {
+    font-size: 1.05rem;
+    width: 2.6rem;
+    height: 2.2rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .jbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .jbtn[data-v="o"].on { background: var(--good-bg); border-color: var(--good); color: var(--good); font-weight: bold; }
+  .jbtn[data-v="s"].on { background: var(--mid-bg); border-color: var(--mid); color: var(--mid); font-weight: bold; }
+  .jbtn[data-v="x"].on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
+  .memo {
+    flex: 1 1 14rem;
+    font: inherit;
+    font-size: .85rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--prose-bg);
+    color: var(--ink);
+    padding: .4rem .6rem;
+    min-height: 1.4rem;
+    resize: vertical;
+  }
+  .overall {
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  .overall h2 { font-size: 1rem; margin: 0 0 .6rem; }
+  .overall h3 { font-size: .85rem; margin: 1rem 0 .3rem; }
+  .obtns { display: flex; gap: .5rem; margin-bottom: .7rem; }
+  .obtn {
+    font-size: 1.1rem;
+    width: 3rem;
+    height: 2.4rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .obtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .obtn.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: bold; }
+  .overall textarea { width: 100%; box-sizing: border-box; }
+  .req { color: var(--bad); font-size: .75rem; }
+  .actions { margin-top: 1.5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .primary {
+    font: inherit;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 6px;
+    padding: .6rem 1.4rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .primary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  #out {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    font-family: Consolas, monospace;
+    font-size: .8rem;
+    min-height: 16rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--prose-bg);
+    color: var(--ink);
+    padding: .6rem;
+    display: none;
+  }
+  .note { font-size: .75rem; color: var(--ink-soft); margin-top: .4rem; }
+</style>
+
+<main>
+<header>
+  <h1>試作4（連結時間線版・試作6の夜の回収）v1 — 読了判定シート</h1>
+  <p class="sub">親レンダー・約1250字・◎狙い（誤解の換金） ｜ 前提: 試作6 v3を既読 ｜ 2026-07-07 ｜ 台帳: _workspace/probes/arc01_probes.md</p>
+</header>
+
+<div class="howto">
+  各段を読んで <strong>○（良い）／△（可・課題あり）／×（不満）</strong> をクリック、気づきがあればメモへ。最後に総評（◎○△×）と<strong>「一番良かった一拍」（必須）</strong>を記入し、「テキストで表示」→全文コピー→チャットに貼り付けてください。途中経過は自動保存されます。
+</div>
+
+<div id="segs"></div>
+
+<div class="overall">
+  <h2>総評</h2>
+  <div class="obtns" id="obtns">
+    <button class="obtn" data-v="◎">◎</button>
+    <button class="obtn" data-v="○">○</button>
+    <button class="obtn" data-v="△">△</button>
+    <button class="obtn" data-v="×">×</button>
+  </div>
+  <textarea class="memo" id="omemo" rows="3" placeholder="総評コメント（任意）"></textarea>
+  <h3>一番良かった一拍 <span class="req">※必須（△×判定でも1つ）</span></h3>
+  <textarea class="memo" id="best" rows="2" placeholder="どの文・どの一拍が一番良かったか（正例の採掘用）"></textarea>
+</div>
+
+<div class="actions">
+  <button class="primary" id="show">テキストで表示（コピー用）</button>
+</div>
+<textarea id="out" readonly></textarea>
+<p class="note">※サンドボックス制約によりダウンロード・自動コピーは使えません。表示されたテキストを Ctrl+C でコピーしてください。</p>
+</main>
+
+<script>
+const SEGS = [
+  {
+    t: "段1：噂の温度（E0）",
+    chip: "連結: 試作6の数日後",
+    body: [
+      "噂というのは、本人の足より速い。",
+      "数日ぶりに顔を出した札場は、入った瞬間だけ会話が薄くなった。視線が二つ三つ、こちらの手元と腰の剣を往復する。バッジ持ちを二人、素手で眠らせた男——話は既にそこまで育っているらしい。",
+      "〈当該の噂、把握している限りで三通りめです。相手の人数が三人に増えた版も流通しています〉"
+    ]
+  },
+  {
+    t: "段2：訂正しない理屈（E1）",
+    chip: "実利の内語",
+    body: [
+      "数えてどうする。とは思うが、あれの帳面は俺より暇に強い。訂正して回る手もない。噂を否定するには本当の話をするしかなく、本当の話のほうがよほど高くつく。俺は隅の板から安い回収札を一枚剥がし、それで終いにするつもりだった。"
+    ]
+  },
+  {
+    t: "段3：入場——格の供給と声の確信（E2）",
+    chip: "相互認知の起点",
+    body: [
+      "札場の音が、変わった。",
+      "入り口に男がひとり。上等な外套に、飾りのない剣。職員が帳面を置いて立ち、板の前の人垣が勝手に割れる。誰かが小声で名前を言った。ヴィクテル。聞いたことくらいはある。どこの組にも属さず、指名の値が金貨から始まる、という類の男。",
+      "その男の声を、俺は名前より先に知っていた。"
+    ]
+  },
+  {
+    t: "段4：探りの一往復（E3）",
+    chip: "「知っているが言わない」同士",
+    body: [
+      "外套の男は板をひととおり眺め、職員と二言三言交わし、それから、まっすぐこちらへ歩いてきた。",
+      "「近ごろ騒がしいな、ここは。バッジ持ちを二人、素手で眠らせた奴がいると聞いた」",
+      "「酔っ払いの話だ」",
+      "「だろうな。俺の聞いた版では三人になっていた」",
+      "男は笑わずにそう言った。目だけが笑っている。それ以上、互いに触れない。触れないという合意が、一往復で成立した。妙なものだ。殺し合った相手と、天気の話をするように立っている。"
+    ]
+  },
+  {
+    t: "段5：公認の一手（E4〜E5）",
+    chip: "◎の本丸: 格の変動×観衆",
+    body: [
+      "男は帳場へ向き直り、懐から金貨を一枚、台に置いた。",
+      "「依頼を一件。北の廃鉱の検分だ。受け手は指名にする」",
+      "職員が帳面を構える。男が指したのは、俺だった。",
+      "「そこの、判子の無いのに。腕は俺が保証する」",
+      "札場が静まった。金貨の依頼。指名。保証——高位が自分の名を貸す、という意味だ。板の前の全員が、値札を付け替える顔でこちらを見る。"
+    ]
+  },
+  {
+    t: "段6：保証の中身と受諾の損得（E6）",
+    chip: "皮肉の核: 誤読は実際の限界から",
+    body: [
+      "その保証の中身を知っているのは、この場で俺だけだった。あの夜の俺は、支払い一回ぶんの前借でようやく立っていた。あと一太刀続いていれば、保証される腕ごと石畳に転がっている。",
+      "受けない手を探した。目立つのは高くつく。だが「目立ちたくない」は、断り文句としては一番目立つ。それに財布の中身は、まだ銅貨で数える段だった。",
+      "「……検分と報告書までだ。掘りはしない」",
+      "「構わん」"
+    ]
+  },
+  {
+    t: "段7：去り際の含み（E7）",
+    chip: "相互認知の一拍（1回のみ）",
+    body: [
+      "男は返事の途中で踵を返していた。人垣の際で一度だけ振り向く。",
+      "「夜は冷える。火の始末には気をつけろ」",
+      "札場の音が戻ってくる。戻ってきた音の中に、俺の名を訊く声がいくつも混ざっていた。"
+    ]
+  },
+  {
+    t: "段8：〆——黒字の利子（E8）",
+    chip: "隠匿コストの残響",
+    body: [
+      "〈本日の収支、プラスです。大幅に〉",
+      "知っている。こういう黒字ほど、利子が怖い。"
+    ]
+  }
+];
+
+const KEY = "probe4_v1_review";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+state.segs = state.segs || SEGS.map(() => ({ v: "", memo: "" }));
+state.overall = state.overall || { v: "", memo: "", best: "" };
+if (state.overall.best === undefined) state.overall.best = "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+
+const MARK = { o: "○", s: "△", x: "×" };
+const wrap = document.getElementById("segs");
+
+SEGS.forEach((seg, i) => {
+  const sec = document.createElement("section");
+  sec.className = "seg";
+  const paras = seg.body.map(p => "<p>" + p + "</p>").join("");
+  sec.innerHTML =
+    '<div class="seg-head"><h2>' + seg.t + '</h2><span class="chip">' + seg.chip + "</span></div>" +
+    '<div class="prose">' + paras + "</div>" +
+    '<div class="judge"><span class="label">判定:</span>' +
+    '<button class="jbtn" data-v="o">○</button>' +
+    '<button class="jbtn" data-v="s">△</button>' +
+    '<button class="jbtn" data-v="x">×</button>' +
+    '<textarea class="memo" rows="1" placeholder="メモ（任意）"></textarea></div>';
+  wrap.appendChild(sec);
+
+  const btns = sec.querySelectorAll(".jbtn");
+  const memo = sec.querySelector(".memo");
+  function paint() {
+    btns.forEach(b => b.classList.toggle("on", MARK[b.dataset.v] === state.segs[i].v));
+  }
+  btns.forEach(b => b.addEventListener("click", () => {
+    const m = MARK[b.dataset.v];
+    state.segs[i].v = state.segs[i].v === m ? "" : m;
+    paint(); save();
+  }));
+  memo.value = state.segs[i].memo;
+  memo.addEventListener("input", () => { state.segs[i].memo = memo.value; save(); });
+  paint();
+});
+
+const obtns = document.querySelectorAll(".obtn");
+const omemo = document.getElementById("omemo");
+const best = document.getElementById("best");
+function paintO() {
+  obtns.forEach(b => b.classList.toggle("on", b.dataset.v === state.overall.v));
+}
+obtns.forEach(b => b.addEventListener("click", () => {
+  state.overall.v = state.overall.v === b.dataset.v ? "" : b.dataset.v;
+  paintO(); save();
+}));
+omemo.value = state.overall.memo;
+omemo.addEventListener("input", () => { state.overall.memo = omemo.value; save(); });
+best.value = state.overall.best;
+best.addEventListener("input", () => { state.overall.best = best.value; save(); });
+paintO();
+
+document.getElementById("show").addEventListener("click", () => {
+  const lines = ["【試作4 v1 読了判定】"];
+  SEGS.forEach((seg, i) => {
+    const s = state.segs[i];
+    lines.push("段" + (i + 1) + ": " + (s.v || "未") + (s.memo ? " | " + s.memo : ""));
+  });
+  lines.push("総評: " + (state.overall.v || "未") + (state.overall.memo ? " | " + state.overall.memo : ""));
+  lines.push("一番良かった一拍: " + (state.overall.best || "（未記入）"));
+  const out = document.getElementById("out");
+  out.value = lines.join("\n");
+  out.style.display = "block";
+  out.focus();
+  out.select();
+});
+</script>
+</main>
