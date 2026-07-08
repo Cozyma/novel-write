@@ -1,4 +1,4 @@
-<title>試作4 v3 読了判定シート</title>
+<title>試作7-2 v3 読了判定シート</title>
 <style>
   :root {
     --bg: #faf7f2;
@@ -18,133 +18,60 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #201f1c;
-      --surface: #2a2925;
-      --ink: #e8e4dc;
-      --ink-soft: #a09a8e;
-      --line: #44423c;
-      --accent: #8fb0d4;
-      --accent-soft: #32405233;
-      --good: #7fc79d;
-      --good-bg: #23392c;
-      --mid: #d9b35c;
-      --mid-bg: #3d3521;
-      --bad: #e08a80;
-      --bad-bg: #462a26;
-      --prose-bg: #262521;
+      --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+      --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+      --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+      --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #201f1c;
-    --surface: #2a2925;
-    --ink: #e8e4dc;
-    --ink-soft: #a09a8e;
-    --line: #44423c;
-    --accent: #8fb0d4;
-    --accent-soft: #32405233;
-    --good: #7fc79d;
-    --good-bg: #23392c;
-    --mid: #d9b35c;
-    --mid-bg: #3d3521;
-    --bad: #e08a80;
-    --bad-bg: #462a26;
-    --prose-bg: #262521;
+    --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+    --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+    --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+    --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
   }
   :root[data-theme="light"] {
-    --bg: #faf7f2;
-    --surface: #ffffff;
-    --ink: #2b2a26;
-    --ink-soft: #6b675e;
-    --line: #e3ddd2;
-    --accent: #3d5a80;
-    --accent-soft: #e8eef5;
-    --good: #2e7d4f;
-    --good-bg: #e3f1e8;
-    --mid: #b07d10;
-    --mid-bg: #f7edd4;
-    --bad: #b03a2e;
-    --bad-bg: #f8e3e0;
-    --prose-bg: #fffdf9;
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
   }
   body {
-    background: var(--bg);
-    color: var(--ink);
+    background: var(--bg); color: var(--ink);
     font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-    line-height: 1.7;
-    margin: 0;
-    padding: 2rem 1rem 5rem;
+    line-height: 1.7; margin: 0; padding: 2rem 1rem 5rem;
   }
   main { max-width: 44rem; margin: 0 auto; }
-  header h1 {
-    font-size: 1.35rem;
-    margin: 0 0 .3rem;
-    letter-spacing: .02em;
-    text-wrap: balance;
-  }
-  header .sub {
-    color: var(--ink-soft);
-    font-size: .85rem;
-    margin: 0 0 1.5rem;
-  }
+  header h1 { font-size: 1.35rem; margin: 0 0 .3rem; letter-spacing: .02em; text-wrap: balance; }
+  header .sub { color: var(--ink-soft); font-size: .85rem; margin: 0 0 1.5rem; }
   .howto {
-    background: var(--accent-soft);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: .7rem 1rem;
-    font-size: .85rem;
-    margin-bottom: 2rem;
+    background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px;
+    padding: .7rem 1rem; font-size: .85rem; margin-bottom: 2rem;
   }
   section.seg {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    margin-bottom: 1.4rem;
-    overflow: hidden;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    margin-bottom: 1.4rem; overflow: hidden;
   }
-  .seg-head {
-    display: flex;
-    align-items: baseline;
-    gap: .6rem;
-    padding: .6rem 1rem .4rem;
-    flex-wrap: wrap;
-  }
+  .seg-head { display: flex; align-items: baseline; gap: .6rem; padding: .6rem 1rem .4rem; flex-wrap: wrap; }
   .seg-head h2 { font-size: .95rem; margin: 0; }
   .chip {
-    font-size: .7rem;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border-radius: 999px;
-    padding: .1rem .6rem;
-    white-space: nowrap;
+    font-size: .7rem; background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; padding: .1rem .6rem; white-space: nowrap;
   }
   .prose {
-    background: var(--prose-bg);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    background: var(--prose-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
     padding: 1rem 1.2rem;
     font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
-    font-size: .98rem;
-    line-height: 2;
+    font-size: .98rem; line-height: 2;
   }
   .prose p { margin: 0 0 1em; }
   .prose p:last-child { margin-bottom: 0; }
-  .judge {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .7rem 1rem;
-    flex-wrap: wrap;
-  }
+  .judge { display: flex; align-items: center; gap: .5rem; padding: .7rem 1rem; flex-wrap: wrap; }
   .judge .label { font-size: .8rem; color: var(--ink-soft); }
   .jbtn {
-    font-size: 1.05rem;
-    width: 2.6rem;
-    height: 2.2rem;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--surface);
-    color: var(--ink);
-    cursor: pointer;
+    font-size: 1.05rem; width: 2.6rem; height: 2.2rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); color: var(--ink); cursor: pointer;
   }
   .jbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   .jbtn[data-v="m"].on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: bold; }
@@ -152,36 +79,22 @@
   .jbtn[data-v="s"].on { background: var(--mid-bg); border-color: var(--mid); color: var(--mid); font-weight: bold; }
   .jbtn[data-v="x"].on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
   .memo {
-    flex: 1 1 14rem;
-    font: inherit;
-    font-size: .85rem;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--prose-bg);
-    color: var(--ink);
-    padding: .4rem .6rem;
-    min-height: 1.4rem;
-    resize: vertical;
+    flex: 1 1 14rem; font: inherit; font-size: .85rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .4rem .6rem; min-height: 1.4rem; resize: vertical;
   }
   .overall {
-    background: var(--surface);
-    border: 2px solid var(--accent);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-top: 2rem;
+    background: var(--surface); border: 2px solid var(--accent); border-radius: 8px;
+    padding: 1rem; margin-top: 2rem;
   }
   .overall h2 { font-size: 1rem; margin: 0 0 .6rem; }
   .overall h3 { font-size: .85rem; margin: 1rem 0 .3rem; }
   .obtns { display: flex; gap: .5rem; margin-bottom: .7rem; }
   .obtn {
-    font-size: 1.1rem;
-    width: 3rem;
-    height: 2.4rem;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--surface);
-    color: var(--ink);
-    cursor: pointer;
+    font-size: 1.1rem; width: 3rem; height: 2.4rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); color: var(--ink); cursor: pointer;
   }
   .obtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   .obtn.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: bold; }
@@ -189,41 +102,29 @@
   .req { color: var(--bad); font-size: .75rem; }
   .actions { margin-top: 1.5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
   .primary {
-    font: inherit;
-    background: var(--accent);
-    color: var(--bg);
-    border: none;
-    border-radius: 6px;
-    padding: .6rem 1.4rem;
-    cursor: pointer;
-    font-weight: bold;
+    font: inherit; background: var(--accent); color: var(--bg);
+    border: none; border-radius: 6px; padding: .6rem 1.4rem;
+    cursor: pointer; font-weight: bold;
   }
   .primary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
   #out {
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 1rem;
-    font-family: Consolas, monospace;
-    font-size: .8rem;
-    min-height: 16rem;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--prose-bg);
-    color: var(--ink);
-    padding: .6rem;
-    display: none;
+    width: 100%; box-sizing: border-box; margin-top: 1rem;
+    font-family: Consolas, monospace; font-size: .8rem; min-height: 16rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .6rem; display: none;
   }
   .note { font-size: .75rem; color: var(--ink-soft); margin-top: .4rem; }
 </style>
 
 <main>
 <header>
-  <h1>試作4（連結時間線版・試作6の夜の回収）v3 — 読了判定シート</h1>
-  <p class="sub">親レンダー・約1400字・9段・最終版（3版＝上限） ｜ v2診断: ○段はv1へ全文復元／安値の口を入場前へ移設（入場が取引を遮る＝介入）／意味のない報告を削除 ｜ 前提: 試作6 v3を既読 ｜ 2026-07-07 ｜ 台帳: _workspace/probes/arc01_probes.md</p>
+  <h1>試作7-2 v3（札場デビュー・最終版）— 読了判定シート</h1>
+  <p class="sub">3版目＝上限（判定にかかわらずクローズ） ｜ 差し替え＝段5（手順と意味の明示）・段6（絡みの有機的トリガー＝銅記章の男が見とれていた顔を見られる）・段7（台詞の分かりやすさ） ｜ 他の段はv2不変 ｜ 2026-07-08 ｜ 台帳: 試作7改</p>
 </header>
 
 <div class="howto">
-  各段を読んで <strong>◎（本当に面白い）／○（良い）／△（可・課題あり）／×（不満）</strong> をクリック、気づきがあればメモへ。最後に総評（◎○△×）と<strong>「一番良かった一拍」（必須）</strong>を記入し、「テキストで表示」→全文コピー→チャットに貼り付けてください。途中経過は自動保存されます。
+  判定対象＝<strong>差し替え段（5・6・7）と段8（前回未判定）</strong>。他はスキップ可。最後に総評と<strong>「一番良かった一拍」（必須）</strong>→「テキストで表示」→コピー→チャットへ。途中経過は自動保存されます。
 </div>
 
 <div id="segs"></div>
@@ -237,7 +138,7 @@
     <button class="obtn" data-v="×">×</button>
   </div>
   <textarea class="memo" id="omemo" rows="3" placeholder="総評コメント（任意）"></textarea>
-  <h3>一番良かった一拍 <span class="req">※必須（△×判定でも1つ）</span></h3>
+  <h3>一番良かった一拍 <span class="req">※必須</span></h3>
   <textarea class="memo" id="best" rows="2" placeholder="どの文・どの一拍が一番良かったか（正例の採掘用）"></textarea>
 </div>
 
@@ -251,95 +152,94 @@
 <script>
 const SEGS = [
   {
-    t: "段1：噂の温度（E0）",
-    chip: "v1へ全文復元",
+    t: "段1：札場・初入場（E0）",
+    chip: "場の文法",
     body: [
-      "噂というのは、本人の足より速い。",
-      "数日ぶりに顔を出した札場は、入った瞬間だけ会話が薄くなった。視線が二つ三つ、こちらの手元と腰の剣を往復する。バッジ持ちを二人、素手で眠らせた男——話は既にそこまで育っているらしい。",
-      "〈当該の噂、把握している限りで三通りめです。相手の人数が三人に増えた版も流通しています〉"
+      "札場は朝から人の匂いで満ちていた。ギルドの裏手、天井の高い倉のような建物。壁一面が板で、板一面が札だった。札の前に人だかり。腰の得物と装備の質で、だいたいの階層が読める。俺の懐には木札が一枚。灰の斡旋所の印が捺してある。名前の代わりに、これを出せと言われていた。"
     ]
   },
   {
-    t: "段2：訂正しない理屈（E1）",
-    chip: "v1復元（指示語修正のみ）",
+    t: "段2：受付と割符（E1）",
+    chip: "外見タグ追加・台詞は◎凍結",
     body: [
-      "数えてどうする。とは思うが、相棒の帳面は俺の分まで細かい。訂正して回る手もない。噂を否定するには本当の話をするしかなく、本当の話のほうがよほど高くつく。俺は隅の板から安い回収札を一枚剥がし、それで終いにするつもりだった。"
+      "下請け窓口は板の右端にあった。受付は若い女で、勤めの制服を着崩し、明るく染めた髪を雑に留めている。化粧は濃いのに目だけが退屈で死んでいて、派手に塗った爪の先で台帳をめくっていた。",
+      "割符を出す。女は木札を一瞥し、印を見て、初めてこちらの顔を見た。",
+      "「灰の斡旋所。……へえ。まだ生きてたんだ、あの店」",
+      "「らしいな」",
+      "「名義は店、実働はあんた、と。呼び名は?」",
+      "「無い」",
+      "女は顔も上げずに何かを書き付けた。「じゃ、灰の割符さんで」"
     ]
   },
   {
-    t: "段3：安値の口——《判子》の相場（E1.5）",
-    chip: "移設: 入場前の日常の相場（v2段5×の修正）",
+    t: "段3：板と等級（E2＋セリファ）",
+    chip: "C9の画面化",
     body: [
-      "剥がした札を帳場へ出す。職員が札を検め、ついでのような手つきで、もう一枚を滑らせてきた。西の沼の間引き。夜通しの仕事で、数字は相場の半分のそのまた下だった。",
-      "「《判子》の無い口に回せる札は、こんなもんでね。噂で人数が増えても、帳面の信用は増えない」",
-      "理屈は分かる。何人眠らせた話が流れようと、台帳に載らない腕は値段にならない。あの夜の《前借》はとうに払い終えて、体は動く。値段だけが、動かない。財布の中身はまだ銅貨で数える段だった。受ける、と言いかけた。"
+      "板は下から上へ、五段に切ってあった。段ごとに札の色が違う。上の段ほど札は少なく、字が丁寧で、数字に桁がひとつ多い。",
+      "〈割符の等級を照合しました。触れられるのは、最下段のみです。〉",
+      "相棒の報告は正確で、余計なことを言わない。最下段——板の膝の高さ。しゃがまないと読めない位置に、誰も取らない札が疎らに刺さっている。段の高さがそのまま、人間の高さになっている場所だ、ここは。"
     ]
   },
   {
-    t: "段4：入場——取引を遮る（E2）",
-    chip: "v1復元・入場そのものが介入",
+    t: "段4：二枚選ぶ（E3）",
+    chip: "生活の数字＝能動",
     body: [
-      "札場の音が、変わった。",
-      "入り口に男がひとり。上等な外套に、飾りのない剣。職員が帳面を置いて立ち、板の前の人垣が勝手に割れる。誰かが小声で名前を言った。ヴィクテル。聞いたことくらいはある。どこの組にも属さず、指名の値が金貨から始まる、という類の男。",
-      "その男の声を、俺は名前より先に知っていた。"
+      "しゃがんで札を検める。西の資材置き場、荷揚げ、三日。古水路の鼠獲り、夜、一枚。昨日の帳場で聞いた相場の通り、どれも宿代の周りをうろつく数字だ。昼と夜を足せば、飯が付く。二枚を剥がした。"
     ]
   },
   {
-    t: "段5：探りの一往復（E3）",
-    chip: "「知っているが言わない」同士（v1復元）",
+    t: "段5：遠景一瞥（v3差し替え）",
+    chip: "手順と意味の明示",
     body: [
-      "外套の男は板をひととおり眺め、職員と二言三言交わし、それから、まっすぐこちらへ歩いてきた。",
-      "「近ごろ騒がしいな、ここは。バッジ持ちを二人、素手で眠らせた奴がいると聞いた」",
-      "「酔っ払いの話だ」",
-      "「だろうな。俺の聞いた版では三人になっていた」",
-      "男は笑わずにそう言った。目だけが笑っている。それ以上、互いに触れない。触れないという合意が、一往復で成立した。妙なものだ。殺し合った相手と、天気の話をするように立っている。"
+      "そのとき、札場の音が薄くなった。",
+      "戸口から入ってきた男がひとり、人だかりを裂いて板へ向かう。飾り気のない外套。誰も声をかけず、男も誰も見ない。男は板のいちばん上——俺が背伸びしても届かない段から札を一枚抜くと、来た時と同じ速さで出て行った。",
+      "順番待ちも、値段の相談もなし。上の段の札は、取れる人間が現れた時にだけ動くらしい。膝の高さで鼠の札を握っている身からすれば、天井の話だ。"
     ]
   },
   {
-    t: "段6：公認の一手（E4〜E5）",
-    chip: "◎の本丸: 半値→金貨の落差×観衆（v1復元＋一文）",
+    t: "段6：常連の絡み（v3差し替え）",
+    chip: "有機的トリガー＝見とれを見られる",
     body: [
-      "男は帳場へ向き直り、懐から金貨を一枚、台に置いた。",
-      "「依頼を一件。北の廃鉱の検分だ。受け手は指名にする」",
-      "職員が帳面を構える。男が指したのは、俺だった。",
-      "「そこの、《判子》の無いのに。腕は俺が保証する」",
-      "札場が静まった。金貨の依頼。指名。保証——高位が自分の名を貸す、という意味だ。半値の沼の紙が、職員の手の中で行き場を失っている。板の前の全員が、値札を付け替える顔でこちらを見る。"
+      "銅の記章を紐で下げた大柄な男が、外套の背中を見送っていた。感心とも嫉妬ともつかない顔で、口が半分開いている。その視線が戻ってきて、しゃがんだ俺と目が合った。",
+      "見ていたところを見られた。それだけのことが、ああいう手合いの中では借りになるらしい。男の顔が険に変わった。",
+      "「おい、灰の割符」",
+      "笑いを含んだ声が降ってくる。仲間が二人、後ろに付いた。",
+      "「膝の高さの札を二枚も抱えて、どうした。落ち穂拾いでも始めるのか」",
+      "「似たようなもんだ」",
+      "「聞いたか、似たようなもんだと」",
+      "笑いが起きる。男は俺の懐の札を顎で指した。",
+      "「鼠の札はな、ここじゃ厄介の代名詞なんだよ。安くて、臭くて、割に合わん。つまり――お似合いだ」",
+      "言い返す値打ちと、飯の値段は釣り合わない。俺は窓口の列に並び直した。背中の笑いは、金にならない。"
     ]
   },
   {
-    t: "段7：保証の中身（E6）",
-    chip: "皮肉の核: 誤読は実際の限界から（《前借》は段3で先出し済み）",
+    t: "段7：受注（v3差し替え）",
+    chip: "台詞の明確化",
     body: [
-      "その保証の中身を知っているのは、この場で俺だけだった。あの夜の俺は、《前借》一回でようやく立っていた。あと一太刀続いていれば、保証される腕ごと石畳に転がっている。"
+      "「次」",
+      "受付の声が、笑いをひとつ挟んで場を進めた。二枚の札を出すと、女は眉を少しだけ動かした。",
+      "「両方? 昼と夜、被らないだけで、体は一つだけど」",
+      "「寝るのは隙間でやる。飯代の都合だ」",
+      "「ふうん」",
+      "爪の先が割符をこつんと弾いた。",
+      "「終わったら報告、ここに。出さないと店の判子に傷がつくから」",
+      "台帳が閉じて、受注はそれで終わりだった。事務というのは、ああいう連中の笑いより、よほど平等にできている。"
     ]
   },
   {
-    t: "段8：受諾と去り際の含み（E6〜E7）",
-    chip: "v1・v2最良一拍を含む（不変）",
+    t: "段8：〆（E7・改修）",
+    chip: "領域浪費の解消・膝の高さの回収",
     body: [
-      "受けない手を探した。目立つのは高くつく。だが「目立ちたくない」は、断り文句としては一番目立つ。それに、半値の沼に頷きかけた口で、金貨に否とは言えない。",
-      "「……検分と報告書までだ。掘りはしない」",
-      "「構わん」",
-      "男は返事の途中で踵を返していた。人垣の際で一度だけ振り向く。",
-      "「夜は冷える。火の始末には気をつけろ」"
-    ]
-  },
-  {
-    t: "段9：〆——黒字の利子（E8）",
-    chip: "隠匿コストの残響（v1復元）",
-    body: [
-      "札場の音が戻ってくる。戻ってきた音の中に、俺の名を訊く声がいくつも混ざっていた。",
-      "〈本日の収支、プラスです。大幅に〉",
-      "知っている。こういう黒字ほど、利子が怖い。"
+      "札二枚を懐に入れると、割符と当たって軽い音がした。名前の代わりに鳴るものがある、というのは、思ったより悪くない。",
+      "昼は荷を揚げ、夜は水路で鼠を獲る。膝の高さからの、初日だった。"
     ]
   }
 ];
 
-const KEY = "probe4_v3_review";
+const KEY = "probe7_2v3_review";
 const state = JSON.parse(localStorage.getItem(KEY) || "{}");
 state.segs = state.segs || SEGS.map(() => ({ v: "", memo: "" }));
 state.overall = state.overall || { v: "", memo: "", best: "" };
-if (state.overall.best === undefined) state.overall.best = "";
 
 function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
 
@@ -393,7 +293,7 @@ best.addEventListener("input", () => { state.overall.best = best.value; save(); 
 paintO();
 
 document.getElementById("show").addEventListener("click", () => {
-  const lines = ["【試作4 v3 読了判定】"];
+  const lines = ["【試作7-2 v3 読了判定】"];
   SEGS.forEach((seg, i) => {
     const s = state.segs[i];
     lines.push("段" + (i + 1) + ": " + (s.v || "未") + (s.memo ? " | " + s.memo : ""));
