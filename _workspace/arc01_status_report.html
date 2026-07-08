@@ -1,0 +1,206 @@
+<title>A2再構成 現在地レポート 2026-07-08</title>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --ink: #2b2a26;
+    --ink-soft: #6b675e;
+    --line: #e3ddd2;
+    --accent: #3d5a80;
+    --accent-soft: #e8eef5;
+    --good: #2e7d4f;
+    --good-bg: #e3f1e8;
+    --mid: #b07d10;
+    --mid-bg: #f7edd4;
+    --bad: #b03a2e;
+    --bad-bg: #f8e3e0;
+    --prose-bg: #fffdf9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+      --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+      --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+      --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+    --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+    --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+    --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+  }
+  :root[data-theme="light"] {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
+  }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    line-height: 1.75; margin: 0; padding: 2rem 1rem 5rem;
+  }
+  main { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size: 1.35rem; margin: 0 0 .3rem; letter-spacing: .02em; text-wrap: balance; }
+  .sub { color: var(--ink-soft); font-size: .82rem; margin: 0 0 1.8rem; }
+  .disclaim {
+    background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px;
+    padding: .6rem 1rem; font-size: .8rem; margin-bottom: 2rem; color: var(--ink-soft);
+  }
+
+  /* pipeline stepper */
+  .pipe { display: flex; flex-direction: column; gap: 0; margin: 0 0 2.2rem; }
+  .step { display: flex; gap: .9rem; }
+  .step .rail { display: flex; flex-direction: column; align-items: center; width: 1.6rem; flex: none; }
+  .dot {
+    width: 1.15rem; height: 1.15rem; border-radius: 50%; flex: none;
+    border: 2px solid var(--line); background: var(--surface); margin-top: .3rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .7rem; font-weight: bold; color: var(--bg);
+  }
+  .step.done .dot { background: var(--good); border-color: var(--good); }
+  .step.now .dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  .rail .bar { width: 2px; flex: 1; background: var(--line); min-height: .8rem; }
+  .step.done .rail .bar { background: var(--good); }
+  .step .body { padding-bottom: 1.1rem; min-width: 0; }
+  .step h2 { font-size: .95rem; margin: 0; }
+  .step.now h2 { color: var(--accent); }
+  .step p { margin: .15rem 0 0; font-size: .82rem; color: var(--ink-soft); }
+  .tag {
+    display: inline-block; font-size: .68rem; border-radius: 999px; padding: 0 .55rem;
+    margin-left: .4rem; vertical-align: 1px; white-space: nowrap;
+  }
+  .tag.done { background: var(--good-bg); color: var(--good); }
+  .tag.now { background: var(--accent-soft); color: var(--accent); }
+  .tag.wait { background: var(--mid-bg); color: var(--mid); }
+
+  /* cards */
+  section.card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    margin-bottom: 1.4rem; padding: 1rem 1.2rem;
+  }
+  section.card > h2 {
+    font-size: .8rem; margin: 0 0 .7rem; color: var(--ink-soft);
+    text-transform: none; letter-spacing: .08em;
+    border-bottom: 1px solid var(--line); padding-bottom: .4rem;
+  }
+  .card ul { margin: 0; padding-left: 1.25em; font-size: .88rem; }
+  .card li { margin-bottom: .45em; }
+  .card li:last-child { margin-bottom: 0; }
+  .card strong { color: var(--accent); }
+  .k { font-weight: bold; }
+  .ok { color: var(--good); font-weight: bold; }
+  .md { color: var(--mid); font-weight: bold; }
+  .ng { color: var(--bad); font-weight: bold; }
+  .slot {
+    background: var(--prose-bg); border: 1px dashed var(--line); border-radius: 6px;
+    padding: .5rem .8rem; font-size: .82rem; margin-top: .7rem; color: var(--ink-soft);
+  }
+  table { border-collapse: collapse; width: 100%; font-size: .82rem; margin-top: .3rem; }
+  th, td { border: 1px solid var(--line); padding: .35rem .6rem; text-align: left; vertical-align: top; }
+  th { background: var(--prose-bg); font-weight: 600; white-space: nowrap; }
+  .twrap { overflow-x: auto; }
+  .path { font-family: Consolas, monospace; font-size: .78rem; color: var(--ink-soft); }
+  .foot { font-size: .75rem; color: var(--ink-soft); margin-top: 2rem; }
+</style>
+
+<main>
+<h1>A2 第1アーク全面再構成 — 現在地レポート</h1>
+<p class="sub">2026-07-08 時点のスナップショット ｜ 工程3（新L1→アーク骨格）進行中</p>
+<div class="disclaim">本レポートは派生スナップショット（拘束力なし）。正本＝ _workspace/canon/（憲章・骨格・戦闘カノン・L1ドラフト・見本帳）／経緯＝ _workspace/CONTEXT.md ／タスク＝ _workspace/TODO.md</div>
+
+<div class="pipe">
+  <div class="step done">
+    <div class="rail"><div class="dot">✓</div><div class="bar"></div></div>
+    <div class="body"><h2>工程1: 最小骨格<span class="tag done">完了 7/6・暫定</span></h2>
+    <p>背骨の一文（死んだ網の無自覚な再建）・X'先住系・敵A・利害マップ（通貨は記録）・札場方式</p></div>
+  </div>
+  <div class="step done">
+    <div class="rail"><div class="dot">✓</div><div class="bar"></div></div>
+    <div class="body"><h2>工程2: ◎候補の試作・実測<span class="tag done">クローズ 7/8</span></h2>
+    <p>出口条件を両充足——(a) 3型（開幕/危機/換金）すべて○以上 ＋ (b) 新規◎2件（器差修正で回復）→ 仮説v2採用</p></div>
+  </div>
+  <div class="step now">
+    <div class="rail"><div class="dot">●</div><div class="bar"></div></div>
+    <div class="body"><h2>工程3: 新L1 → アーク骨格<span class="tag now">いまここ</span></h2>
+    <p>L1 v2＝<strong>暫定方針として採用</strong>（7/8「やってみないと分からない」＋セルフレビュー反映）。次＝骨格第1ブロック（味方サイドの設計→最小試作）</p></div>
+  </div>
+  <div class="step">
+    <div class="rail"><div class="dot"></div><div class="bar"></div></div>
+    <div class="body"><h2>章割り<span class="tag wait">未着手</span></h2>
+    <p>着地＝04_meso_plot/arc_01_v2/（CSVなし）。前提＝連結ミニ時間線試作の生存・札場整合・《》統一</p></div>
+  </div>
+  <div class="step">
+    <div class="rail"><div class="dot"></div></div>
+    <div class="body"><h2>本文（見本帳レンダー→07_final_text）<span class="tag wait">未着手</span></h2>
+    <p>文体投入前のテキストは事象データのみ有効（本番リメイクで見本帳再レンダー）</p></div>
+  </div>
+</div>
+
+<section class="card">
+  <h2>確定の土台（拘束あり）</h2>
+  <ul>
+    <li><span class="k">不可侵4点</span>（憲章§3a）: ①核のデータ（◎実例）と意志（バトル〔読みのゲーム〕×勘違い） ②中心軸＝消された部隊×支援筋 ③旧神由来化 ④禁止則（トレンド圧・無双・ドヤ語り・類型ノルマ化）</li>
+    <li><span class="k">戦闘カノン</span>（再承認済み・DB反映済み）: 器モデル（太さ×深さ×精神力）・位階＝組織バッジ・手札4系統（読み/同期/細工/形見）・セリファ支援6項＋発話条件v2</li>
+    <li><span class="k">文体見本帳v1</span>: comp『勇者刑に処す』特徴スペック化・初実測○（試作6 v3）・◎断片2件を§H最上位登録。味系注意は退役</li>
+    <li><span class="k">縦の引き2点</span>: 相互発覚は第1アークで起こさない／切り札＝凍結スロット（<span class="md">7/8緩和</span>: 「切らない」の明示禁止は置かない・中身次第で部分使用可）</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>観測資産（工程2の収穫）</h2>
+  <ul>
+    <li><span class="k">◎コーパス n=3</span> → <strong>仮説v2</strong>「読者だけが両側の帳簿（表の見え方／裏の実情）を見ている瞬間の一拍圧縮」（7/8採用・v1換金は包含・式の確定は◎5〜10件後）</li>
+    <li><span class="ok">生存</span>: 敵A＝管理職型（試作3○・出せない書類）／開幕型＝新戦闘カノンで掴み＋ルール供給（試作6○）／換金型＋連結時間線（試作4○＋◎2）</li>
+    <li><span class="k">昇格仮説</span>: <strong>落差の事前供給</strong>——◎には「舐められた状態」の下積み区間が要る＝単発掌編では取れない＝骨格の領分</li>
+    <li><span class="ng">打ち切りからの教訓</span>: 縁者型は縦軸のみ（◎供給に使わない・「謎の業務知識」不承認）／コールドは文体を運べない（文体レンダー＝親の役割）</li>
+    <li><span class="md">器差修正</span>: レビューシート段別に◎追加（7/8）——それ以前の段別データは○が上限打ち切り</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>L1 v2 の中身（暫定方針 ｜ canon/arc01_L1_draft.md）</h2>
+  <div class="twrap"><table>
+    <tr><th>器（6項目）</th><th>身分・根拠</th></tr>
+    <tr><td>エンジン（仮説v2＋複利ループ＋記録=通貨の同型統一＋誤読の解像度スペクトル＋流通則）</td><td>仮説（n=3〜n=0のラベル付き。同型統一は未観測の発明と明記）</td></tr>
+    <tr><td>危機＝制度の危機に一本化（敵A・「注目されるほど説明を求められ、説明できない」）</td><td>暫定（試作3○・◎③の延長）</td></tr>
+    <tr><td>探求の現在形2本（筋の痕跡・遺構＝セリファ復旧）</td><td>意志（中心軸の範囲）</td></tr>
+    <tr><td>near_goal＝斡旋所復興（網の再建）</td><td>暫定（骨格の試験採用を継承）</td></tr>
+    <tr><td>診断重心（驚き主・危機ドリブン・共感副）</td><td>仮説（旧世代実測・新世代未検証）</td></tr>
+    <tr><td>骨格への要求6点（落差供給・ロスター複利・3型配置・介入演出型・章割り前宿題・味方サイド設計）</td><td>工程2の観測由来（L9・L10系＝判定○）</td></tr>
+  </table></div>
+  <div class="slot"><span class="k">スロット台帳（決めていないことの登記）</span>: 縦軸の追っ手（存否込み）／内面箱『ノルクの過去×内面×セリファ』（誤闘の中身・夢・切り札を一括解凍）／機関の具体像と呼称（名は中身の後）／ノルクの態度（観測で発見する対象）／裏帳簿の拡張（弔い等）</div>
+  <div class="slot"><span class="k">v1からの主な削除</span>: 誤闘・stakes独立項目・弔い・黙契レーン・ブックカフェ・追っ手・logline——いずれも「試作で未観測・プール整合だけが採用理由」と判定されたもの（総評△「整合ドリブン残骸」への応答）</div>
+</section>
+
+<section class="card">
+  <h2>リスク台帳（7/8セルフレビュー・L1ドラフト§9に検証条件として登記）</h2>
+  <ul>
+    <li><span class="ng">論証ゲートの再演傾向</span>: AI自身が「確定してよいか」と承認を求めた（§2-14違反）→ L1は承認でなく観測で確定・暫定のまま前進</li>
+    <li><span class="ng">n=3過剰適合</span>: エレガントな圧縮（同型統一）はAIの最強論証 → 全節に身分ラベル・n数を明記して封じ</li>
+    <li><span class="ng">オラクルの飢え</span>: 工程3は設計工程の連続 → 観測点を骨格に埋め込む（下記の観測計画）</li>
+    <li><span class="ng">型リスク</span>: 味方キャラを「スペクトルの内側の端」の機能逆算で設計しない（類型ノルマ化の再演）——設計→最小試作→判定を経てから正本反映</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>次の一手と観測計画</h2>
+  <ul>
+    <li><span class="k">① 骨格第1ブロック＝味方サイドの設計</span>（人間指示 U6）: スィグナの立ち位置再考（縁の画面表現の制約下）＋マーレンのデザイン再考（再承認判断込み・旧造形に縛られない）→ <strong>最小試作で観測してから確定</strong></li>
+    <li><span class="k">② 骨格本体</span>: カタルシス曲線（性格は再観測）・下積み→落差の序盤時系列・誤読者ロスター・3型配置 ＋ 章割り前宿題（札場運用の整合・《》表記統一）</li>
+    <li><span class="k">③ 章割り前の連結ミニ時間線試作</span>（初読素材・2〜3場面）: 下積み→落差→換金を通しで裁く＝落差仮説・仮説v2・複利ループの検証点。<strong>生存して初めて concept_v2.yaml へ正式着地</strong>（防火壁）</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>保留・宿題（ブロックしない）</h2>
+  <ul>
+    <li>本番リメイク時: 試作6残△4点（絡みの動機・セリファ指示の文法・偽火事の起動・〆の温度）・《》表記の遡及統一・試作1の戦闘演出宿題</li>
+    <li>戦闘まわり: 礼式妨害とC細工の重複整理・「看板の一枚」（前借/盤面）＝◎観測待ち・D形見の解凍（内面箱と同じ単位）</li>
+    <li>凍結: 第2アーク送り（追っ手の存否・旧神の中身・ロスター個別・天才の人物像・機関リネーム）</li>
+  </ul>
+</section>
+
+<p class="foot">生成: 2026-07-08 ｜ 元ファイル: _workspace/arc01_status_report.html ｜ 更新時は同URLへ再デプロイ</p>
+</main>
