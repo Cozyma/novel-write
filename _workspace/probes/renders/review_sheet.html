@@ -147,6 +147,7 @@
     cursor: pointer;
   }
   .jbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .jbtn[data-v="m"].on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: bold; }
   .jbtn[data-v="o"].on { background: var(--good-bg); border-color: var(--good); color: var(--good); font-weight: bold; }
   .jbtn[data-v="s"].on { background: var(--mid-bg); border-color: var(--mid); color: var(--mid); font-weight: bold; }
   .jbtn[data-v="x"].on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
@@ -222,7 +223,7 @@
 </header>
 
 <div class="howto">
-  各段を読んで <strong>○（良い）／△（可・課題あり）／×（不満）</strong> をクリック、気づきがあればメモへ。最後に総評（◎○△×）と<strong>「一番良かった一拍」（必須）</strong>を記入し、「テキストで表示」→全文コピー→チャットに貼り付けてください。途中経過は自動保存されます。
+  各段を読んで <strong>◎（本当に面白い）／○（良い）／△（可・課題あり）／×（不満）</strong> をクリック、気づきがあればメモへ。最後に総評（◎○△×）と<strong>「一番良かった一拍」（必須）</strong>を記入し、「テキストで表示」→全文コピー→チャットに貼り付けてください。途中経過は自動保存されます。
 </div>
 
 <div id="segs"></div>
@@ -342,7 +343,7 @@ if (state.overall.best === undefined) state.overall.best = "";
 
 function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
 
-const MARK = { o: "○", s: "△", x: "×" };
+const MARK = { m: "◎", o: "○", s: "△", x: "×" };
 const wrap = document.getElementById("segs");
 
 SEGS.forEach((seg, i) => {
@@ -353,6 +354,7 @@ SEGS.forEach((seg, i) => {
     '<div class="seg-head"><h2>' + seg.t + '</h2><span class="chip">' + seg.chip + "</span></div>" +
     '<div class="prose">' + paras + "</div>" +
     '<div class="judge"><span class="label">判定:</span>' +
+    '<button class="jbtn" data-v="m">◎</button>' +
     '<button class="jbtn" data-v="o">○</button>' +
     '<button class="jbtn" data-v="s">△</button>' +
     '<button class="jbtn" data-v="x">×</button>' +
