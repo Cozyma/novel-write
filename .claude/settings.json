@@ -36,7 +36,11 @@
       "PowerShell(\\(Get-ItemProperty \"HKCU:\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\User Shell Folders\"\\).\"{374DE290-123F-4565-9164-39C4925E467B}\"; Get-ChildItem \"$env:USERPROFILE\" -Directory | Select-Object -ExpandProperty Name)",
       "Read(//c/pn-t-kojima/**)",
       "Bash(python -)",
-      "PowerShell(Copy-Item \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\f5c6884e-e4f8-422e-a3f2-f3e9e2234726\\\\scratchpad\\\\probe6_review.html\" \"c:\\\\Users\\\\pn-t-kojima\\\\Documents\\\\novel-write\\\\_workspace\\\\probes\\\\renders\\\\review_sheet.html\")"
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\f5c6884e-e4f8-422e-a3f2-f3e9e2234726\\\\scratchpad\\\\probe6_review.html\" \"c:\\\\Users\\\\pn-t-kojima\\\\Documents\\\\novel-write\\\\_workspace\\\\probes\\\\renders\\\\review_sheet.html\")",
+      "Bash(cat >> *)"
+    ],
+    "additionalDirectories": [
+      "c:\\pn-t-kojima"
     ]
   }
 }
