@@ -1,0 +1,326 @@
+<title>話3改（案A）v1 フルスキャン判定シート</title>
+<style>
+  :root {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
+    --best: #7a4fa0; --best-bg: #f0e8f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+      --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+      --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+      --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+      --best: #c3a1e0; --best-bg: #382b45;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+    --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+    --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+    --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+    --best: #c3a1e0; --best-bg: #382b45;
+  }
+  :root[data-theme="light"] {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
+    --best: #7a4fa0; --best-bg: #f0e8f7;
+  }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    line-height: 1.7; margin: 0; padding: 2rem 1rem 5rem;
+  }
+  main { max-width: 44rem; margin: 0 auto; }
+  header h1 { font-size: 1.3rem; margin: 0 0 .3rem; letter-spacing: .02em; text-wrap: balance; }
+  header .sub { color: var(--ink-soft); font-size: .85rem; margin: 0 0 1rem; }
+  .howto {
+    background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px;
+    padding: .7rem 1rem; font-size: .85rem; margin-bottom: 2rem;
+  }
+  section.seg {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    margin-bottom: 1.4rem; overflow: hidden;
+  }
+  section.seg.r-bad { border-color: var(--bad); }
+  section.seg.r-best { border-color: var(--best); }
+  .seg-head { display: flex; align-items: baseline; gap: .6rem; padding: .6rem 1rem .4rem; flex-wrap: wrap; }
+  .seg-head h2 { font-size: .95rem; margin: 0; }
+  .chip {
+    font-size: .7rem; background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; padding: .1rem .6rem; white-space: nowrap;
+  }
+  .prose {
+    background: var(--prose-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 1rem 1.2rem;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    font-size: .98rem; line-height: 2;
+  }
+  .prose p { margin: 0 0 1em; }
+  .prose p:last-child { margin-bottom: 0; }
+  .judge { display: flex; align-items: center; gap: .4rem; padding: .7rem 1rem; flex-wrap: wrap; }
+  .rbtn {
+    font-size: .95rem; width: 2.6rem; height: 2.3rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); color: var(--ink-soft); cursor: pointer;
+  }
+  .rbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .rbtn.on[data-v="◎"] { background: var(--best-bg); border-color: var(--best); color: var(--best); font-weight: bold; }
+  .rbtn.on[data-v="○"] { background: var(--good-bg); border-color: var(--good); color: var(--good); font-weight: bold; }
+  .rbtn.on[data-v="△"] { background: var(--mid-bg); border-color: var(--mid); color: var(--mid); font-weight: bold; }
+  .rbtn.on[data-v="×"] { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
+  .memo {
+    flex: 1 1 12rem; font: inherit; font-size: .85rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .4rem .6rem; min-height: 1.4rem; resize: vertical;
+  }
+  .overall {
+    background: var(--surface); border: 2px solid var(--accent); border-radius: 8px;
+    padding: 1rem; margin-top: 2rem;
+  }
+  .overall h2 { font-size: 1rem; margin: 0 0 .3rem; }
+  .overall h3 { font-size: .88rem; margin: 1.2rem 0 .3rem; }
+  .overall .q { font-size: .8rem; color: var(--ink-soft); margin: 0 0 .4rem; }
+  .obtns { display: flex; gap: .5rem; margin-bottom: .3rem; flex-wrap: wrap; }
+  .obtn {
+    font-size: .9rem; padding: .3rem 1rem; min-height: 2.4rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); color: var(--ink); cursor: pointer;
+  }
+  .obtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .obtn.good.on { background: var(--good-bg); border-color: var(--good); color: var(--good); font-weight: bold; }
+  .obtn.bad.on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
+  .overall textarea { width: 100%; box-sizing: border-box; }
+  .actions { margin-top: 1.5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .primary {
+    font: inherit; background: var(--accent); color: var(--bg);
+    border: none; border-radius: 6px; padding: .6rem 1.4rem;
+    cursor: pointer; font-weight: bold;
+  }
+  .primary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  #out {
+    width: 100%; box-sizing: border-box; margin-top: 1rem;
+    font-family: Consolas, monospace; font-size: .8rem; min-height: 16rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .6rem; display: none;
+  }
+  .note { font-size: .75rem; color: var(--ink-soft); margin-top: .4rem; }
+</style>
+
+<main>
+<header>
+  <h1>話3改（案A・縦軸を通す）v1 — フルスキャン判定シート</h1>
+  <p class="sub">初読新規場面＝◎測定対象（北極星の初読素材） ｜ 事象列承認済み・D1(i)同伴・D2(β)絡みなし ｜ セルフレビュー検出2件＝台帳登記済み（話2〆の継ぎ目・噂拍の話4調整）・本文変更なし ｜ 2026-07-10</p>
+</header>
+
+<div class="howto">
+  フルスキャンです。段ごとに◎○△×＋メモ。最後に「一番良かった一拍」（任意・空欄可）→総評→クローズ可否→「テキストで表示」→コピー→チャットへ。途中経過は自動保存されます。
+</div>
+
+<div id="segs"></div>
+
+<div class="overall">
+  <h2>まとめ</h2>
+
+  <h3>一番良かった一拍（任意・空欄可）</h3>
+  <p class="q">◎断片の採掘用。台詞・一文・拍のどれでも。無ければ空欄のままで構いません。</p>
+  <textarea class="memo" id="best" rows="2" placeholder="例: 「覚える目だった」の一拍"></textarea>
+
+  <h3>総評</h3>
+  <textarea class="memo" id="omemo" rows="2" placeholder="総評コメント"></textarea>
+
+  <h3>クローズ可否</h3>
+  <p class="q">×ゼロ＋構造穴なし＝クローズ（残△は本番リメイク送り・この版で追い込まない＝⑨）。</p>
+  <div class="obtns" id="closebtns">
+    <button class="obtn good" data-v="クローズ可">クローズ可</button>
+    <button class="obtn bad" data-v="差し戻し">差し戻し</button>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="primary" id="show">テキストで表示（コピー用）</button>
+</div>
+<textarea id="out" readonly></textarea>
+<p class="note">※サンドボックス制約によりダウンロード・自動コピーは使えません。表示されたテキストを Ctrl+C でコピーしてください。</p>
+</main>
+
+<script>
+const SEGS = [
+  {
+    "t": "段1: 同伴出発（E1）",
+    "chip": "「板の前で」の返済",
+    "body": [
+      "店の戸に、スィグナは中から鍵を掛けた。",
+      "「最初だけ、ついて行く。名義の顔を窓口に見せておくの。うちの判子で動く人が増えました、って——それで札の通り方が変わるから。細かい話は板の前で、って言ったでしょう」"
+    ]
+  },
+  {
+    "t": "段2: 札場・受付・呼び名（E1〜E2）",
+    "chip": "設置は従属圧縮・◎凍結拍保持",
+    "body": [
+      "札場はギルドの裏手にあった。朝から人の匂いで満ちた、天井の高い倉のような建物。壁一面が板で、板一面が札だった。並んだ人間の腰の得物と装備の質で、階層まで読める。",
+      "下請け窓口は板の右端にあった。受付は若い女で、勤めの制服を着崩し、明るく染めた髪を雑に留めている。化粧は濃いのに目だけが退屈で死んでいて、派手に塗った爪の先で台帳をめくっていた。",
+      "スィグナが割符を台に置く。",
+      "「うちの名義。実働は、この人」",
+      "「灰の斡旋所。……へえ。まだ生きてたんだ、あの店」",
+      "「生きてる。今日から手が増えたの」",
+      "「名義は店、実働はあんた、と。呼び名は?」",
+      "「無い」",
+      "女は顔も上げずに書き付けた。「じゃ、灰の割符さんで」"
+    ]
+  },
+  {
+    "t": "段3: 板と等級（E2）",
+    "chip": "◎⑤素材保持",
+    "body": [
+      "板は下から上へ、五段に切ってあった。上の段ほど札は少なく、字が丁寧で、数字に桁がひとつ多い。",
+      "〈割符の等級を照合しました。触れられるのは、最下段のみです〉",
+      "最下段——板の膝の高さ。しゃがまないと読めない位置に、誰も取らない札が疎らに刺さっている。段の高さがそのまま、人間の高さになっている場所だ。"
+    ]
+  },
+  {
+    "t": "段4: 札選び・弾かれる（E3）",
+    "chip": "「危ない札」計器＋読みの一拍",
+    "body": [
+      "しゃがんで検める。西の資材置き場、荷揚げ、三日。それから、数字のいい札が一枚——倉の夜番、単独、相場の倍近い。手が伸びた。",
+      "横から、スィグナの指が先に札を押さえた。",
+      "「駄目」",
+      "「数字はいい」",
+      "「良すぎるから。最下段の倍付けは、値段で口を塞ぎたい誰かがいる札。危ない札は取らない——判子の条件、覚えてるでしょう」",
+      "言われて、読み直す。場所の指定がやけに細かい。雇い主の名が、屋号じゃなく通り名。夜で、単独で、金離れがいい。……なるほど、書式が匂う。読めなかったのは腕の話じゃない。この板の相場を、まだ半日も生きていないからだ。相場を知らない読みは、読みにならない。",
+      "代わりに、古水路の鼠獲り。夜、一枚。数字は膝の高さ。文句はない。"
+    ]
+  },
+  {
+    "t": "段5: 再遭遇・噂の切れ端（E4）",
+    "chip": "背骨＝読者だけの帳簿・実バグ#1画面化",
+    "body": [
+      "二枚目を剥がしたとき、板の前の空気が、ひとつ変な途切れ方をした。",
+      "視線だ。人だかりの半端な位置に、男がひとり。着回した革鎧。頬の片側が腫れている。",
+      "〈昨夜の見張りの、前の方です。歩幅と重心が一致。後ろの方の姿はありません〉",
+      "昼の光で見る顔は、昨夜より若かった。向こうは、こちらをとうに見つけていたらしい。固まっている。",
+      "連れの男の囁きが、切れ端だけ届いた。「……例の、素手で二人ってやつ」",
+      "素手で二人。噂には、もう名前がついているらしい。出どころを数えるのは簡単だ。あの路地の中身を知っているのは、俺と、店の彼女と、剣の男と——転がった当人たちだけ。倒された側が、盛ったんだろう。得物持ちの二人が、素手の男に転がされた——そういう話のほうが、負けた面子はまだ立つ。"
+    ]
+  },
+  {
+    "t": "段6: 騒げないのはどちらか（E5）",
+    "chip": "読みの牽制・格は読みで処理",
+    "body": [
+      "男は動かない。騒がない。",
+      "騒げないのは、どちらか。あれは人払いの結界の中の仕事だ。「あの晩そこで何をしていた」を役人の綴りに訊かれて困るのは、転がった側も同じ——倒れていれば被害者でも、立って喋れば雇い主の名前が要る。",
+      "だから、目だけで済む。会釈もしない。知らない男の顔で、札を懐に入れる。",
+      "男の目が、それを最後まで数えていた。覚える目だった。"
+    ]
+  },
+  {
+    "t": "段7: 受注・厄介札（E6）",
+    "chip": "❼仕込み＝受付へ移設・報告義務",
+    "body": [
+      "窓口に二枚出す。",
+      "「両方? 昼と夜、被らないだけで、体は一つだけど」",
+      "「寝るのは隙間でやる。飯代の都合だ」",
+      "「ふうん」",
+      "爪の先が、鼠の札をこつんと弾いた。",
+      "「それ、ここじゃ厄介札って呼ばれてる。安くて、臭くて、割に合わないから」",
+      "「値段は読んで取った」",
+      "「終わったら報告、ここに。出さないと店の判子に傷がつくから」",
+      "隣でスィグナが前金と締めの日取りを二つ三つ詰めて、受付が初めて台帳から顔を上げ、彼女の顔を見た。事務というのは、路地の噂より、よほど平等にできている。"
+    ]
+  },
+  {
+    "t": "段8: 〆・急ぎ足（E7）",
+    "chip": "敵側の帳簿が動く・不穏の引き",
+    "body": [
+      "店へ戻る彼女とは、通りの角で分かれた。",
+      "その別れ際——板の前の人だかりから、革鎧が一人分、抜けて行くのが見えた。急ぎ足だ。札を取った足じゃない。届け物をする足だ。",
+      "台帳に載らない男が、今夜、どこかの帳面には載るらしい。書かれる中身までは読めない。読めないものは、勘定に入れられない。",
+      "だから、値段の分だけ働く。昼は荷を揚げ、夜は水路で鼠を獲る。",
+      "膝の高さからの、初日だった。"
+    ]
+  }
+];
+
+const KEY = "ep3r_caseA_v1_review";
+const RATINGS = ["◎", "○", "△", "×"];
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+state.segs = state.segs || SEGS.map(() => ({ r: "", memo: "" }));
+state.best = state.best || "";
+state.omemo = state.omemo || "";
+state.close = state.close || "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+
+const wrap = document.getElementById("segs");
+
+SEGS.forEach((seg, i) => {
+  const sec = document.createElement("section");
+  sec.className = "seg";
+  const paras = seg.body.map(p => "<p>" + p + "</p>").join("");
+  const btns = RATINGS.map(r => '<button class="rbtn" type="button" data-v="' + r + '">' + r + "</button>").join("");
+  sec.innerHTML =
+    '<div class="seg-head"><h2>' + seg.t + '</h2><span class="chip">' + seg.chip + "</span></div>" +
+    '<div class="prose">' + paras + "</div>" +
+    '<div class="judge">' + btns +
+    '<textarea class="memo" rows="1" placeholder="メモ（任意）"></textarea></div>';
+  wrap.appendChild(sec);
+
+  const rbtns = sec.querySelectorAll(".rbtn");
+  const memo = sec.querySelector(".memo");
+  function paint() {
+    rbtns.forEach(b => b.classList.toggle("on", b.dataset.v === state.segs[i].r));
+    sec.classList.toggle("r-bad", state.segs[i].r === "×");
+    sec.classList.toggle("r-best", state.segs[i].r === "◎");
+  }
+  rbtns.forEach(b => b.addEventListener("click", () => {
+    state.segs[i].r = state.segs[i].r === b.dataset.v ? "" : b.dataset.v;
+    paint(); save();
+  }));
+  memo.value = state.segs[i].memo;
+  memo.addEventListener("input", () => { state.segs[i].memo = memo.value; save(); });
+  paint();
+});
+
+const best = document.getElementById("best");
+best.value = state.best;
+best.addEventListener("input", () => { state.best = best.value; save(); });
+
+const omemo = document.getElementById("omemo");
+omemo.value = state.omemo;
+omemo.addEventListener("input", () => { state.omemo = omemo.value; save(); });
+
+const closeBtns = document.querySelectorAll("#closebtns .obtn");
+function paintClose() {
+  closeBtns.forEach(b => b.classList.toggle("on", b.dataset.v === state.close));
+}
+closeBtns.forEach(b => b.addEventListener("click", () => {
+  state.close = state.close === b.dataset.v ? "" : b.dataset.v;
+  paintClose(); save();
+}));
+paintClose();
+
+document.getElementById("show").addEventListener("click", () => {
+  const lines = ["【話3改（案A）v1 フルスキャン判定】"];
+  const marks = SEGS.map((_, i) => state.segs[i].r || "未").join(" ");
+  lines.push("段別: " + marks);
+  SEGS.forEach((seg, i) => {
+    const s = state.segs[i];
+    if (s.memo) lines.push("段" + (i + 1) + " " + (s.r || "未") + ": " + s.memo);
+  });
+  lines.push("一番良かった一拍: " + (state.best || "（なし）"));
+  lines.push("総評: " + (state.omemo || "（未記入）"));
+  lines.push("クローズ可否: " + (state.close || "未"));
+  const out = document.getElementById("out");
+  out.value = lines.join("\n");
+  out.style.display = "block";
+  out.focus();
+  out.select();
+});
+</script>
+</main>

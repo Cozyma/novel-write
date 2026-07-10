@@ -1,0 +1,446 @@
+<title>縮小通し読みシート（話2〜4）</title>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --ink: #2b2a26;
+    --ink-soft: #6b675e;
+    --line: #e3ddd2;
+    --accent: #3d5a80;
+    --accent-soft: #e8eef5;
+    --good: #2e7d4f;
+    --good-bg: #e3f1e8;
+    --mid: #b07d10;
+    --mid-bg: #f7edd4;
+    --bad: #b03a2e;
+    --bad-bg: #f8e3e0;
+    --prose-bg: #fffdf9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+      --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+      --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+      --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+    --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+    --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+    --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+  }
+  :root[data-theme="light"] {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
+  }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    line-height: 1.7; margin: 0; padding: 2rem 1rem 5rem;
+  }
+  main { max-width: 44rem; margin: 0 auto; }
+  header h1 { font-size: 1.35rem; margin: 0 0 .3rem; letter-spacing: .02em; text-wrap: balance; }
+  header .sub { color: var(--ink-soft); font-size: .85rem; margin: 0 0 1rem; }
+  nav.toc { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+  nav.toc a {
+    font-size: .78rem; text-decoration: none; color: var(--accent);
+    background: var(--accent-soft); border: 1px solid var(--line);
+    border-radius: 999px; padding: .15rem .7rem; white-space: nowrap;
+  }
+  nav.toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .howto {
+    background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px;
+    padding: .7rem 1rem; font-size: .85rem; margin-bottom: 2rem;
+  }
+  .howto b { color: var(--bad); }
+  section.seg {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    margin-bottom: 1.8rem; overflow: hidden; scroll-margin-top: 1rem;
+  }
+  section.seg.flagged { border-color: var(--bad); }
+  .seg-head { display: flex; align-items: baseline; gap: .6rem; padding: .7rem 1rem .5rem; flex-wrap: wrap; }
+  .seg-head h2 { font-size: 1.05rem; margin: 0; }
+  .chip {
+    font-size: .7rem; background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; padding: .1rem .6rem; white-space: nowrap;
+  }
+  .known {
+    font-size: .75rem; color: var(--ink-soft);
+    padding: 0 1rem .5rem; margin: 0;
+  }
+  .prose {
+    background: var(--prose-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 1.2rem 1.3rem;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    font-size: .98rem; line-height: 2;
+  }
+  .prose p { margin: 0 0 1em; }
+  .prose p:last-child { margin-bottom: 0; }
+  .judge { display: flex; align-items: center; gap: .5rem; padding: .7rem 1rem; flex-wrap: wrap; }
+  .judge .label { font-size: .8rem; color: var(--ink-soft); }
+  .flagbtn {
+    font-size: .85rem; padding: .3rem .8rem; height: 2.2rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); color: var(--ink-soft); cursor: pointer; white-space: nowrap;
+  }
+  .flagbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .flagbtn.on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
+  .memo {
+    flex: 1 1 14rem; font: inherit; font-size: .85rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .4rem .6rem; min-height: 1.4rem; resize: vertical;
+  }
+  .overall {
+    background: var(--surface); border: 2px solid var(--accent); border-radius: 8px;
+    padding: 1rem; margin-top: 2rem; scroll-margin-top: 1rem;
+  }
+  .overall h2 { font-size: 1rem; margin: 0 0 .3rem; }
+  .overall h3 { font-size: .88rem; margin: 1.3rem 0 .3rem; }
+  .overall h3:first-of-type { margin-top: .8rem; }
+  .overall .q { font-size: .8rem; color: var(--ink-soft); margin: 0 0 .5rem; }
+  .obtns { display: flex; gap: .5rem; margin-bottom: .4rem; flex-wrap: wrap; }
+  .obtn {
+    font-size: .85rem; padding: .3rem .9rem; min-height: 2.4rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); color: var(--ink); cursor: pointer;
+  }
+  .obtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .obtn.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: bold; }
+  .obtn.good.on { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+  .obtn.bad.on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+  .overall textarea { width: 100%; box-sizing: border-box; }
+  .actions { margin-top: 1.5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .primary {
+    font: inherit; background: var(--accent); color: var(--bg);
+    border: none; border-radius: 6px; padding: .6rem 1.4rem;
+    cursor: pointer; font-weight: bold;
+  }
+  .primary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  #out {
+    width: 100%; box-sizing: border-box; margin-top: 1rem;
+    font-family: Consolas, monospace; font-size: .8rem; min-height: 16rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .6rem; display: none;
+  }
+  .note { font-size: .75rem; color: var(--ink-soft); margin-top: .4rem; }
+</style>
+
+<main>
+<header>
+  <h1>縮小通し読みシート — 話2〜4</h1>
+  <p class="sub">目的＝<strong>⑫⑬（波形の体感）＋緊迫感の通し確認</strong> ｜ 話1（v13）はスキップ＝13版判定直後で再読の情報量が低い（名乗りサニティは本番リメイクの均質通しへ送り） ｜ 2026-07-10</p>
+</header>
+
+<nav class="toc">
+  <a href="#ep2">話2</a>
+  <a href="#ep3">話3</a>
+  <a href="#ep4">話4</a>
+  <a href="#matome">判断3件＋総評</a>
+</nav>
+
+<div class="howto">
+  <b>軽量注釈です。</b>整合バグ13件はトリアージ済み（台帳）＝再指摘不要。前提＝話1v13の夜（襲撃を凌ぎ火事で退場・女の「あなた、何者——」が騒ぎで途切れる）。各話は×（破綻）・構造穴・波の途切れを感じた所だけフラグ＋メモ。読み終えたら下部の<b>判断3件（⑩⑫⑬）</b>と総評へ →「テキストで表示」→コピー→チャットへ。途中経過は自動保存されます。
+</div>
+
+<div id="segs"></div>
+
+<div class="overall" id="matome">
+  <h2>まとめ — 判断3件＋総評</h2>
+
+  <h3>⑩ 相棒の最小開示</h3>
+  <p class="q">セリファの正体への手掛かりゼロが4話続く（コールド指摘＝離脱要因候補・ただし問いの台帳＝意図的な謎）。名前や最小の像をどこかで供給するか。</p>
+  <div class="obtns" data-d="d10">
+    <button class="obtn" data-v="供給する">供給する（場所・量はメモへ）</button>
+    <button class="obtn" data-v="供給しない">供給しない（謎を維持）</button>
+    <button class="obtn" data-v="保留">保留</button>
+  </div>
+  <textarea class="memo" data-m="d10" rows="2" placeholder="供給するなら、どこで・何を（名前だけ／像の一片など）"></textarea>
+
+  <h3>⑫ 話2の引き</h3>
+  <p class="q">コールド評価＝後半（店内）で緊張低下・引きが「道案内」。プール候補（無重量）＝燃え殻：マーレンが燃え殻を証拠袋に入れて去る＝不穏の引きへ差し替え可能。</p>
+  <div class="obtns" data-d="d12">
+    <button class="obtn bad" data-v="弱い・手当てする">弱い——手当てする（燃え殻など・メモへ）</button>
+    <button class="obtn good" data-v="現状で可">現状で可</button>
+    <button class="obtn" data-v="保留">保留</button>
+  </div>
+  <textarea class="memo" data-m="d12" rows="2" placeholder="手当ての方向（燃え殻採用／別の手など）"></textarea>
+
+  <h3>⑬ 話3の谷</h3>
+  <p class="q">コールド評価＝話3が通しで最弱（離脱ポイント）。中波スロットの発動条件＝「通し読みで間延びが<b>観測</b>されたら」＋内容が加護の説明を進めること。作者オラクルの観測が正。</p>
+  <div class="obtns" data-d="d13">
+    <button class="obtn bad" data-v="間延びを観測">間延びを観測した（スロット発動を検討）</button>
+    <button class="obtn good" data-v="許容範囲">谷は許容範囲（不発動）</button>
+    <button class="obtn" data-v="保留">保留</button>
+  </div>
+  <textarea class="memo" data-m="d13" rows="2" placeholder="どの辺りで間延びしたか（任意）"></textarea>
+
+  <h3>緊迫感の通し評価（一行で可）</h3>
+  <textarea class="memo" id="tension" rows="2" placeholder="話ごとの波・どこで途切れたか／続きを読みたいか"></textarea>
+
+  <h3>総評</h3>
+  <textarea class="memo" id="omemo" rows="2" placeholder="総評コメント"></textarea>
+</div>
+
+<div class="actions">
+  <button class="primary" id="show">テキストで表示（コピー用）</button>
+</div>
+<textarea id="out" readonly></textarea>
+<p class="note">※サンドボックス制約によりダウンロード・自動コピーは使えません。表示されたテキストを Ctrl+C でコピーしてください。</p>
+</main>
+
+<script>
+const EPS = [
+  {
+    "id": "ep2",
+    "t": "話2（検分と庇い・v3クローズ版）",
+    "chip": "翌朝・マーレン初画面・名義貸し初出",
+    "known": "",
+    "body": [
+      "翌朝、聞き込みで覚えた道を北通りへ歩いた。無加護でも口を利く店があるという。灰色の看板。——その手前で、足が勝手に速度を落とした。",
+      "昨夜の路地の口に、人が立っている。野次馬ではない。制式装備を隙なく着た女がひとり、焼け跡の前にしゃがんで、綴りに何かを書き付けていた。姿勢がいい。手順を省略しない手つきだった。腰の記章はギルドのものだ。",
+      "スラムの小火に、検分。聞いたことがない。金にならない場所には、制度は来ないのが相場だ。",
+      "店の戸口には昨夜の女が立って、検分者と何か話していた。俺に気づいて、目が動く。安堵が先で、警戒が後。順番が逆だろう、と思う。狙われたのはそっちだ。",
+      "「そこの方。少しよろしいですか」",
+      "検分の女が立ち上がって、まっすぐこちらへ来た。近くで見ると若い。目つきは硬いが、敵意の類ではない。定規のような硬さだ。",
+      "「ギルド委託で調べています。マーレン・エスリッド。町会からの依頼が、ギルドに回ってきましたので。——昨夜の出火と、現場で昏倒していた男性二名について」",
+      "二名。",
+      "昏倒、ときた。俺が眠らせた連中だ。倒れたまま朝まで転がっていたらしい。そして倒れていた側は、綴りの上では被害者になる。眠らせた側の顔を、二人とも間近で見ていることは、綴りには書いていない。",
+      "「昨夜、この近くにいらっしゃいましたね。体格と外套が、証言と一致します」",
+      "「通りかかっただけだ」",
+      "「時刻は」",
+      "「宿へ帰る途中だ。鐘は数えてない」",
+      "「争うような音を、聞きましたか」",
+      "聞いたどころではない。出したのは俺だ。",
+      "「揉め声くらいは。スラムの夜には珍しくない」",
+      "「揉め声。……人影は」",
+      "「煙で、何も」",
+      "女の筆は、答えるそばから走った。消える筆ではない。口から出た順に、俺の夜が公文書になっていく。嘘は書かせたくないが、本当は書かせられない。答えるたび、その隙間が薄くなる。",
+      "女は綴りに目を落としたまま、要点を小さく読み上げた。自分の書いたものを検算する声だった。",
+      "「火元が特定できない。焼けは浅い。倒れていた二名に火傷はなく、打撲のみ。火の前後に、争う音」",
+      "顔が上がった。",
+      "「——最後にもう一度うかがいます。あなたは、何を見ましたか」",
+      "定規が、真相の一寸手前に当たっていた。",
+      "「お名前と、身分証を。神籍は、どちらの組で?」",
+      "「名前はある。神籍は——無い」",
+      "筆が、初めて止まった。",
+      "「……無い、というのは、写しをお持ちでないという意味ですか」",
+      "「無いという意味だ。どこの神も奉じていない」",
+      "「神籍の無い方の証言は、正式な記録には採れません。身元の保証が無い記述は、あとで全部疑われますから。——規程では、詰所で身元の確認を」",
+      "「うちの者です」",
+      "声は戸口から来た。店の女が、まっすぐこちらへ歩いてくる。",
+      "「うちで働いてもらうことになってる人。身元は、うちの判子で引き受けます」",
+      "初耳だった。そんな約束は、どこにもない。彼女はいま、役人の綴りに載る嘘を、俺のためにひとつ拵えた。嘘をついた顔ではなかった。先に勘定を終えて、払うと決めた者の顔だった。",
+      "命を貸した相手に、名前を借りる朝になった。",
+      "「灰の斡旋所の、名義引受。……と、記録します」",
+      "検分の女は書き付けて、手続きの続きを淡々と回した。俺の夜は「揉め声を聞いた。煙で何も見ていない」の二行に畳まれ、正確にそう書かれた。見た通りではなく、言った通りに書く。そういう筆だった。",
+      "〈綴りの要点、三行。火元不明、負傷者二名、目撃者一名。……署名欄は、店の判子です〉",
+      "俺の夜が三行で、署名は他人の判子か。妥当な値付けだ。",
+      "「手続きですので、お気を悪くなさらず」",
+      "女はそう言って綴りを鞄に納め、姿勢のいい背中で通りを去った。あの紙はギルドへ行く。火事の形をした何か、と読める書き方で。",
+      "店に入ると、外の張り詰めた空気は戸一枚で終わっていた。狭い土間に古い机。奥で湯の沸く音がしている。",
+      "「座って。……その前に」",
+      "女は深々と頭を下げた。命を拾われた側の、まっすぐすぎる礼だった。受け取り方が分からず、視線を机の木目に逃がす。",
+      "「昨夜は、言いそびれたから。……どうして助けてくれたの」",
+      "「近道だったんでな。成り行きだ」",
+      "「成り行きでも、あたしは生きてるから」",
+      "嘘を疑う色が、どこにもなかった。それはそれで調子が狂う。だから、こちらから言うことにした。",
+      "「さっきのは嘘だ」",
+      "「うん」",
+      "「役人の綴りに載った。バレれば、あんたの店の判子に傷がつく。命の借りの返し方としては、割に合わない」",
+      "女は欠けた椀に白湯を注いで、こちらへ置いた。当たり前のことを言う声だった。",
+      "「だから、本当にしましょう。本当になれば、嘘じゃなくなるから」",
+      "抽斗から木札が出て、店の印が捺され、こちらへ滑ってきた。",
+      "「仕事の札は、ぜんぶギルドの札場の板に出るの。判子の無い人は、札には触れない。だから、うちの判子で受けて、あなたに回す——これは、その割符。あなたの名前の代わりだから、なくさないでね。細かい話は、板の前で。約束は二つ——危ない札は取らない。終わったら、うちに寄る」",
+      "損得の帳簿で言えば、借りが一方的に積み上がっている。数え方を知らない相手との貸し借りほど、高くつくものはない。",
+      "「構わない」",
+      "店を出ると、朝の陽が高くなっていた。懐の割符が、服の下で軽い。",
+      "名前を訊かれて詰んだ朝に、名前の代わりを一枚もらった。勘定としては、悪くない。",
+      "札場は、ギルドの裏手だという。"
+    ]
+  },
+  {
+    "id": "ep3",
+    "t": "話3（札場デビュー・7-2最終版）",
+    "chip": "コールド評価＝通しで最弱（⑬の観測対象）",
+    "known": "",
+    "body": [
+      "札場はギルドの裏手にあった。朝から人の匂いで満ちた、天井の高い倉のような建物。壁一面が板で、板一面が札だった。札の前に人だかり。腰の得物と装備の質で、だいたいの階層が読める。俺の懐には、もらったばかりの木札が一枚。名前の代わりに、これを出せ、だ。",
+      "下請け窓口は板の右端にあった。受付は若い女で、勤めの制服を着崩し、明るく染めた髪を雑に留めている。化粧は濃いのに目だけが退屈で死んでいて、派手に塗った爪の先で台帳をめくっていた。",
+      "割符を出す。女は木札を一瞥し、印を見て、初めてこちらの顔を見た。",
+      "「灰の斡旋所。……へえ。まだ生きてたんだ、あの店」",
+      "「らしいな」",
+      "「名義は店、実働はあんた、と。呼び名は?」",
+      "「無い」",
+      "女は顔も上げずに何かを書き付けた。「じゃ、灰の割符さんで」",
+      "板は下から上へ、五段に切ってあった。段ごとに札の色が違う。上の段ほど札は少なく、字が丁寧で、数字に桁がひとつ多い。",
+      "〈割符の等級を照合しました。触れられるのは、最下段のみです〉",
+      "相棒の報告は正確で、余計なことを言わない。最下段——板の膝の高さ。しゃがまないと読めない位置に、誰も取らない札が疎らに刺さっている。段の高さがそのまま、人間の高さになっている場所だ、ここは。",
+      "しゃがんで札を検める。西の資材置き場、荷揚げ、三日。古水路の鼠獲り、夜、一枚。どれも宿代の周りをうろつく数字だ。昼と夜を足せば、飯が付く。二枚を剥がした。",
+      "そのとき、札場の音が薄くなった。",
+      "戸口から入ってきた男がひとり、人だかりを裂いて板へ向かう。飾り気のない外套。誰も声をかけず、男も誰も見ない。男は板のいちばん上——俺が背伸びしても届かない段から札を一枚抜くと、来た時と同じ速さで出て行った。",
+      "順番待ちも、値段の相談もなし。上の段の札は、取れる人間が現れた時にだけ動くらしい。膝の高さで鼠の札を握っている身からすれば、天井の話だ。",
+      "銅の記章を紐で下げた大柄な男が、外套の背中を見送っていた。感心とも嫉妬ともつかない顔で、口が半分開いている。その視線が戻ってきて、しゃがんだ俺と目が合った。",
+      "見ていたところを見られた。それだけのことが、ああいう手合いの中では借りになるらしい。男の顔が険に変わった。",
+      "「おい、灰の割符」",
+      "窓口の声は、聞かせるつもりがなくてもよく通る。付いたばかりの呼び名は、三十数える間に板の前まで届いていた。仲間が二人、男の後ろに付いた。",
+      "「膝の高さの札を二枚も抱えて、どうした。落ち穂拾いでも始めるのか」",
+      "「似たようなもんだ」",
+      "「聞いたか、似たようなもんだと」",
+      "笑いが起きる。男は俺の懐の札を顎で指した。",
+      "「鼠の札はな、ここじゃ厄介の代名詞なんだよ。安くて、臭くて、割に合わん。つまり――お似合いだ」",
+      "言い返す値打ちと、飯の値段は釣り合わない。俺は窓口の列に並び直した。背中の笑いは、金にならない。",
+      "「次」",
+      "受付の声が、笑いをひとつ挟んで場を進めた。二枚の札を出すと、女は眉を少しだけ動かした。",
+      "「両方? 昼と夜、被らないだけで、体は一つだけど」",
+      "「寝るのは隙間でやる。飯代の都合だ」",
+      "「ふうん」",
+      "爪の先が割符をこつんと弾いた。",
+      "「終わったら報告、ここに。出さないと店の判子に傷がつくから」それから、台帳に目を落としたまま付け足した。「さっきの、スルーしたの。賢いじゃん。ここで言い返す奴から死ぬから」",
+      "台帳が閉じて、受注はそれで終わりだった。事務というのは、ああいう連中の笑いより、よほど平等にできている。",
+      "札二枚を懐に入れると、割符と当たって軽い音がした。名前の代わりに鳴るものがある、というのは、思ったより悪くない。",
+      "昼は荷を揚げ、夜は水路で鼠を獲る。膝の高さからの、初日だった。"
+    ]
+  },
+  {
+    "id": "ep4",
+    "t": "話4（ヴィクテル指名・接続調整前の旧版）",
+    "chip": "既知の宿題＝話3→4の空白・絡み#2未接続・表記揺れ（再指摘不要）",
+    "known": "※この話は話4改レンダー前の旧版です。接続の粗（数日後の飛び・報告義務未消化・銅記章の絡み#2が入っていない）は計画済みの宿題＝波形と緊迫感だけ見てください。",
+    "body": [
+      "噂というのは、本人の足より速い。",
+      "数日ぶりに顔を出した札場は、入った瞬間だけ会話が薄くなった。視線が二つ三つ、こちらの手元と腰の剣を往復する。バッジ持ちを二人、素手で眠らせた男——話は既にそこまで育っているらしい。",
+      "〈当該の噂、把握している限りで三通りめです。相手の人数が三人に増えた版も流通しています〉",
+      "数えてどうする。とは思うが、相棒の帳面は俺の分まで細かい。訂正して回る手もない。噂を否定するには本当の話をするしかなく、本当の話のほうがよほど高くつく。俺は隅の板から安い回収札を一枚剥がし、それで終いにするつもりだった。",
+      "剥がした札を帳場へ出す。職員が札を検め、ついでのような手つきで、もう一枚を滑らせてきた。西の沼の間引き。夜通しの仕事で、数字は相場の半分のそのまた下だった。",
+      "「《判子》の無い口に回せる札は、こんなもんでね。噂で人数が増えても、帳面の信用は増えない」",
+      "理屈は分かる。何人眠らせた話が流れようと、台帳に載らない腕は値段にならない。あの夜の《前借》はとうに払い終えて、体は動く。値段だけが、動かない。財布の中身はまだ銅貨で数える段だった。受ける、と言いかけた。",
+      "札場の音が、変わった。",
+      "入り口に男がひとり。上等な外套に、飾りのない剣。職員が帳面を置いて立ち、板の前の人垣が勝手に割れる。誰かが小声で名前を言った。ヴィクテル。聞いたことくらいはある。どこの組にも属さず、指名の値が金貨から始まる、という類の男。",
+      "その男の声を、俺は名前より先に知っていた。",
+      "外套の男は板をひととおり眺め、職員と二言三言交わし、それから、まっすぐこちらへ歩いてきた。",
+      "「近ごろ騒がしいな、ここは。バッジ持ちを二人、素手で眠らせた奴がいると聞いた」",
+      "「酔っ払いの話だ」",
+      "「だろうな。俺の聞いた版では三人になっていた」",
+      "男は笑わずにそう言った。目だけが笑っている。それ以上、互いに触れない。触れないという合意が、一往復で成立した。妙なものだ。殺し合った相手と、天気の話をするように立っている。",
+      "男は帳場へ向き直り、懐から金貨を一枚、台に置いた。",
+      "「依頼を一件。北の廃鉱の検分だ。受け手は指名にする」",
+      "職員が帳面を構える。男が指したのは、俺だった。",
+      "「そこの、《判子》の無いのに。腕は俺が保証する」",
+      "札場が静まった。金貨の依頼。指名。保証——高位が自分の名を貸す、という意味だ。半値の沼の紙が、職員の手の中で行き場を失っている。板の前の全員が、値札を付け替える顔でこちらを見る。",
+      "その保証の中身を知っているのは、この場で俺だけだった。あの夜の俺は、《前借》一回でようやく立っていた。あと一太刀続いていれば、保証される腕ごと石畳に転がっている。",
+      "受けない手を探した。目立つのは高くつく。だが「目立ちたくない」は、断り文句としては一番目立つ。それに、半値の沼に頷きかけた口で、金貨に否とは言えない。",
+      "「……検分と報告書までだ。掘りはしない」",
+      "「構わん」",
+      "男は返事の途中で踵を返していた。人垣の際で一度だけ振り向く。",
+      "「夜は冷える。火の始末には気をつけろ」",
+      "札場の音が戻ってくる。戻ってきた音の中に、俺の名を訊く声がいくつも混ざっていた。",
+      "〈本日の収支、プラスです。大幅に〉",
+      "知っている。こういう黒字ほど、利子が怖い。"
+    ]
+  }
+];
+
+const KEY = "throughline_read_v2";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+state.eps = state.eps || EPS.map(() => ({ flag: false, memo: "" }));
+state.dec = state.dec || { d10: { v: "", memo: "" }, d12: { v: "", memo: "" }, d13: { v: "", memo: "" } };
+state.tension = state.tension || "";
+state.omemo = state.omemo || "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+
+const wrap = document.getElementById("segs");
+
+EPS.forEach((ep, i) => {
+  const sec = document.createElement("section");
+  sec.className = "seg";
+  sec.id = ep.id;
+  const paras = ep.body.map(p => "<p>" + p + "</p>").join("");
+  sec.innerHTML =
+    '<div class="seg-head"><h2>' + ep.t + '</h2><span class="chip">' + ep.chip + "</span></div>" +
+    (ep.known ? '<p class="known">' + ep.known + "</p>" : "") +
+    '<div class="prose">' + paras + "</div>" +
+    '<div class="judge"><span class="label">×/穴/波切れ:</span>' +
+    '<button class="flagbtn" type="button">×/穴あり</button>' +
+    '<textarea class="memo" rows="1" placeholder="×・構造穴・波の途切れの中身（任意）"></textarea></div>';
+  wrap.appendChild(sec);
+
+  const btn = sec.querySelector(".flagbtn");
+  const memo = sec.querySelector(".memo");
+  function paint() {
+    btn.classList.toggle("on", !!state.eps[i].flag);
+    btn.textContent = state.eps[i].flag ? "×/穴あり ✓" : "×/穴あり";
+    sec.classList.toggle("flagged", !!state.eps[i].flag);
+  }
+  btn.addEventListener("click", () => {
+    state.eps[i].flag = !state.eps[i].flag;
+    paint(); save();
+  });
+  memo.value = state.eps[i].memo;
+  memo.addEventListener("input", () => { state.eps[i].memo = memo.value; save(); });
+  paint();
+});
+
+document.querySelectorAll(".obtns[data-d]").forEach(group => {
+  const key = group.dataset.d;
+  const btns = group.querySelectorAll(".obtn");
+  function paint() {
+    btns.forEach(b => b.classList.toggle("on", b.dataset.v === state.dec[key].v));
+  }
+  btns.forEach(b => b.addEventListener("click", () => {
+    state.dec[key].v = state.dec[key].v === b.dataset.v ? "" : b.dataset.v;
+    paint(); save();
+  }));
+  paint();
+});
+
+document.querySelectorAll(".memo[data-m]").forEach(ta => {
+  const key = ta.dataset.m;
+  ta.value = state.dec[key].memo;
+  ta.addEventListener("input", () => { state.dec[key].memo = ta.value; save(); });
+});
+
+const tension = document.getElementById("tension");
+tension.value = state.tension;
+tension.addEventListener("input", () => { state.tension = tension.value; save(); });
+
+const omemo = document.getElementById("omemo");
+omemo.value = state.omemo;
+omemo.addEventListener("input", () => { state.omemo = omemo.value; save(); });
+
+document.getElementById("show").addEventListener("click", () => {
+  const lines = ["【縮小通し読み（話2〜4・話1v13スキップ）】"];
+  const names = ["話2", "話3", "話4"];
+  let any = false;
+  EPS.forEach((ep, i) => {
+    const s = state.eps[i];
+    if (s.flag || s.memo) {
+      any = true;
+      lines.push(names[i] + ": " + (s.flag ? "×/穴" : "メモ") + (s.memo ? " | " + s.memo : ""));
+    }
+  });
+  if (!any) lines.push("話別×/穴: なし");
+  const D = [
+    ["⑩相棒の最小開示", "d10"],
+    ["⑫話2の引き", "d12"],
+    ["⑬話3の谷", "d13"]
+  ];
+  D.forEach(([label, key]) => {
+    const d = state.dec[key];
+    lines.push(label + ": " + (d.v || "未") + (d.memo ? " | " + d.memo : ""));
+  });
+  lines.push("緊迫感の通し評価: " + (state.tension || "（未記入）"));
+  lines.push("総評: " + (state.omemo || "（未記入）"));
+  const out = document.getElementById("out");
+  out.value = lines.join("\n");
+  out.style.display = "block";
+  out.focus();
+  out.select();
+});
+</script>
+</main>

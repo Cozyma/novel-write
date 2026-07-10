@@ -1,0 +1,248 @@
+<title>話3スパン再設計（案A）設計判定シート</title>
+<style>
+  :root {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+      --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+      --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+      --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+    --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+    --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+    --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+  }
+  :root[data-theme="light"] {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
+  }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    line-height: 1.7; margin: 0; padding: 2rem 1rem 5rem;
+  }
+  main { max-width: 44rem; margin: 0 auto; }
+  header h1 { font-size: 1.3rem; margin: 0 0 .3rem; letter-spacing: .02em; text-wrap: balance; }
+  header .sub { color: var(--ink-soft); font-size: .85rem; margin: 0 0 1rem; }
+  .howto {
+    background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px;
+    padding: .7rem 1rem; font-size: .85rem; margin-bottom: 1.6rem;
+  }
+  .howto b { color: var(--bad); }
+  section.card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    margin-bottom: 1.4rem; padding: 1rem 1.2rem;
+  }
+  section.card h2 { font-size: 1rem; margin: 0 0 .5rem; }
+  section.card h2 .chip {
+    font-size: .68rem; background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; padding: .1rem .6rem; margin-left: .5rem; white-space: nowrap; vertical-align: middle;
+  }
+  .elist { margin: 0; padding: 0; list-style: none; }
+  .elist li {
+    background: var(--prose-bg); border: 1px solid var(--line); border-radius: 6px;
+    padding: .55rem .8rem; margin-bottom: .5rem; font-size: .9rem;
+  }
+  .elist li b.eid { color: var(--accent); margin-right: .4rem; }
+  .elist li .why { display: block; font-size: .78rem; color: var(--ink-soft); margin-top: .2rem; }
+  .q { font-size: .82rem; color: var(--ink-soft); margin: 0 0 .5rem; }
+  .obtns { display: flex; gap: .5rem; margin-bottom: .5rem; flex-wrap: wrap; }
+  .obtn {
+    font-size: .85rem; padding: .35rem .9rem; min-height: 2.4rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); color: var(--ink); cursor: pointer; text-align: left;
+  }
+  .obtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .obtn.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: bold; }
+  .obtn.good.on { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+  .obtn.bad.on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+  .memo {
+    width: 100%; box-sizing: border-box; font: inherit; font-size: .85rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .4rem .6rem; resize: vertical;
+  }
+  table { border-collapse: collapse; width: 100%; font-size: .82rem; }
+  th, td { border: 1px solid var(--line); padding: .4rem .6rem; text-align: left; vertical-align: top; }
+  th { background: var(--accent-soft); font-weight: normal; color: var(--accent); white-space: nowrap; }
+  .tablewrap { overflow-x: auto; }
+  .checknote { font-size: .78rem; color: var(--ink-soft); margin: .6rem 0 0; }
+  .actions { margin-top: 1.5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .primary {
+    font: inherit; background: var(--accent); color: var(--bg);
+    border: none; border-radius: 6px; padding: .6rem 1.4rem;
+    cursor: pointer; font-weight: bold;
+  }
+  .primary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  #out {
+    width: 100%; box-sizing: border-box; margin-top: 1rem;
+    font-family: Consolas, monospace; font-size: .8rem; min-height: 14rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .6rem; display: none;
+  }
+  .note { font-size: .75rem; color: var(--ink-soft); margin-top: .4rem; }
+</style>
+
+<main>
+<header>
+  <h1>話3スパン再設計（案A＝縦軸を通す）— 設計判定シート</h1>
+  <p class="sub">親目標＝G2（話1の夜の重力を話2〜4で運ぶ）｜ G0対象＝承認後レンダーはフルスキャン（◎測定）判定 ｜ 2026-07-10</p>
+</header>
+
+<div class="howto">
+  <b>構造の確認のみ＝面白さの承認ではありません（§2-14）。</b>E列と判断点D1〜D4に回答→「テキストで表示」→コピー→チャットへ。×予感があれば事象列段階で枝刈りしてください。途中経過は自動保存。
+</div>
+
+<section class="card">
+  <h2>背骨<span class="chip">案A</span></h2>
+  <p class="q" style="font-size:.88rem; color:var(--ink);">
+    昨夜の見張りの片割れと札場で再遭遇する。読者だけが両側の帳簿を見る——男は「素手で二人」の噂を面子で盛った張本人で、目の前の男が本物だと知っている。だが自分は人払いの結界の違法仕事中だった＝表沙汰にできない。ノルクはその縛りを読んで静かに受け流す。男は上へ報告に走る＝<b>敵側の帳簿が動いて話が閉じる</b>（話4の噂・指名への接続）。<br>
+    効能＝F1縦軸の引き継ぎ＋実バグ#1（噂の発生源）の画面化＋G4返済2件＋仮説v2ど真ん中、が一手。
+  </p>
+</section>
+
+<section class="card">
+  <h2>事象列（WHAT限定・同日昼・話2から連続）</h2>
+  <ul class="elist">
+    <li><b class="eid">E1</b>スィグナ同伴で札場へ（D1採用時）。板・五段・受付の設置は手ほどきの従属情報に圧縮——「細かい話は、板の前で」の文字通りの返済。<span class="why">◎④受付の人格・◎⑤板の等級の素材は保持・従属化</span></li>
+    <li><b class="eid">E2</b>受付・割符照合・「灰の割符さんで」・触れられるのは最下段のみ。<span class="why">◎凍結拍は保持</span></li>
+    <li><b class="eid">E3</b>札選び＝計器の稼働: ノルクが数字の良い札に手を伸ばす→スィグナが弾く「危ない札は取らない。判子の条件」→ノルクの読み一拍（札の書式から何が危ないか読む）→従う（借りの帳簿の理屈）。<span class="why">約束が計器として動く（F4）＋読みのゲーム従属（F2）</span></li>
+    <li><b class="eid">E4</b>再遭遇（背骨）: 板の前に昨夜の見張りの片割れ（打撲・仲間連れ。もう一人は寝込み＝回復整合）。互いに認識して固まる。読者だけの帳簿＝噂の発生源・本物への恐れ・違法側の縛り。<span class="why">仮説v2＝劇的アイロニーの一拍</span></li>
+    <li><b class="eid">E5</b>読みの牽制: ノルクが男の縛りを読む（騒げば「何をしていた」を訊かれるのは向こう）→乾いた一拍で受け流す→男は退く。ただし覚えた目。<span class="why">危機を読みで処理＝格整合⓬・無双なし</span></li>
+    <li><b class="eid">E6</b>受注・報告義務（「出さないと店の判子に傷がつく」）・受付の乾いた一言。<span class="why">スルー褒め拍はここに統合可</span></li>
+    <li><b class="eid">E7</b>〆: 男が札場を出て早足に消える（実務描写のみ・意味は指差さない❸）→ノルクの内語は乾いた勘定一拍（台帳に載らない男が、誰かの帳面には載ったらしい、の型）→不穏の引き。<span class="why">敵側の帳簿が動く＝縦軸送り❼・⑫の引き問題も相対緩和</span></li>
+  </ul>
+  <p class="checknote">前後チェック済み: ❺利害（見張り＝露見回避×報告の実利／ノルク＝目立たない×判子を守る／スィグナ＝判子の条件／受付＝事務）・❽賢い敵（騒がない＝どの分岐でも得・報告＝金）・❼雇い主の影は名指しせず縦軸へ明示送り（依頼主スロットは未定義のまま＝防火壁）・仮説v2適合＝E4/E5。</p>
+  <div class="obtns" data-d="approve" style="margin-top:.8rem;">
+    <button class="obtn good" data-v="承認">E列承認（→親レンダー・フルスキャン判定へ）</button>
+    <button class="obtn bad" data-v="差し戻し">差し戻し（×予感・メモへ）</button>
+  </div>
+  <textarea class="memo" data-m="approve" rows="2" placeholder="差し戻し理由・修正指示（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>D1 スィグナ同伴<span class="chip">推奨＝(i)</span></h2>
+  <p class="q">「板の前で」の返済形。(i)なら約束の返済が文字通りになり、E3の計器も場で動き、縁の画面（不承認だった「謎の業務知識」でない形）も進む。</p>
+  <div class="obtns" data-d="d1">
+    <button class="obtn good" data-v="(i)同伴">(i) 同伴（推奨）</button>
+    <button class="obtn" data-v="(ii)単独">(ii) 単独（現行踏襲・返済は受付が代行＝弱い）</button>
+  </div>
+  <textarea class="memo" data-m="d1" rows="1" placeholder="メモ（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>D2 銅記章の絡み#1の処置<span class="chip">推奨＝(β)</span></h2>
+  <p class="q">見張り再遭遇と「いびり」の機能が被り、話3が要素過多（F3の教訓）。(β)＝話3から削除し、話4を「初出の公開いびり（強）→直後に金貨指名」へ再設計——落差は一話内で立つ（試作4判定「定番の新人いびりが欲しい」と整合）。(α)＝軽量保持で話4「#2激化」の前提を維持。</p>
+  <div class="obtns" data-d="d2">
+    <button class="obtn good" data-v="(β)削除して話4初出">(β) 話3から削除・話4で初出の強いびり（推奨）</button>
+    <button class="obtn" data-v="(α)軽量保持">(α) 軽量保持（#1→#2の二段を維持）</button>
+  </div>
+  <textarea class="memo" data-m="d2" rows="1" placeholder="メモ（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>D3 話2への重力引き継ぎ拍<span class="chip">推奨＝採用</span></h2>
+  <p class="q">F1の話2側の手当て＝一括改稿時に1〜2文（「誰が・なぜ・まだ危ないのか」の問いを開いたまま握る内語）。話2は3版クローズ済みのため追加は最小・適用は一括改稿時。</p>
+  <div class="obtns" data-d="d3">
+    <button class="obtn good" data-v="採用">採用（推奨）</button>
+    <button class="obtn" data-v="見送り">見送り</button>
+  </div>
+  <textarea class="memo" data-m="d3" rows="1" placeholder="メモ（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>D4 開いた約束の処置表（G4）<span class="chip">確認</span></h2>
+  <div class="tablewrap">
+  <table>
+    <tr><th>約束</th><th>処置</th></tr>
+    <tr><td>「細かい話は、板の前で」</td><td>話3 E1で返済（D1採用時）</td></tr>
+    <tr><td>「危ない札は取らない」</td><td>話3 E3で計器化</td></tr>
+    <tr><td>検分の保留印（「火事の形をした何か」）</td><td><b>意図的保留</b>＝動くのは後方（試作3・支部長の照会に接続）と明記</td></tr>
+    <tr><td>燃え殻（プール候補）</td><td>プール残置（案Aでは不要・無重量のまま）</td></tr>
+  </table>
+  </div>
+  <div class="obtns" data-d="d4" style="margin-top:.6rem;">
+    <button class="obtn good" data-v="承認">この処置表で承認</button>
+    <button class="obtn bad" data-v="修正">修正あり（メモへ）</button>
+  </div>
+  <textarea class="memo" data-m="d4" rows="1" placeholder="修正内容（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>総合メモ</h2>
+  <textarea class="memo" id="omemo" rows="2" placeholder="全体への指示・×予感など（任意）"></textarea>
+</section>
+
+<div class="actions">
+  <button class="primary" id="show">テキストで表示（コピー用）</button>
+</div>
+<textarea id="out" readonly></textarea>
+<p class="note">※サンドボックス制約によりダウンロード・自動コピーは使えません。表示されたテキストを Ctrl+C でコピーしてください。</p>
+</main>
+
+<script>
+const KEY = "ep3_span_design_v1";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+const DKEYS = ["approve", "d1", "d2", "d3", "d4"];
+state.dec = state.dec || {};
+DKEYS.forEach(k => { state.dec[k] = state.dec[k] || { v: "", memo: "" }; });
+state.omemo = state.omemo || "";
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+
+document.querySelectorAll(".obtns[data-d]").forEach(group => {
+  const key = group.dataset.d;
+  const btns = group.querySelectorAll(".obtn");
+  function paint() {
+    btns.forEach(b => b.classList.toggle("on", b.dataset.v === state.dec[key].v));
+  }
+  btns.forEach(b => b.addEventListener("click", () => {
+    state.dec[key].v = state.dec[key].v === b.dataset.v ? "" : b.dataset.v;
+    paint(); save();
+  }));
+  paint();
+});
+
+document.querySelectorAll(".memo[data-m]").forEach(ta => {
+  const key = ta.dataset.m;
+  ta.value = state.dec[key].memo;
+  ta.addEventListener("input", () => { state.dec[key].memo = ta.value; save(); });
+});
+
+const omemo = document.getElementById("omemo");
+omemo.value = state.omemo;
+omemo.addEventListener("input", () => { state.omemo = omemo.value; save(); });
+
+document.getElementById("show").addEventListener("click", () => {
+  const L = [
+    ["E列", "approve"],
+    ["D1スィグナ同伴", "d1"],
+    ["D2絡み#1", "d2"],
+    ["D3話2重力拍", "d3"],
+    ["D4処置表", "d4"]
+  ];
+  const lines = ["【話3スパン再設計（案A）設計判定】"];
+  L.forEach(([label, key]) => {
+    const d = state.dec[key];
+    lines.push(label + ": " + (d.v || "未") + (d.memo ? " | " + d.memo : ""));
+  });
+  lines.push("総合メモ: " + (state.omemo || "（なし）"));
+  const out = document.getElementById("out");
+  out.value = lines.join("\n");
+  out.style.display = "block";
+  out.focus();
+  out.select();
+});
+</script>
+</main>
