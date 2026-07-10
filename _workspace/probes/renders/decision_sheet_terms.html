@@ -1,0 +1,234 @@
+<title>用語対応表 設計判定シート</title>
+<style>
+  :root {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+      --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+      --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+      --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201f1c; --surface: #2a2925; --ink: #e8e4dc; --ink-soft: #a09a8e;
+    --line: #44423c; --accent: #8fb0d4; --accent-soft: #32405233;
+    --good: #7fc79d; --good-bg: #23392c; --mid: #d9b35c; --mid-bg: #3d3521;
+    --bad: #e08a80; --bad-bg: #462a26; --prose-bg: #262521;
+  }
+  :root[data-theme="light"] {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
+    --line: #e3ddd2; --accent: #3d5a80; --accent-soft: #e8eef5;
+    --good: #2e7d4f; --good-bg: #e3f1e8; --mid: #b07d10; --mid-bg: #f7edd4;
+    --bad: #b03a2e; --bad-bg: #f8e3e0; --prose-bg: #fffdf9;
+  }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    line-height: 1.7; margin: 0; padding: 2rem 1rem 5rem;
+  }
+  main { max-width: 44rem; margin: 0 auto; }
+  header h1 { font-size: 1.35rem; margin: 0 0 .3rem; letter-spacing: .02em; text-wrap: balance; }
+  header .sub { color: var(--ink-soft); font-size: .85rem; margin: 0 0 1.5rem; }
+  .howto {
+    background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px;
+    padding: .7rem 1rem; font-size: .85rem; margin-bottom: 2rem;
+  }
+  .ref {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    padding: .8rem 1.1rem; margin-bottom: 2rem; font-size: .85rem;
+  }
+  .ref h2 { font-size: .9rem; margin: 0 0 .5rem; color: var(--accent); }
+  .ref table { border-collapse: collapse; width: 100%; font-size: .8rem; }
+  .ref th, .ref td { border: 1px solid var(--line); padding: .3rem .5rem; text-align: left; vertical-align: top; }
+  .ref th { background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+  .ref .lyr { font-weight: bold; color: var(--ink); margin: .7rem 0 .3rem; font-size: .82rem; }
+  section.seg {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    margin-bottom: 1.4rem; overflow: hidden;
+  }
+  .seg-head { display: flex; align-items: baseline; gap: .6rem; padding: .7rem 1rem .5rem; flex-wrap: wrap; }
+  .seg-head h2 { font-size: 1rem; margin: 0; }
+  .chip {
+    font-size: .7rem; background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; padding: .1rem .6rem; white-space: nowrap;
+  }
+  .prose {
+    background: var(--prose-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 1rem 1.2rem; font-size: .9rem; line-height: 1.85;
+  }
+  .prose p { margin: 0 0 .8em; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose .rec { color: var(--good); font-weight: bold; }
+  .prose .q { color: var(--ink-soft); font-size: .82rem; }
+  .judge { display: flex; align-items: center; gap: .5rem; padding: .7rem 1rem; flex-wrap: wrap; }
+  .judge .label { font-size: .8rem; color: var(--ink-soft); }
+  .jbtn {
+    font: inherit; font-size: .85rem; padding: .35rem .8rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); color: var(--ink); cursor: pointer;
+  }
+  .jbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .jbtn[data-v="採用"].on { background: var(--good-bg); border-color: var(--good); color: var(--good); font-weight: bold; }
+  .jbtn[data-v="修正"].on { background: var(--mid-bg); border-color: var(--mid); color: var(--mid); font-weight: bold; }
+  .jbtn[data-v="却下"].on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
+  .memo {
+    flex: 1 1 14rem; font: inherit; font-size: .85rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .4rem .6rem; min-height: 1.4rem; resize: vertical;
+  }
+  .overall {
+    background: var(--surface); border: 2px solid var(--accent); border-radius: 8px;
+    padding: 1rem; margin-top: 2rem;
+  }
+  .overall h2 { font-size: 1rem; margin: 0 0 .6rem; }
+  .overall textarea { width: 100%; box-sizing: border-box; }
+  .actions { margin-top: 1.5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .primary {
+    font: inherit; background: var(--accent); color: var(--bg);
+    border: none; border-radius: 6px; padding: .6rem 1.4rem;
+    cursor: pointer; font-weight: bold;
+  }
+  .primary:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  #out {
+    width: 100%; box-sizing: border-box; margin-top: 1rem;
+    font-family: Consolas, monospace; font-size: .8rem; min-height: 12rem;
+    border: 1px solid var(--line); border-radius: 6px;
+    background: var(--prose-bg); color: var(--ink);
+    padding: .6rem; display: none;
+  }
+  .note { font-size: .75rem; color: var(--ink-soft); margin-top: .4rem; }
+</style>
+
+<main>
+<header>
+  <h1>用語対応表（神籍・判子・バッジ・割符）— 設計判定シート</h1>
+  <p class="sub">K監査の根っこ＝「判子」が3つの別物を指す＋バッジ／神籍の別軸未整理 ｜ 三レイヤーに分離 ｜ 2026-07-09 ｜ 正本＝hall_store C11</p>
+</header>
+
+<div class="howto">
+  各論点を<strong>採用（推奨どおり）／修正（条件付き・メモに指定）／却下（別案希望）</strong>で判定→総評→「テキストで表示」→コピーしてチャットへ。途中経過は自動保存されます。<strong>この3点が確定すると tripwire 化と K1/K3/K6/K7 の一括修正に入れます。</strong>
+</div>
+
+<div class="ref">
+  <h2>前提＝三レイヤー分離（この骨格自体への異論も総評へ）</h2>
+  <div class="lyr">Ⅰ 身分：神籍</div>
+  各神の組織が発行する身分登録＋等級（寺請け型）。台帳＝教区簿。<strong>これが無いと冒険者登録も受けられない</strong>。ノルク＝存在しない（照会すると空）。
+  <div class="lyr">Ⅱ 業務：判子・割符</div>
+  <table>
+    <tr><th>語</th><th>定義</th></tr>
+    <tr><td>冒険者登録</td><td>ギルドの業務登録。<strong>神籍が前提</strong></td></tr>
+    <tr><td>判子（ギルド判子）</td><td>冒険者登録の証。業務等級（受注可能な札の等級）を持つ・実績で昇格</td></tr>
+    <tr><td>店の判子</td><td>灰の斡旋所の登録＝店自体の判子。衰退店ゆえ低位。しくじり＝判子の傷</td></tr>
+    <tr><td>割符</td><td>店の印を捺した木札＝名義貸しの物理形。呼び名「灰の割符の」</td></tr>
+  </table>
+  <div class="lyr">Ⅲ 格：位階バッジ</div>
+  加護ベースの<strong>クラン別</strong>等級（vessel_model S7）。換算基準＝律神クラン／闘神称号はブランド。身分・業務とは別軸。
+</div>
+
+<div id="segs"></div>
+
+<div class="overall">
+  <h2>総評（三レイヤー骨格そのものへの異論・追加論点があれば）</h2>
+  <textarea class="memo" id="omemo" rows="3" placeholder="骨格への異論・気づき・追加で決めるべき点など（任意）"></textarea>
+</div>
+
+<div class="actions">
+  <button class="primary" id="show">テキストで表示（コピー用）</button>
+</div>
+<textarea id="out" readonly></textarea>
+<p class="note">※サンドボックス制約によりダウンロード・自動コピーは使えません。表示されたテキストを Ctrl+C でコピーしてください。</p>
+</main>
+
+<script>
+const SEGS = [
+  {
+    "t": "論点A：位階バッジと神籍の階層関係",
+    "chip": "格Ⅲ × 身分Ⅰ",
+    "body": [
+      "<span class='q'>問題：K3で「バッジ」と「神籍」が別軸なのに未整理のまま使われている。両者の関係を確定する。</span>",
+      "<span class='rec'>AI推奨＝採用案：</span>位階バッジ＝<strong>神籍の中の加護位階の可視化物</strong>とする。神籍＝身分の器、その上に加護が発現し、格をバッジで示す。",
+      "∴ 無加護でも神籍は持ちうるが、バッジは無い（階層）。C9「加護ベース組織別等級＝身分証の柱」と整合。ノルクは神籍そのものが無い＝バッジ以前。"
+    ]
+  },
+  {
+    "t": "論点B：話1の門前払いの理屈（K1/K3）",
+    "chip": "話1受付シーン",
+    "body": [
+      "<span class='q'>問題：現行の門前払いは「神籍なし→冒険者登録不可」の二段（C10）。だが本文は「バッジを見せな」（格の話）になっている＝レイヤー取り違え。</span>",
+      "<span class='rec'>AI推奨＝採用案：</span>受付の要求は<strong>「神籍（身分証）を出せ」→出せない→門前払い</strong>。「腕前以前に、そもそも土俵に上がる紙が無い」。",
+      "効能＝紙の罠（照会すると空が返る）の初出と門前払いが同じ「神籍の不在」で一本化される。"
+    ]
+  },
+  {
+    "t": "処置：「神様の判子」という俗称の扱い",
+    "chip": "口語 × tripwire",
+    "body": [
+      "<span class='q'>問題（timeline_draft §121で明示的に未決）：話1の「神様の判子がない」の「神様の判子」を、俗称として残すか廃語にするか。</span>",
+      "<span class='rec'>AI推奨＝採用案：</span><strong>台詞内の俗称としてのみ許容</strong>し、地の文とレイヤーⅡの「判子（ギルド判子）」からは分離する。廃語にはしない（口語のリアリティは残す）。",
+      "tripwire＝「神様の判子」が<strong>地の文</strong>に出たら検出（台詞内は可）。これで「判子」の三義衝突を機械検査できる。"
+    ]
+  }
+];
+
+const KEY = "terms_decision_v1";
+const state = JSON.parse(localStorage.getItem(KEY) || "{}");
+state.segs = state.segs || SEGS.map(() => ({ v: "", memo: "" }));
+state.overall = state.overall || { memo: "" };
+
+function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+
+const VALS = ["採用", "修正", "却下"];
+const wrap = document.getElementById("segs");
+
+SEGS.forEach((seg, i) => {
+  const sec = document.createElement("section");
+  sec.className = "seg";
+  const paras = seg.body.map(p => "<p>" + p + "</p>").join("");
+  const btns = VALS.map(v => '<button class="jbtn" data-v="' + v + '">' + v + '</button>').join("");
+  sec.innerHTML =
+    '<div class="seg-head"><h2>' + seg.t + '</h2><span class="chip">' + seg.chip + "</span></div>" +
+    '<div class="prose">' + paras + "</div>" +
+    '<div class="judge"><span class="label">判定:</span>' + btns +
+    '<textarea class="memo" rows="1" placeholder="修正の場合はどう直すか／却下の場合は別案（任意）"></textarea></div>';
+  wrap.appendChild(sec);
+
+  const jbtns = sec.querySelectorAll(".jbtn");
+  const memo = sec.querySelector(".memo");
+  function paint() {
+    jbtns.forEach(b => b.classList.toggle("on", b.dataset.v === state.segs[i].v));
+  }
+  jbtns.forEach(b => b.addEventListener("click", () => {
+    state.segs[i].v = state.segs[i].v === b.dataset.v ? "" : b.dataset.v;
+    paint(); save();
+  }));
+  memo.value = state.segs[i].memo;
+  memo.addEventListener("input", () => { state.segs[i].memo = memo.value; save(); });
+  paint();
+});
+
+const omemo = document.getElementById("omemo");
+omemo.value = state.overall.memo;
+omemo.addEventListener("input", () => { state.overall.memo = omemo.value; save(); });
+
+document.getElementById("show").addEventListener("click", () => {
+  const lines = ["【用語対応表 設計判定】"];
+  SEGS.forEach((seg, i) => {
+    const s = state.segs[i];
+    const tag = ["論点A", "論点B", "処置"][i];
+    lines.push(tag + ": " + (s.v || "未") + (s.memo ? " | " + s.memo : ""));
+  });
+  lines.push("総評: " + (state.overall.memo || "（未記入）"));
+  const out = document.getElementById("out");
+  out.value = lines.join("\n");
+  out.style.display = "block";
+  out.focus();
+  out.select();
+});
+</script>
+</main>

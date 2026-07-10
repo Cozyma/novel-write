@@ -1,4 +1,4 @@
-<title>話2改 v3 読了判定シート</title>
+<title>話1 締め直しv13 軽量判定シート</title>
 <style>
   :root {
     --bg: #faf7f2;
@@ -48,10 +48,12 @@
     background: var(--accent-soft); border: 1px solid var(--line); border-radius: 6px;
     padding: .7rem 1rem; font-size: .85rem; margin-bottom: 2rem;
   }
+  .howto b { color: var(--bad); }
   section.seg {
     background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
     margin-bottom: 1.4rem; overflow: hidden;
   }
+  section.seg.flagged { border-color: var(--bad); }
   .seg-head { display: flex; align-items: baseline; gap: .6rem; padding: .6rem 1rem .4rem; flex-wrap: wrap; }
   .seg-head h2 { font-size: .95rem; margin: 0; }
   .chip {
@@ -68,16 +70,13 @@
   .prose p:last-child { margin-bottom: 0; }
   .judge { display: flex; align-items: center; gap: .5rem; padding: .7rem 1rem; flex-wrap: wrap; }
   .judge .label { font-size: .8rem; color: var(--ink-soft); }
-  .jbtn {
-    font-size: 1.05rem; width: 2.6rem; height: 2.2rem;
+  .flagbtn {
+    font-size: .85rem; padding: .3rem .8rem; height: 2.2rem;
     border: 1px solid var(--line); border-radius: 6px;
-    background: var(--surface); color: var(--ink); cursor: pointer;
+    background: var(--surface); color: var(--ink-soft); cursor: pointer; white-space: nowrap;
   }
-  .jbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-  .jbtn[data-v="m"].on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: bold; }
-  .jbtn[data-v="o"].on { background: var(--good-bg); border-color: var(--good); color: var(--good); font-weight: bold; }
-  .jbtn[data-v="s"].on { background: var(--mid-bg); border-color: var(--mid); color: var(--mid); font-weight: bold; }
-  .jbtn[data-v="x"].on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
+  .flagbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .flagbtn.on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); font-weight: bold; }
   .memo {
     flex: 1 1 14rem; font: inherit; font-size: .85rem;
     border: 1px solid var(--line); border-radius: 6px;
@@ -88,18 +87,20 @@
     background: var(--surface); border: 2px solid var(--accent); border-radius: 8px;
     padding: 1rem; margin-top: 2rem;
   }
-  .overall h2 { font-size: 1rem; margin: 0 0 .6rem; }
-  .overall h3 { font-size: .85rem; margin: 1rem 0 .3rem; }
-  .obtns { display: flex; gap: .5rem; margin-bottom: .7rem; }
+  .overall h2 { font-size: 1rem; margin: 0 0 .3rem; }
+  .overall h3 { font-size: .85rem; margin: 1.1rem 0 .3rem; }
+  .overall .q { font-size: .8rem; color: var(--ink-soft); margin: 0 0 .4rem; }
+  .obtns { display: flex; gap: .5rem; margin-bottom: .3rem; flex-wrap: wrap; }
   .obtn {
-    font-size: 1.1rem; width: 3rem; height: 2.4rem;
+    font-size: .9rem; padding: .3rem 1rem; height: 2.4rem;
     border: 1px solid var(--line); border-radius: 6px;
-    background: var(--surface); color: var(--ink); cursor: pointer;
+    background: var(--surface); color: var(--ink); cursor: pointer; white-space: nowrap;
   }
   .obtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   .obtn.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: bold; }
+  .obtn.good.on { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+  .obtn.bad.on { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
   .overall textarea { width: 100%; box-sizing: border-box; }
-  .req { color: var(--bad); font-size: .75rem; }
   .actions { margin-top: 1.5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
   .primary {
     font: inherit; background: var(--accent); color: var(--bg);
@@ -119,27 +120,36 @@
 
 <main>
 <header>
-  <h1>話2改 v3（検分と庇い・最終版）— 読了判定シート</h1>
-  <p class="sub">3版目＝上限（判定にかかわらずクローズ） ｜ 差し替え＝段7（庇い＝完全な作り話として受け直す）・段9（帳場説明削除・契約＝嘘を本当にする行為へ再構成） ｜ 他はv2不変 ｜ 2026-07-08 ｜ 台帳: 話2改</p>
+  <h1>話1（戦闘の締め直し）v13 — 軽量判定シート</h1>
+  <p class="sub">判定② ｜ v13＝名を残さない宣言を削除（共感に不寄与＝管理項目のみ増）→〆は構造的排除だけに ｜ <strong>読み直し＝段1の〆1文。v9の段3・4・6・7も未判定なら併読</strong> ｜ 2026-07-09</p>
 </header>
 
 <div class="howto">
-  判定対象＝<strong>差し替えた段7・段9</strong>（他はスキップ可）。最後に総評と<strong>「一番良かった一拍」（必須）</strong>→「テキストで表示」→コピー→チャットへ。途中経過は自動保存されます。
+  <b>軽量判定です。</b>×（破綻）や構造穴のある段だけ「×/穴あり」を押してメモ。無ければ空欄でOK。最後に①名乗り初出サニティ ②総評 ③クローズ可否 →「テキストで表示」→コピー→チャットへ。途中経過は自動保存されます。
 </div>
 
 <div id="segs"></div>
 
 <div class="overall">
-  <h2>総評</h2>
-  <div class="obtns" id="obtns">
-    <button class="obtn" data-v="◎">◎</button>
-    <button class="obtn" data-v="○">○</button>
-    <button class="obtn" data-v="△">△</button>
-    <button class="obtn" data-v="×">×</button>
+  <h2>まとめ</h2>
+
+  <h3>① サニティチェック：名乗りシステムの初出は「講義」に見えないか</h3>
+  <p class="q">徽章→セリファ読み→名乗り要求の順に組み替え済み（段3）。供給として自然か。</p>
+  <div class="obtns" id="sanity">
+    <button class="obtn good" data-v="自然">自然（供給として溶けている）</button>
+    <button class="obtn bad" data-v="講義的">講義的（浮く）</button>
   </div>
-  <textarea class="memo" id="omemo" rows="3" placeholder="総評コメント（任意）"></textarea>
-  <h3>一番良かった一拍 <span class="req">※必須</span></h3>
-  <textarea class="memo" id="best" rows="2" placeholder="どの文・どの一拍が一番良かったか（正例の採掘用）"></textarea>
+  <textarea class="memo" id="smemo" rows="2" placeholder="サニティのメモ（任意）"></textarea>
+
+  <h3>② 総評（一行で可）</h3>
+  <textarea class="memo" id="omemo" rows="2" placeholder="総評コメント"></textarea>
+
+  <h3>③ クローズ可否</h3>
+  <p class="q">×ゼロ＋構造穴なし＝クローズ（残△は本番リメイク送り・その版で追い込まない）。</p>
+  <div class="obtns" id="closebtns">
+    <button class="obtn good" data-v="クローズ可">クローズ可</button>
+    <button class="obtn bad" data-v="差し戻し">差し戻し</button>
+  </div>
 </div>
 
 <div class="actions">
@@ -152,135 +162,116 @@
 <script>
 const SEGS = [
   {
-    "t": "段1：現場と検分者",
-    "chip": "○維持・不変",
+    "t": "段1：初期状態（v13）",
+    "chip": "〆＝構造的排除のみ（宣言削除・共感の源泉に集中）",
     "body": [
-      "翌朝、聞き込みで覚えた道を北通りへ歩いた。無加護でも口を利く店があるという。灰色の看板。——その手前で、足が勝手に速度を落とした。",
-      "昨夜の路地の口に、人が立っている。野次馬ではない。制式装備を隙なく着た女がひとり、焼け跡の前にしゃがんで、綴りに何かを書き付けていた。姿勢がいい。手順を省略しない手つきだった。腰の記章はギルドのものだ。",
-      "スラムの小火に、検分。聞いたことがない。金にならない場所には、制度は来ないのが相場だ。"
+      "名無しでも、日雇いの荷なら担げる——そういう読みで、この街へ来た。",
+      "持ち物は剣と、頭の中の相棒と、銅貨七枚。宿代を引けば、明日の飯が消える。",
+      "〈本日の却下、三件。荷運び、水路浚い、ギルドの登録。理由は揃って同じです——神籍、なし〉",
+      "頭の奥で、相棒が帳面を閉じた。俺の勘定と落ち度を、俺より正確につけてくる声だ。分かってる、とは言ってやらない。言わなくても、こいつは困らない。",
+      "読みは、外れた。日雇いの荷ですら、入り口で同じことを訊いてくる。奉じる神の教区簿に、お前の名はあるか。——無い。どこにも。名の載らない男に、判子は捺されない。",
+      "背負う神が無い。ただそれだけのことが、飯の値段になる。"
     ]
   },
   {
-    "t": "段2：店の女の気づき",
-    "chip": "「帳場」語を除去（初出管理）",
+    "t": "段2：結界に気づく（不変）",
+    "chip": "v5のまま",
     "body": [
-      "店の戸口には昨夜の女が立って、検分者と何か話していた。俺に気づいて、目が動く。安堵が先で、警戒が後。順番が逆だろう、と思う。狙われたのはそっちだ。"
+      "宿への近道は、細い路地を一本抜ける。その口に入ってすぐ、足が止まった。空気が薄く、膜を張っている。人除けの結界だ。魔導具の安手の仕事——ただし、張り方が急ごしらえだった。",
+      "〈今夜のものです。常設じゃありません〉",
+      "誰かが人目を断って、これから何かをやる。仕事じゃない、厄介事だ。踏み込む前に、踵を返す。"
     ]
   },
   {
-    "t": "段3：事件の枠が開く（新規）",
-    "chip": "昏倒男二名＝事件性",
+    "t": "段3：徽章先出し→名乗り要求（v9修正）",
+    "chip": "「名乗りな」＋内心の悪態（また神か）／橋は悪態に統合",
     "body": [
-      "「そこの方。少しよろしいですか」",
-      "検分の女が立ち上がって、まっすぐこちらへ来た。近くで見ると若い。目つきは硬いが、敵意の類ではない。定規のような硬さだ。",
-      "「ギルド委託で調べています。マーレン・エスリッド。町会からの依頼が、ギルドに回ってきましたので。——昨夜の出火と、現場で昏倒していた男性二名について」",
-      "二名。",
-      "昏倒、ときた。俺が眠らせた連中だ。倒れたまま朝まで転がっていたらしい。そして倒れていた側は、綴りの上では被害者になる。眠らせた側の顔を、二人とも間近で見ていることは、綴りには書いていない。"
+      "——遅かった。路地の口を、影が二つ塞いでいた。結界を裏から張って、迷い込む者を追い返す。見張りだ。",
+      "「おい、加勢か。聞いてないぞ」",
+      "片方が、胸の徽章を親指で立てて見せた。金物を光らせるのは悪趣味だが、口上より速い。俺はこういう者だ、下がれ——という手続きだ。",
+      "〈徽章、本物です。どこかの組の……三位か、四位。安い方です〉",
+      "相棒の目利きに、こちらの値踏みを足す。着回した革鎧。剣より鉈。取り立てか、見張りの下働き。",
+      "「で、そっちは。——名乗りな」",
+      "また神か、と内心で舌を打つ。荷運びも、水路浚いも、ギルドの窓口も、路地の見張りまで——何をするにも、まず神を訊かれる。教区簿の紙で。胸の金物で。口の名乗りで。形が違うだけで、問いはひとつだ。どの神の下にいるか。",
+      "名乗りは、口で神と位を言うだけの、いちばん安い身分証だ。偽れば加護が痩せるから、口約束のくせに、金物より確かに通る。痩せる加護も、背負う神も、無い、俺以外には。",
+      "黙っていると、鼻を鳴らされた。",
+      "「出せないのか。おい、《加護無し》だとよ」"
     ]
   },
   {
-    "t": "段4：詰問——公文書になっていく夜（新規）",
-    "chip": "リスクのある受け答え",
+    "t": "段4：踏み拍の細工・非殺（v6組み替え）",
+    "chip": "「下請けの型」削除／細工=踏む先を半寸盛る（静止相手の物理解消）",
     "body": [
-      "「昨夜、この近くにいらっしゃいましたね。体格と外套が、証言と一致します」",
-      "「通りかかっただけだ」",
-      "「時刻は」",
-      "「宿へ帰る途中だ。鐘は数えてない」",
-      "「争うような音を、聞きましたか」",
-      "聞いたどころではない。出したのは俺だ。",
-      "「揉め声くらいは。スラムの夜には珍しくない」",
-      "「揉め声。……人影は」",
-      "「煙で、何も」",
-      "女の筆は、答えるそばから走った。消える筆ではない。口から出た順に、俺の夜が公文書になっていく。嘘は書かせたくないが、本当は書かせられない。答えるたび、その隙間が薄くなる。"
+      "笑い。その尻が、濁った。前の男が鉈を抜き、後ろの男が両手を組んで、短い文句を唱え始める。前の男に力を注ぐ、強化の祈りだ。安い祈りは、拍を体で取る——爪先が、一拍、二拍、と石畳を踏む。三拍目で力が乗り、鉈は俺を埋められる速さになる。",
+      "縛りは、後ろだ。",
+      "（後ろの爪先。踏む先を、半寸盛れ）",
+      "俺の意図にたがわず、セリファが世界に細工をする。二拍目を踏んだ爪先の先で、砂が半寸だけ固く盛り上がった。糸ほどの魔力を、一点に。三拍目の踏み込みが、盛った砂につんのめる。拍が割れ、文句が途切れた。力は、乗らない。",
+      "それでも鉈は来た。素の速さなら、読める。半歩外して、伸びた腕ごと引き込み、顎に柄頭。崩れる。祈りを取り直しかけた後衛の二拍目より、こちらの柄が早かった。",
+      "二人とも、地面で眠った。",
+      "向こうは殺す気だった。こっちは殺さない。慈悲じゃなく、勘定だ。死体は書類になり、書類は名前を欲しがる。俺に出せる名前はない。眠ってもらうのが、一番安い。"
     ]
   },
   {
-    "t": "段5：検算読みと最後の問い（新規・旧段6を吸収）",
-    "chip": "定規が真相の一寸手前に",
+    "t": "段5：路地の奥・引き返し（v7修正）",
+    "chip": "過圧縮の解消（段1「名を出さずに食う」と呼応）",
     "body": [
-      "女は綴りに目を落としたまま、要点を小さく読み上げた。自分の書いたものを検算する声だった。",
-      "「火元が特定できない。焼けは浅い。倒れていた二名に火傷はなく、打撲のみ。火の前後に、争う音」",
-      "顔が上がった。",
-      "「——最後にもう一度うかがいます。あなたは、何を見ましたか」",
-      "定規が、真相の一寸手前に当たっていた。"
+      "路地の奥は、見なきゃよかった眺めだった。倒れた女がひとり。まだ息はある。その傍らに、立つ影がひとつ。",
+      "厄介事には、関わらない。そう決めているから、今日まで名を出さずに生きてこられた。踵を返した。三歩。三歩目で、足が止まった。理由は、訊かれても困る。"
     ]
   },
   {
-    "t": "段6：神籍の圧（語彙差し替え）",
-    "chip": "C10の初画面",
+    "t": "段6：暗殺者・断続同期（v9修正）",
+    "chip": "名乗りも祈りもなしの異常／同期＝彼の決断／時計＝二分・残り三十秒",
     "body": [
-      "「お名前と、身分証を。神籍は、どちらの組で?」",
-      "「名前はある。神籍は——無い」",
-      "筆が、初めて止まった。",
-      "「……無い、というのは、写しをお持ちでないという意味ですか」",
-      "「無いという意味だ。どこの神も奉じていない」",
-      "「神籍の無い方は、証言の記録も、冒険者登録も、本来は受けられません。身元の保証が無い記述は、あとで全部疑われますから。——規程では、詰所で身元の確認を」"
+      "影が、こちらを向いた。次の瞬間、間合いが消えていた。",
+      "速いんじゃない。物理が違う。名乗りも上げず、祈りの一拍もなく、ただ踏み込んだだけで、これだ。積んでいる器が、そもそも違う。初太刀を剣で受けた。受けたのに、腕ごと持っていかれかけた。",
+      "（繋げ。細切れでいい）",
+      "〈同期、入ります——保って、二分〉",
+      "神経同期——セリファが俺の神経を先回りで走らせる。入れている間だけ、世界が半拍遅くなる。繋ぎっぱなしにする贅沢は、俺の神経が許さない。要る半拍だけ差して、すぐ切る。それで、ギリギリ二分。使った分は後から神経が払う。《前借》だ。",
+      "二の太刀を、皮一枚で外す。三の太刀は、外れない——剣の腹で受けて、骨まで響いた。腕が痺れる。受けていいのは、あと一度あるかどうか。",
+      "差して、切る。切って、また差す。躱せる刃は躱し、躱せない刃だけ、受けて流す。借りだけが、積もっていく。",
+      "空振りと半端な受けが四つ並んで、男の拍子が半分だけ狂った。刃から目を外し、初めてこちらの顔を見る。斬れているはずの間合いだった——そういう顔だ。悪いが、種は明かさない。",
+      "男の剣は綺麗だった。闇討ちのくせに、見せるための太刀筋。癖は読める。読めたところで、正面の削り合いになれば、先に尽きるのはこちらの時計だ。",
+      "〈残り、三十秒〉",
+      "なら、場所ごと変える。"
     ]
   },
   {
-    "t": "段7：庇い（v3差し替え）",
-    "chip": "完全な作り話として受け直す",
+    "t": "段7：煙は破られる→本物の出火（v9修正）",
+    "chip": "煙＝火事の下拵え（彼の段取り）／凌ぐ彼・仕上げる相棒",
     "body": [
-      "「うちの者です」",
-      "声は戸口から来た。店の女が、まっすぐこちらへ歩いてくる。",
-      "「うちで働いてもらうことになってる人。身元は、うちの判子で引き受けます」",
-      "初耳だった。そんな約束は、どこにもない。彼女はいま、役人の綴りに載る嘘を、俺のためにひとつ拵えた。噓をついた顔ではなかった。値札を読む時の顔だった。",
-      "命を貸した相手に、名前を借りる朝になった。"
+      "太刀の切れ目に半歩引いて、懐の煙玉を石畳へ叩きつけた。白い煙が、壁になって噴き上がる。",
+      "壁は、三秒もたなかった。煙を裂いて刃が来る。目くらましは織り込み済み、という太刀筋。構わない。この煙は目隠しじゃない——火事の下拵えだ。",
+      "俺が刃を凌ぐ。その間に、相棒が仕上げる。",
+      "煙の底、砕けた薬包の燃え殻から、路地の隅の古箱へ。針先ほどの熱が藁を舐め、本物の火の手が立つ。橙の照りが煙を内から染めて、人払いの路地は、正真正銘の火事場になった。",
+      "「火事だ」の声。水だ、と怒鳴り合って、足音が集まってくる。ひとつじゃない。",
+      "男の剣が、初めて止まった。人払いの結界は、裏を返せば「人が来たら仕舞いの場所」だ。殺せても、消えられない。天秤が、そう傾いた。",
+      "「良い手品だ。今夜は降りよう」",
+      "恨みのない声だった。男は煙に紛れて消えた。"
     ]
   },
   {
-    "t": "段8：受理と退場",
-    "chip": "planted圧縮＝一行",
+    "t": "段8：遅延噴出・〆（不変）",
+    "chip": "v5のまま",
     "body": [
-      "「灰の斡旋所の、名義引受。……と、記録します」",
-      "検分の女は書き付けて、手続きの続きを淡々と回した。俺の夜は「揉め声を聞いた。煙で何も見ていない」の二行に畳まれ、正確にそう書かれた。見た通りではなく、言った通りに書く。そういう筆だった。",
-      "〈綴りの要点、三行。火元不明、負傷者二名、目撃者一名。……署名欄は、店の判子です。〉",
-      "俺の夜が三行で、署名は他人の判子か。妥当な値付けだ。",
-      "「手続きですので、お気を悪くなさらず」",
-      "女はそう言って綴りを鞄に納め、姿勢のいい背中で通りを去った。あの紙はギルドへ行く。火事の形をした何か、と読める書き方で。"
-    ]
-  },
-  {
-    "t": "段9：店内——嘘を本当にする（v3差し替え）",
-    "chip": "帳場説明削除・契約の再構成",
-    "body": [
-      "店に入ると、外の張り詰めた空気は戸一枚で終わっていた。狭い土間に古い机。奥で湯の沸く音がしている。",
-      "「座って。……その前に」",
-      "女は深々と頭を下げた。命を拾われた側の、まっすぐすぎる礼だった。受け取り方が分からず、視線を机の木目に逃がす。",
-      "「昨夜は、言いそびれたから。……どうして助けてくれたの」",
-      "「近道だったんでな。成り行きだ」",
-      "「成り行きでも、あたしは生きてるから」",
-      "嘘を疑う色が、どこにもなかった。それはそれで調子が狂う。だから、こちらから言うことにした。",
-      "「さっきのは嘘だ」",
-      "「うん」",
-      "「役人の綴りに載った。バレれば、あんたの店の判子に傷がつく。命の借りの返し方としては、割に合わない」",
-      "女は欠けた椀に白湯を注いで、こちらへ置いた。当たり前のことを言う声だった。",
-      "「だから、本当にしましょう。本当になれば、嘘じゃなくなるから」",
-      "抽斗から木札が出て、店の印が捺され、こちらへ滑ってきた。",
-      "「割符。あなたの名前の代わりだから、なくさないでね。細かい話は板の前で。約束は二つ——危ない札は取らない。終わったら、うちに寄る」",
-      "損得の帳簿で言えば、借りが一方的に積み上がっている。数え方を知らない相手との貸し借りほど、高くつくものはない。",
-      "「構わない」"
-    ]
-  },
-  {
-    "t": "段10：〆",
-    "chip": "○維持",
-    "body": [
-      "店を出ると、朝の陽が高くなっていた。懐の割符が、服の下で軽い。",
-      "名前を訊かれて詰んだ朝に、名前の代わりを一枚もらった。勘定としては、悪くない。",
-      "札場は、ギルドの裏手だという。"
+      "追わない。追えない。男の気配が消えた途端、返済が来た。溜まった《前借》が、まとめて神経に返ってくる。指の芯が熱い。しばらく、細かい仕事はきかないだろう。物陰に肩を預けて、熱が引くのを待つ。",
+      "倒れていた女が、身を起こしていた。こちらを見ている。助かった、という顔じゃない。もっと無防備な——見たものをまだ呑み込めていない、そういう目だ。",
+      "「……あなた、何者——」",
+      "言い終わる前に、騒ぎが路地へ雪崩れ込んできた。火事だ、水だ、と怒鳴り合う声。俺が呼んだ客だ。長居する理由はない。",
+      "背負う神もなく、どの帳面にも載らない。つまり、何者でもない。名乗ってやる義理は、なかった。",
+      "騒ぎと入れ違いに、路地を出た。"
     ]
   }
 ];
 
-const KEY = "ep2r_v3_review";
+const KEY = "ep1_rework_v13_review";
 const state = JSON.parse(localStorage.getItem(KEY) || "{}");
-state.segs = state.segs || SEGS.map(() => ({ v: "", memo: "" }));
-state.overall = state.overall || { v: "", memo: "", best: "" };
+state.segs = state.segs || SEGS.map(() => ({ flag: false, memo: "" }));
+state.sanity = state.sanity || { v: "", memo: "" };
+state.overall = state.overall || { memo: "", close: "" };
 
 function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
 
-const MARK = { m: "◎", o: "○", s: "△", x: "×" };
 const wrap = document.getElementById("segs");
 
 SEGS.forEach((seg, i) => {
@@ -290,53 +281,70 @@ SEGS.forEach((seg, i) => {
   sec.innerHTML =
     '<div class="seg-head"><h2>' + seg.t + '</h2><span class="chip">' + seg.chip + "</span></div>" +
     '<div class="prose">' + paras + "</div>" +
-    '<div class="judge"><span class="label">判定:</span>' +
-    '<button class="jbtn" data-v="m">◎</button>' +
-    '<button class="jbtn" data-v="o">○</button>' +
-    '<button class="jbtn" data-v="s">△</button>' +
-    '<button class="jbtn" data-v="x">×</button>' +
-    '<textarea class="memo" rows="1" placeholder="メモ（任意）"></textarea></div>';
+    '<div class="judge"><span class="label">×/穴:</span>' +
+    '<button class="flagbtn" type="button">×/穴あり</button>' +
+    '<textarea class="memo" rows="1" placeholder="× / 構造穴の中身（任意）"></textarea></div>';
   wrap.appendChild(sec);
 
-  const btns = sec.querySelectorAll(".jbtn");
+  const btn = sec.querySelector(".flagbtn");
   const memo = sec.querySelector(".memo");
   function paint() {
-    btns.forEach(b => b.classList.toggle("on", MARK[b.dataset.v] === state.segs[i].v));
+    btn.classList.toggle("on", !!state.segs[i].flag);
+    btn.textContent = state.segs[i].flag ? "×/穴あり ✓" : "×/穴あり";
+    sec.classList.toggle("flagged", !!state.segs[i].flag);
   }
-  btns.forEach(b => b.addEventListener("click", () => {
-    const m = MARK[b.dataset.v];
-    state.segs[i].v = state.segs[i].v === m ? "" : m;
+  btn.addEventListener("click", () => {
+    state.segs[i].flag = !state.segs[i].flag;
     paint(); save();
-  }));
+  });
   memo.value = state.segs[i].memo;
   memo.addEventListener("input", () => { state.segs[i].memo = memo.value; save(); });
   paint();
 });
 
-const obtns = document.querySelectorAll(".obtn");
-const omemo = document.getElementById("omemo");
-const best = document.getElementById("best");
-function paintO() {
-  obtns.forEach(b => b.classList.toggle("on", b.dataset.v === state.overall.v));
+const sanityBtns = document.querySelectorAll("#sanity .obtn");
+const smemo = document.getElementById("smemo");
+function paintSanity() {
+  sanityBtns.forEach(b => b.classList.toggle("on", b.dataset.v === state.sanity.v));
 }
-obtns.forEach(b => b.addEventListener("click", () => {
-  state.overall.v = state.overall.v === b.dataset.v ? "" : b.dataset.v;
-  paintO(); save();
+sanityBtns.forEach(b => b.addEventListener("click", () => {
+  state.sanity.v = state.sanity.v === b.dataset.v ? "" : b.dataset.v;
+  paintSanity(); save();
 }));
+smemo.value = state.sanity.memo;
+smemo.addEventListener("input", () => { state.sanity.memo = smemo.value; save(); });
+paintSanity();
+
+const omemo = document.getElementById("omemo");
 omemo.value = state.overall.memo;
 omemo.addEventListener("input", () => { state.overall.memo = omemo.value; save(); });
-best.value = state.overall.best;
-best.addEventListener("input", () => { state.overall.best = best.value; save(); });
-paintO();
+
+const closeBtns = document.querySelectorAll("#closebtns .obtn");
+function paintClose() {
+  closeBtns.forEach(b => b.classList.toggle("on", b.dataset.v === state.overall.close));
+}
+closeBtns.forEach(b => b.addEventListener("click", () => {
+  state.overall.close = state.overall.close === b.dataset.v ? "" : b.dataset.v;
+  paintClose(); save();
+}));
+paintClose();
 
 document.getElementById("show").addEventListener("click", () => {
-  const lines = ["【話2改 v3 読了判定】"];
+  const lines = ["【話1 締め直しv13 軽量判定】"];
+  let flagged = 0;
   SEGS.forEach((seg, i) => {
     const s = state.segs[i];
-    lines.push("段" + (i + 1) + ": " + (s.v || "未") + (s.memo ? " | " + s.memo : ""));
+    if (s.flag || s.memo) {
+      flagged += s.flag ? 1 : 0;
+      lines.push("段" + (i + 1) + ": " + (s.flag ? "×/穴" : "メモ") + (s.memo ? " | " + s.memo : ""));
+    }
   });
-  lines.push("総評: " + (state.overall.v || "未") + (state.overall.memo ? " | " + state.overall.memo : ""));
-  lines.push("一番良かった一拍: " + (state.overall.best || "（未記入）"));
+  if (flagged === 0 && !SEGS.some((_, i) => state.segs[i].memo)) {
+    lines.push("段別×/穴: なし");
+  }
+  lines.push("① 名乗り初出サニティ: " + (state.sanity.v || "未") + (state.sanity.memo ? " | " + state.sanity.memo : ""));
+  lines.push("② 総評: " + (state.overall.memo || "（未記入）"));
+  lines.push("③ クローズ可否: " + (state.overall.close || "未"));
   const out = document.getElementById("out");
   out.value = lines.join("\n");
   out.style.display = "block";

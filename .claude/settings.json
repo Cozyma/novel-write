@@ -37,7 +37,17 @@
       "Read(//c/pn-t-kojima/**)",
       "Bash(python -)",
       "PowerShell(Copy-Item \"C:\\\\Users\\\\PN-T-K~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-pn-t-kojima-Documents-novel-write\\\\f5c6884e-e4f8-422e-a3f2-f3e9e2234726\\\\scratchpad\\\\probe6_review.html\" \"c:\\\\Users\\\\pn-t-kojima\\\\Documents\\\\novel-write\\\\_workspace\\\\probes\\\\renders\\\\review_sheet.html\")",
-      "Bash(cat >> *)"
+      "Bash(cat >> *)",
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(winget search codex --source winget)",
+      "PowerShell(winget install --id OpenAI.Codex --source winget --accept-package-agreements --accept-source-agreements)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\('Path','User'\\) + ';' + [System.Environment]::GetEnvironmentVariable\\('Path','Machine'\\); codex --version)",
+      "Read(//c/Users/pn-t-kojima/AppData/Local/Microsoft/WinGet/Packages/OpenAI.Codex_Microsoft.Winget.Source_8wekyb3d8bbwe/**)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\pn-t-kojima\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\OpenAI.Codex_Microsoft.Winget.Source_8wekyb3d8bbwe\" -Recurse -File | ForEach-Object { $_.FullName }; Get-ChildItem \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\" | ForEach-Object { $_.Name })",
+      "PowerShell(& \"C:\\\\Users\\\\pn-t-kojima\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\OpenAI.Codex_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\codex-x86_64-pc-windows-msvc.exe\" --version; Test-Path \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\")",
+      "PowerShell(\\(Get-ChildItem \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\" -Force\\).Name -join ', ')",
+      "PowerShell($dir = \"C:\\\\Users\\\\pn-t-kojima\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\OpenAI.Codex_Microsoft.Winget.Source_8wekyb3d8bbwe\"; try { New-Item -ItemType SymbolicLink -Path \"$dir\\\\codex.exe\" -Target \"$dir\\\\codex-x86_64-pc-windows-msvc.exe\" -ErrorAction Stop | Out-Null; 'symlink created' } catch { Copy-Item \"$dir\\\\codex-x86_64-pc-windows-msvc.exe\" \"$dir\\\\codex.exe\"; 'copied instead' })"
     ],
     "additionalDirectories": [
       "c:\\pn-t-kojima"
