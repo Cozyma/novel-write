@@ -41,4 +41,10 @@ for f in _workspace/CONTEXT.md _workspace/TODO.md; do
 done
 echo "ルール領域（ARCHITECTURE / SELF_REVIEW / variable_rules）への反映要否も確認のこと。"
 
+# 2026-07-13: WORK_MASTER 単一書き手の確認（監査5・簡易版＝非ブロック）
+if echo "$staged" | grep -qx "_workspace/WORK_MASTER.md"; then
+  echo "=== [コミット前フック] WORK_MASTER 単一書き手確認 ==="
+  echo "注意: WORK_MASTER.md が変更されています——管理セッションの変更か確認（他モードは§4/§5への追記のみ可）"
+fi
+
 exit 0
