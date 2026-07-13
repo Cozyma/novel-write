@@ -47,10 +47,17 @@
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\pn-t-kojima\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\OpenAI.Codex_Microsoft.Winget.Source_8wekyb3d8bbwe\" -Recurse -File | ForEach-Object { $_.FullName }; Get-ChildItem \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\" | ForEach-Object { $_.Name })",
       "PowerShell(& \"C:\\\\Users\\\\pn-t-kojima\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\OpenAI.Codex_Microsoft.Winget.Source_8wekyb3d8bbwe\\\\codex-x86_64-pc-windows-msvc.exe\" --version; Test-Path \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\")",
       "PowerShell(\\(Get-ChildItem \"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\" -Force\\).Name -join ', ')",
-      "PowerShell($dir = \"C:\\\\Users\\\\pn-t-kojima\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\OpenAI.Codex_Microsoft.Winget.Source_8wekyb3d8bbwe\"; try { New-Item -ItemType SymbolicLink -Path \"$dir\\\\codex.exe\" -Target \"$dir\\\\codex-x86_64-pc-windows-msvc.exe\" -ErrorAction Stop | Out-Null; 'symlink created' } catch { Copy-Item \"$dir\\\\codex-x86_64-pc-windows-msvc.exe\" \"$dir\\\\codex.exe\"; 'copied instead' })"
+      "PowerShell($dir = \"C:\\\\Users\\\\pn-t-kojima\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\OpenAI.Codex_Microsoft.Winget.Source_8wekyb3d8bbwe\"; try { New-Item -ItemType SymbolicLink -Path \"$dir\\\\codex.exe\" -Target \"$dir\\\\codex-x86_64-pc-windows-msvc.exe\" -ErrorAction Stop | Out-Null; 'symlink created' } catch { Copy-Item \"$dir\\\\codex-x86_64-pc-windows-msvc.exe\" \"$dir\\\\codex.exe\"; 'copied instead' })",
+      "Read(//c/pn-t-kojima/Documents/novel-write/_workspace/probes/renders/**)",
+      "PowerShell(\\(Get-Content _workspace\\\\CONTEXT.md | Measure-Object -Line\\).Lines)",
+      "PowerShell($ws = \"c:\\\\Users\\\\pn-t-kojima\\\\Documents\\\\novel-write\\\\_workspace\"; $ctxPath = \"$ws\\\\CONTEXT.md\"; $arcPath = \"$ws\\\\archive\\\\CONTEXT_archive.md\"; $bomCtx = \\([IO.File]::ReadAllBytes\\($ctxPath\\)[0] -eq 0xEF\\); $bomArc = \\([IO.File]::ReadAllBytes\\($arcPath\\)[0] -eq 0xEF\\); $ctx = [IO.File]::ReadAllText\\($ctxPath, [Text.Encoding]::UTF8\\); $m1 = $ctx.IndexOf\\(\"## 2026-07-06\"\\); $m2 = $ctx.IndexOf\\(\"## 2026-07-09\"\\); \"BOM ctx=$bomCtx arc=$bomArc / m1=$m1 m2=$m2 / total=$\\($ctx.Length\\)\")",
+      "PowerShell($ws = \"c:\\\\Users\\\\pn-t-kojima\\\\Documents\\\\novel-write\\\\_workspace\"; $ctxPath = \"$ws\\\\CONTEXT.md\"; $arcPath = \"$ws\\\\archive\\\\CONTEXT_archive.md\"; $enc = New-Object System.Text.UTF8Encoding\\($false\\); $ctx = [IO.File]::ReadAllText\\($ctxPath, [Text.Encoding]::UTF8\\); $m1 = $ctx.IndexOf\\(\"## 2026-07-06\"\\); $m2 = $ctx.IndexOf\\(\"## 2026-07-09\"\\); $head = $ctx.Substring\\(0, $m1\\); $part = $ctx.Substring\\($m1, $m2 - $m1\\).TrimEnd\\(\\) + \"`n\"; $tail = $ctx.Substring\\($m2\\); $arc = [IO.File]::ReadAllText\\($arcPath, [Text.Encoding]::UTF8\\).TrimEnd\\(\\) + \"`n\"; [IO.File]::WriteAllText\\($arcPath, $arc + \"`n---`n`n\" + $part, $enc\\); [IO.File]::WriteAllText\\($ctxPath, $head + $tail, $enc\\); \"archived chars=$\\($part.Length\\) / new ctx chars=$\\(\\($head + $tail\\).Length\\)\")",
+      "PowerShell($enc = [Text.Encoding]::UTF8; $arc = [IO.File]::ReadAllText\\(\"c:\\\\Users\\\\pn-t-kojima\\\\Documents\\\\novel-write\\\\_workspace\\\\archive\\\\CONTEXT_archive.md\", $enc\\); $i = $arc.IndexOf\\(\"## 2026-07-06\"\\); [IO.File]::WriteAllText\\(\"$env:TEMP\\\\arc_check.txt\", $arc.Substring\\($i-30, 80\\) + \"`n...`n\" + $arc.Substring\\($arc.Length-200\\), \\(New-Object System.Text.UTF8Encoding\\($false\\)\\)\\); \"seam index=$i / arc total=$\\($arc.Length\\)\")",
+      "PowerShell(\\(Get-Content _workspace\\\\CONTEXT.md -Encoding UTF8 | Measure-Object -Line\\).Lines)"
     ],
     "additionalDirectories": [
-      "c:\\pn-t-kojima"
+      "c:\\pn-t-kojima",
+      "C:\\Users\\pn-t-kojima\\Documents\\novel-write"
     ]
   }
 }

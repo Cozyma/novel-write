@@ -1,4 +1,4 @@
-<title>話3改 設計判定シート</title>
+<title>縦軸骨格v1 設計判定シート</title>
 <style>
   :root {
     --bg: #faf7f2; --surface: #ffffff; --ink: #2b2a26; --ink-soft: #6b675e;
@@ -49,19 +49,8 @@
     border-radius: 999px; padding: .1rem .6rem; margin-left: .5rem; white-space: nowrap; vertical-align: middle;
   }
   .q { font-size: .82rem; color: var(--ink-soft); margin: 0 0 .5rem; }
-  .diff { display: grid; gap: .5rem; margin-bottom: .7rem; }
-  .diff .cur, .diff .new {
-    border: 1px solid var(--line); border-radius: 6px; background: var(--prose-bg);
-    padding: .55rem .8rem; font-size: .88rem;
-  }
-  .diff .new { border-color: var(--accent); }
-  .diff .tag {
-    display: inline-block; font-size: .68rem; border-radius: 999px;
-    padding: 0 .55rem; margin-right: .45rem; vertical-align: middle; white-space: nowrap;
-  }
-  .diff .cur .tag { background: var(--mid-bg); color: var(--mid); }
-  .diff .new .tag { background: var(--accent-soft); color: var(--accent); }
-  .diff q { quotes: "「" "」"; color: var(--ink-soft); }
+  .body { font-size: .88rem; margin: 0 0 .7rem; }
+  .body b { color: var(--accent); }
   .obtns { display: flex; gap: .5rem; margin-bottom: .5rem; flex-wrap: wrap; }
   .obtn {
     font-size: .85rem; padding: .35rem .9rem; min-height: 2.4rem;
@@ -78,7 +67,6 @@
     background: var(--prose-bg); color: var(--ink);
     padding: .4rem .6rem; resize: vertical;
   }
-  .checknote { font-size: .78rem; color: var(--ink-soft); margin: .6rem 0 0; }
   .actions { margin-top: 1.5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
   .primary {
     font: inherit; background: var(--accent); color: var(--bg);
@@ -98,71 +86,146 @@
 
 <main>
 <header>
-  <h1>話3改v2（重みの再配線）— 設計判定シート</h1>
-  <p class="sub">親目標＝G2（夜の重力を話2〜4で運ぶ）｜ v1の因果骨格・事象列E1〜E7は保持 ｜ 2026-07-10</p>
+  <h1>縦軸骨格v1（夜の重力・G2①）— 設計判定シート</h1>
+  <p class="sub">親目標＝G1・子目標＝G2①（話1計画レベルの縦軸設計）｜ 全項目＝暫定（確定を求めない・暫定採用の可否＋検証条件の合意を問う）｜ 2026-07-13</p>
 </header>
 
 <div class="howto">
-  <b>構造の確認のみ＝面白さの承認ではありません（§2-14）。</b>R1〜R4に回答→「テキストで表示」→コピー→チャットへ。×予感があれば事象列段階で枝刈りしてください。途中経過は自動保存。
+  <b>構造の確認のみ＝面白さの承認ではありません（§2-14）。</b>S1〜S7に承認/差し戻し、D1〜D2は案の選択、Vは検証条件の合意→「テキストで表示」→コピー→チャットへ。×予感があれば計画レベルで枝刈りしてください。途中経過は自動保存。
 </div>
 
 <section class="card">
-  <h2>論点整理<span class="chip">前提・回答不要</span></h2>
-  <p class="q" style="font-size:.88rem; color:var(--ink);">
-    v1判定の中断理由＝作者疑義「同伴と男が無意味」。検査（依頼2）の裏取り＝因果は画面内で全件実装済み——欠けているのは因果ではなく<b>劇的な重み</b>。よってv2は事象の追加ではなく、<b>同伴と男を一本の線（割符＝店の紐付け）で結ぶ再配線</b>を行う。改稿はE4／E7の重み替えに限り、E1〜E3・E6の◎素材（受付の口跡・板の等級・危ない札の計器）は不変。
+  <h2>前提（壁打ち経緯の要約）<span class="chip">回答不要</span></h2>
+  <p class="body">
+    縦軸7点（続14）＝候補プールへ格下げ済み。本日の壁打ちで合意した部品を骨格v1に畳んだ。軸＝人間ロググライン<b>「変わった能力の主人公が、神の加護法則のある世界のギルド経済の中で、自分の実力への勘違いを加速させながらバトルに巻き込まれていく」</b>。経済＝舞台・語彙であって動機の機関にしない（経済導出3案は不採用済み・憲章①補記の再検討は§4起票済み）。露見の猶予＝長距離の背景圧へ降格済み。
   </p>
 </section>
 
 <section class="card">
-  <h2>R1 視線の対象の再配線<span class="chip">段4-6・事象レベル</span></h2>
-  <div class="diff">
-    <div class="cur"><span class="tag">現行v1</span>見張りの男はノルク一人を見ている。ノルクが札を懐に入れる動作を目で追って（<q>男の目が、それを最後まで数えていた。覚える目だった</q>）終わり、窓口のやり取り——台の上の割符、スィグナの「うちの名義」——は男の視線と無関係。</div>
-    <div class="new"><span class="tag">改稿WHAT</span>男の視線の先を一段階延ばす。ノルクが窓口で札を出すとき、台の上には店の割符があり、隣ではスィグナが前金と日取りを詰めている。男はその一部始終——つまり<b>「あの男は『灰の斡旋所』の割符で動いている」ところまで</b>見て帰る。ノルクは、男の目が自分だけでなく割符と彼女まで数えていたことに気づく。<br>効能: スィグナが付いて来たこと自体が「ノルクと店を結ぶ手がかりを敵に渡した」出来事になり、<b>同伴が話の中で意味を持つ</b>。</div>
-  </div>
-  <div class="obtns" data-d="r1">
+  <h2>S1 背骨の一文<span class="chip">仮説</span></h2>
+  <p class="body">
+    「ノルクは相棒の源流の手がかりを追って街に来て、<b>神の名を失った弱小クランの稼業（灰の斡旋所）</b>に拾われる。探している断片は、その屋根の下と、クランが失った旧領に散っている——<b>誤解が、彼とクランの格を勝手に押し上げていく</b>」
+  </p>
+  <div class="obtns" data-d="s1">
     <button class="obtn good" data-v="承認">承認</button>
     <button class="obtn bad" data-v="差し戻し">差し戻し（メモへ）</button>
   </div>
-  <textarea class="memo" data-m="r1" rows="1" placeholder="修正指示（任意）"></textarea>
+  <textarea class="memo" data-m="s1" rows="1" placeholder="修正指示（任意）"></textarea>
 </section>
 
 <section class="card">
-  <h2>R2 〆の内語＝割符の線を読む<span class="chip">段8・事象レベル</span></h2>
-  <div class="diff">
-    <div class="cur"><span class="tag">現行v1</span>締めの内語は「男が何をどこへ報告するのか、書かれる中身までは読めない」（<q>読めないものは、勘定に入れられない</q>）——全部わからないまま閉じる。</div>
-    <div class="new"><span class="tag">改稿WHAT</span>ノルクが半分だけ読み切る。男が持ち帰れる情報を数えると——俺の名前は出ない（そもそも名乗る名が無い）。<b>代わりに持ち帰れるのは「灰の斡旋所の割符で動く男」、つまり店の名前だ。報告の矛先は俺個人ではなく、店と彼女に向かい得る</b>——そこまで読んだ上で、「どこの誰に報告されるのかまでは読めない」と締める（「値段の分だけ働く」「膝の高さからの初日」の乾いた結びは残す）。<br>効能: 話1の襲撃の危険が店へ飛び火する形で次話へつながり、男が立ち去る幕切れが<b>具体的な不穏</b>になる。</div>
-  </div>
-  <div class="obtns" data-d="r2">
+  <h2>S2 縦軸の器＝守り物の正体<span class="chip">設計選択・暫定</span></h2>
+  <p class="body">
+    店（クラン）がスィグナに託して守らせているもの＝<b>セリファの元となった研究</b>（製作者不詳の失伝技術＝憲章§3a-③と整合）。決めるのは機能まで——物理形態・全体像・預かった経緯は未定義スロットのまま。<b>ノルクは第1アークで「守り物＝源流」に気づかない</b>（相互発覚の温存。読者にだけ匂わせる＝両側の帳簿のアーク単位版）。
+  </p>
+  <div class="obtns" data-d="s2">
     <button class="obtn good" data-v="承認">承認</button>
     <button class="obtn bad" data-v="差し戻し">差し戻し（メモへ）</button>
   </div>
-  <textarea class="memo" data-m="r2" rows="1" placeholder="修正指示（任意）"></textarea>
+  <textarea class="memo" data-m="s2" rows="1" placeholder="修正指示（任意）"></textarea>
 </section>
 
 <section class="card">
-  <h2>R3 「届け物をする足」の根拠一拍<span class="chip">段7・検査Q3⑤</span></h2>
-  <p class="q">検査の初見不明「歩き方だけでなぜ届け物と断定できるのか」への手当て。断定の前に読みの根拠を一拍——札も取らず、窓口にも寄らず、板に用のない足で出て行った、の型。文章レベル。</p>
-  <div class="obtns" data-d="r3">
-    <button class="obtn good" data-v="採用">採用</button>
-    <button class="obtn" data-v="見送り">見送り</button>
+  <h2>S3 断片収集＝縦の報酬<span class="chip">既存正本の配線</span></h2>
+  <p class="body">
+    資料・モジュールの断片を少しずつ入手→セリファ復旧の段階開放（既存正本 legacy_load.progression の実装形）。断片＝<b>離散イベント</b>（数値ゲージ禁止と整合）・分布＝クランの旧領・散った縁者・遺構（世界由来の地図）。復旧が進むほど敵スケールも上がる＝綱渡り不変（無双回避の既存文）。<b>毎話ノルマにしない</b>（節目にだけ）。
+  </p>
+  <div class="obtns" data-d="s3">
+    <button class="obtn good" data-v="承認">承認</button>
+    <button class="obtn bad" data-v="差し戻し">差し戻し（メモへ）</button>
   </div>
-  <textarea class="memo" data-m="r3" rows="1" placeholder="メモ（任意）"></textarea>
+  <textarea class="memo" data-m="s3" rows="1" placeholder="修正指示（任意）"></textarea>
 </section>
 
 <section class="card">
-  <h2>R4 「札の通り方が変わる」の最小比較<span class="chip">段1-2・検査Q2(b)・任意</span></h2>
-  <p class="q">同伴の効能宣言（段1）が画面で比較表示されない、への手当て。入れるなら最小一拍（例: 受付側の反応一つで「割符なしでは板の前にも立てない」が滲む）。説明過多のリスクがあるため<b>見送りも可</b>。</p>
-  <div class="obtns" data-d="r4">
-    <button class="obtn" data-v="採用（最小一拍）">採用（最小一拍）</button>
-    <button class="obtn" data-v="見送り">見送り</button>
+  <h2>S4 支援筋＝弱小クラン・店＝表の稼業<span class="chip">暫定方針の差し替え</span></h2>
+  <p class="body">
+    支援筋の実装＝<b>奉ずる神の名すら失伝した先住系の弱小クラン</b>（X'の実装形。旧神の凍結スロットは開けない——名が無いこと自体を画面にする）。店＝クランの表の稼業（本日(a)採用＝hall_store確定資産〔名義貸し・割符・判子等級〕は無傷）。スィグナ＝クランの縁者（「語らない番人・半分しか知らない」規律は無傷）。ノルクと同型＝<b>「名乗れない者たち」</b>。
+  </p>
+  <div class="obtns" data-d="s4">
+    <button class="obtn good" data-v="承認">承認</button>
+    <button class="obtn bad" data-v="差し戻し">差し戻し（メモへ）</button>
   </div>
-  <textarea class="memo" data-m="r4" rows="1" placeholder="メモ（任意）"></textarea>
+  <textarea class="memo" data-m="s4" rows="1" placeholder="修正指示（任意）"></textarea>
 </section>
 
 <section class="card">
-  <h2>手順（承認後）<span class="chip">確認・回答不要</span></h2>
+  <h2>S5 押す力＝両輪の収束（主体性・応援の置き場）<span class="chip">仮説</span></h2>
+  <p class="body">
+    表＝店／クランの再建（判子等級＝離散の前進計器）・裏＝断片収集（セリファ復旧＝義理）。両方が同じ屋根に収束——<b>表の前進が、知らずに裏の目的地を守り育てる</b>。主体性の信号＝手際（話1v13実測の方針）＋<b>神話の経営</b>（誤読を隠れ蓑として能動的に運用する——どこで安く見られ、どこまで高く見られてよいかを毎回選ぶ）。
+  </p>
+  <div class="obtns" data-d="s5">
+    <button class="obtn good" data-v="承認">承認</button>
+    <button class="obtn bad" data-v="差し戻し">差し戻し（メモへ）</button>
+  </div>
+  <textarea class="memo" data-m="s5" rows="1" placeholder="修正指示（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>S6 巻き込まれ＝誤読の複利<span class="chip">仮説</span></h2>
+  <p class="body">
+    毎話の絡み手は個別動機（面子・信仰・商売——経済はその語彙の一つ）。<b>一度読み違えた者は帳簿を直しに戻ってくる</b>（ヴィクテル・見張り等の再登場＝複利）。個人の神話に加え、<b>クラン単位の格の誤読</b>（「あの潰れかけが謎の実力者を抱えた」）＝◎型（誤解が第三者の行動を変え格が動く）の集団版。
+  </p>
+  <div class="obtns" data-d="s6">
+    <button class="obtn good" data-v="承認">承認</button>
+    <button class="obtn bad" data-v="差し戻し">差し戻し（メモへ）</button>
+  </div>
+  <textarea class="memo" data-m="s6" rows="1" placeholder="修正指示（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>S7 夜の重力＝誰が・なぜ・まだ危ないか<span class="chip">仮説・暫定</span></h2>
+  <p class="body">
+    夜の襲撃＝<b>守り物（断片／研究）を狙った手・未遂</b>。画面に出すのは末端の請負人のみ（依頼主を知らない一夜の独立請負人＝旧7点⑦の骨の再利用）。<b>依頼主・深層主体＝未定義スロット（開けない・敵Aと確定しない）</b>。「まだ危ない」＝手は未達のまま存在し続ける＋誤読の複利が新しい相手を連れてくる。露見の猶予＝長距離の背景圧（第1アークで発火させない伏せ札）。
+  </p>
+  <div class="obtns" data-d="s7">
+    <button class="obtn good" data-v="承認">承認</button>
+    <button class="obtn bad" data-v="差し戻し">差し戻し（メモへ）</button>
+  </div>
+  <textarea class="memo" data-m="s7" rows="1" placeholder="修正指示（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>D1 スィグナと先代の再定義<span class="chip">判断点</span></h2>
+  <p class="q">S4の差し替えに伴う最小の決め。</p>
+  <div class="obtns" data-d="d1">
+    <button class="obtn" data-v="案i 先代＝クランの長・スィグナ＝血縁かつ最後の縁者（推奨）">案i 先代＝クランの長・スィグナ＝血縁かつ最後の縁者（推奨・現行から最小差分）</button>
+    <button class="obtn" data-v="案ii 血縁を外しクラン縁のみ">案ii 血縁を外しクラン縁のみ</button>
+  </div>
+  <textarea class="memo" data-m="d1" rows="1" placeholder="メモ（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>D2 籍貸し（クランの「預かり」名乗り）の導入<span class="chip">判断点</span></h2>
+  <p class="q">名義貸しの神籍版＝神籍の傘。話1の門前払い（神籍なし→登録不可）の回収先候補で、制度供給と縦軸前進が一拍で重なる。</p>
+  <div class="obtns" data-d="d2">
+    <button class="obtn" data-v="案i 第1アーク内の節目に入れる（推奨）">案i 第1アーク内の節目に入れる（推奨）</button>
+    <button class="obtn" data-v="案ii 温存（第2アーク以降）">案ii 温存（第2アーク以降）</button>
+    <button class="obtn" data-v="案iii 入れない">案iii 入れない</button>
+  </div>
+  <textarea class="memo" data-m="d2" rows="1" placeholder="メモ（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>V 検証条件の事前登録<span class="chip">合意（2.4規律）</span></h2>
+  <p class="body">
+    <b>最安観測</b>＝話1〜4の計画レベル連結時間線（WHAT一枚）を作り初読判定。そこで——<br>
+    V1 「話が進んでいる」が観測されなければ S5〜S7（押す力と重力の結線）を疑う。<br>
+    V2 断片収集が「お使いクエスト」に読めたら S3（分布・頻度）を疑う。<br>
+    V3 クランの哀愁が湿気過多・説明過多に読めたら S4（画面量）を疑う——氷山維持。<br>
+    V4 巻き込まれが「またか」の類型に読めたら S6（絡み手の散らし）を疑う。
+  </p>
+  <div class="obtns" data-d="v">
+    <button class="obtn good" data-v="合意">合意</button>
+    <button class="obtn bad" data-v="修正">修正（メモへ）</button>
+  </div>
+  <textarea class="memo" data-m="v" rows="1" placeholder="修正・追加条件（任意）"></textarea>
+</section>
+
+<section class="card">
+  <h2>手順（回収後）<span class="chip">確認・回答不要</span></h2>
   <p class="q" style="font-size:.85rem;">
-    R1・R2は事象レベル＝input先行: timeline_draft §1話3のE4／E7を先に改稿（正本化）→ 前後チェック（❶男の立ち位置と窓口の場の物理整合 ❷割符・名義は話2既出＝供給順OK ❹依存物: 本文段4-8・decision_log・シート）→ 影響区間の部分再レンダー → ⑦セルフレビュー1回転（整合＋話1v13→話2v3→話3v2のスパン通読パス）→ <b>フルスキャン判定シート提出</b>（初読素材・◎測定・「一番良かった一拍」欄つき）。
+    シート回収 → 確定分を縦軸ドラフトとして `_workspace/canon/` へ正本化（S4の縁者型差し替えは憲章§3c/§5の更新規律どおり）→ <b>最安観測＝連結時間線（WHAT一枚）の初読判定</b> → 生存後に G2②（話2再導出）・G2③（話3・4再設計）へカスケード。
   </p>
 </section>
 
@@ -179,9 +242,9 @@
 </main>
 
 <script>
-const KEY = "ep3r_v2_wiring_design";
+const KEY = "night_gravity_skel_v1";
 const state = JSON.parse(localStorage.getItem(KEY) || "{}");
-const DKEYS = ["r1", "r2", "r3", "r4"];
+const DKEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "d1", "d2", "v"];
 state.dec = state.dec || {};
 DKEYS.forEach(k => { state.dec[k] = state.dec[k] || { v: "", memo: "" }; });
 state.omemo = state.omemo || "";
@@ -213,12 +276,18 @@ omemo.addEventListener("input", () => { state.omemo = omemo.value; save(); });
 
 document.getElementById("show").addEventListener("click", () => {
   const L = [
-    ["R1 視線の対象", "r1"],
-    ["R2 〆の割符の線", "r2"],
-    ["R3 届け物の根拠", "r3"],
-    ["R4 通り方の比較", "r4"]
+    ["S1 背骨の一文", "s1"],
+    ["S2 守り物＝源流の研究", "s2"],
+    ["S3 断片収集＝縦の報酬", "s3"],
+    ["S4 弱小クラン・店＝稼業", "s4"],
+    ["S5 押す力の両輪", "s5"],
+    ["S6 誤読の複利", "s6"],
+    ["S7 夜の重力", "s7"],
+    ["D1 スィグナと先代", "d1"],
+    ["D2 籍貸しの導入", "d2"],
+    ["V 検証条件", "v"]
   ];
-  const lines = ["【話3改v2（重みの再配線）設計判定】"];
+  const lines = ["【縦軸骨格v1 設計判定】"];
   L.forEach(([label, key]) => {
     const d = state.dec[key];
     lines.push(label + ": " + (d.v || "未") + (d.memo ? " | " + d.memo : ""));
