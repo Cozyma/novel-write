@@ -63,7 +63,9 @@
       "Read(//c/Users/pn-t-kojima/Documents/writing-harness/**)",
       "Bash(git -C /c/Users/pn-t-kojima/Documents/writing-harness log --oneline -1)",
       "Bash(git -C /c/Users/pn-t-kojima/Documents/writing-harness status --short)",
-      "Bash(git -C /c/Users/pn-t-kojima/Documents/novel-write diff _workspace/WORK_MASTER.md 00_system/REFERENCE_MAP.md)"
+      "Bash(git -C /c/Users/pn-t-kojima/Documents/novel-write diff _workspace/WORK_MASTER.md 00_system/REFERENCE_MAP.md)",
+      "Read(//c/Users/pn-t-kojima/Documents/writing-harness/_workspace//**)",
+      "Bash(git -C /c/Users/pn-t-kojima/Documents/writing-harness log --oneline -5)"
     ],
     "additionalDirectories": [
       "c:\\pn-t-kojima",
